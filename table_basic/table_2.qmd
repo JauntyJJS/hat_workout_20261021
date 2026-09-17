@@ -1,0 +1,224 @@
+---
+title: "Table 2"
+author: "Jeremy Selva"
+webr:
+  packages:
+    - gtsummary
+    - broom
+    - broom.helpers
+    - lme4
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{webr}
+#| label: load opt data
+#| envir: table_2
+opt_data <- readRDS("data/opt_data.rds") |> 
+  dplyr::filter(
+    .data[["Birth.outcome"]] %in% c("Non-live birth", "Live birth")
+  )
+```
+
+```{webr}
+#| caption: pregnant duration and birth weight summary table
+#| label: pregnant duration and birth weight summary table
+#| envir: table_2
+birth_weight <- opt_data |> 
+  gtsummary::tbl_summary(
+    include = c(
+      "Preg_duration_32", "Preg_duration_35", "Preg_duration_37",
+      "Birthweight", "Birthweight_2500", "Birthweight_1500"
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Preg_duration_32" ~ "<32 wk",
+      "Preg_duration_35" ~ "<35 wk",
+      "Preg_duration_37" ~ "<37 wk",
+      "Birthweight" ~ "Total weight - g",
+      "Birthweight_2500" ~ "<2500 g - no./total no. (%)",
+      "Birthweight_1500" ~ "<1500 g - no./total no. (%)"
+    ),
+    statistic = list(
+      gtsummary::all_continuous() ~ "{mean}±{sd}",
+      c("Preg_duration_32", "Preg_duration_35", "Preg_duration_37") ~ "{n} ({p})",
+      c("Birthweight_2500", "Birthweight_1500") ~ "{n}/{N} ({p})"
+    ),
+    digits = list(
+      c("Birthweight") ~ gtsummary::label_style_number(digits = 0, big.mark = ""),
+      c("Birthweight_2500", "Birthweight_1500") ~ c(0, 0, 1)
+    )
+  ) |> 
+  gtsummary::add_p(
+    test = list(
+      c("Preg_duration_32", "Preg_duration_35", "Preg_duration_37") ~ "fisher.test"
+    ),
+    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Duration of pregnancy - no. (%)",
+    variables = starts_with("Preg_")
+  ) |>
+  gtsummary::add_variable_group_header(
+    header = "Birth weight",
+    variables = c("Birthweight", "Birthweight_2500", "Birthweight_1500")
+  ) |>
+  gtsummary::remove_footnote_header()
+
+birth_weight
+```
+
+```{webr}
+#| caption: live birth summary table
+#| label: live birth summary table
+#| envir: table_2
+live_birth <- opt_data |> 
+  gtsummary::tbl_summary(
+    include = c(
+      "Total_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37"
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Total_Live_Birth" ~ "Total",
+      "Preterm_32" ~ "<32 wk",
+      "Preterm_35" ~ "<35 wk",
+      "Preterm_37" ~ "<37 wk"
+    ),
+    statistic = list(
+      c("Total_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ "{n} ({p})"
+    ),
+    digits = list(
+      c("Total_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_p(
+    test = list(
+      c("Preterm_32", "Preterm_35", "Preterm_37") ~ "fisher.test"
+    ),
+    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Preterm",
+    variables = c("Preterm_32", "Preterm_35", "Preterm_37")
+  ) |>
+  # understand table body
+  gtsummary::modify_table_body(
+    ~ .x |> 
+      tibble::add_row(
+        row_type = "variable_group", 
+        label = "Live births - no. (%)", 
+        .before = 1
+      )
+  ) |> 
+  gtsummary::modify_indent(
+    columns = "label", 
+    rows = .data[["label"]] %in% c("Total", "Preterm"), 
+    indent = 4L
+  ) |> 
+  gtsummary::modify_indent(
+    columns = "label", 
+    rows = .data[["variable"]] %in% c("Preterm_32", "Preterm_35", "Preterm_37"), 
+    indent = 8L
+  ) |>
+  gtsummary::remove_footnote_header()
+
+live_birth
+```
+
+```{webr}
+#| caption: stack table2
+#| label: stack table2
+#| envir: table_2
+long_footnote <- paste(
+   "The numbers of patients in the study groups do not include",
+   "those who withdrew from the study or were lost to follow up.",
+   "Two women who underwent elevtive abortions were treated as",
+   "lost to follow-up at the time of abortion.",
+   "Plus-minus values are means±SD, unless otherwise noted."
+)
+
+table2 <- gtsummary::tbl_stack(
+   tbls = list(birth_weight, live_birth)
+  ) |>
+  gtsummary::modify_header(
+    label = "**Outcome**",
+    stat_1 = "**Control Group**  \n**(N = {n})**",
+    stat_2 = "**Treatment Group**  \n**(N = {n})**",
+    p.value = "**P value**",
+    text_interpret = "md"
+  ) |> 
+  gtsummary::remove_footnote_header() |> 
+  gtsummary::modify_footnote_body(
+    footnote = "P Values in this category were calculated with the use of Fisher's exact test.",
+    columns = "label",
+    rows = .data[["label"]] == "Duration of pregnancy - no. (%)" & .data[["row_type"]] == "variable_group"
+  ) |> 
+  gtsummary::modify_footnote_body(
+    footnote = "This category includes all live preterm births in the specified gestational period. Percentages were calculated as a frction of all live births.",
+    columns = "label",
+    rows = .data[["label"]] == "Preterm" & .data[["row_type"]] == "variable_group"
+  ) |> 
+  gtsummary::as_gt() |> 
+  gt::tab_header(
+    title = "Table 2. Birth and Clinical Periodontal Outcomes."
+  ) |> 
+  gt::tab_options(heading.align = "left") |> 
+  gt::tab_footnote(
+    footnote = long_footnote,
+    locations = gt::cells_title(groups = "title")
+  ) |> 
+  gt::opt_footnote_marks(marks = c("*", "†", "§")) |> 
+  gt::opt_footnote_spec(
+    spec_ref = "i",   # Removes '^' (superscript), keeps italics 'i'
+    spec_ftr = "x"    # Unstyled or baseline text for the footer
+  )
+
+table2
+```
+
+
+
+<!-- ```{r} -->
+
+<!-- apgar_data_treat <- opt_data |>  -->
+<!--   dplyr::select("PID", "Group", "Apgar1", "Apgar5", "Birth.outcome") |>  -->
+<!--   dplyr::filter( -->
+<!--     .data[["Birth.outcome"]] != "Non-live birth" -->
+<!--   ) |> -->
+<!--   dplyr::filter( -->
+<!--     .data[["Apgar5"]] < 7 -->
+<!--   ) |>  -->
+<!--   dplyr::filter( -->
+<!--     .data[["Group"]] != "C" -->
+<!--   )  -->
+
+<!-- apgar_data_control <- opt_data |>  -->
+<!--   dplyr::select("PID", "Group", "Apgar1", "Apgar5", "Birth.outcome") |>  -->
+<!--   dplyr::filter( -->
+<!--     .data[["Birth.outcome"]] != "Non-live birth" -->
+<!--   ) |>  -->
+<!--   dplyr::filter( -->
+<!--     .data[["Apgar5"]] < 7 -->
+<!--   ) |>  -->
+<!--   dplyr::filter( -->
+<!--     .data[["Group"]] == "C" -->
+<!--   )  -->
+
+<!-- wilcox.test(x=apgar_data_control$Apgar5, y=apgar_data_treat$Apgar5, paired = TRUE) -->
+
+<!-- apgar_data <- opt_data |>  -->
+<!--   dplyr::select("PID", "Group", "Apgar1", "Apgar5", "Birth.outcome") |>  -->
+<!--   dplyr::filter( -->
+<!--     .data[["Birth.outcome"]] != "Non-live birth" -->
+<!--   ) |>  -->
+<!--   dplyr::filter( -->
+<!--     .data[["Group"]] != "T" -->
+<!--   )  -->
+
+<!-- wilcox.test(apgar_data$Apgar1, apgar_data$Apgar5, paired = TRUE) -->
+
+<!-- ``` -->
+
+

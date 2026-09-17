@@ -1,0 +1,40 @@
+project:
+  type: website
+  output-dir: docs
+
+engine: knitr
+  
+execute:
+  freeze: false
+
+website:
+  title: "HAT Workshop 20261021"
+  description: "Creating Clinical Summary Tables using gtsummary"
+  page-navigation: true
+  sidebar:
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents:
+      - href: index.qmd
+      - section: "Data Preparation"
+        contents:
+          - table_basic/prep_data.qmd
+      - section: "Table Making"
+        contents:
+          - table_basic/table_1.qmd
+          - table_basic/table_2.qmd
+          - table_basic/table_3.qmd
+
+resources:
+  - data
+  
+format:
+  live-html:
+    css: styles.css
+    toc: true
+    grid:
+      sidebar-width: 270px
+      margin-width: 250px
+
+

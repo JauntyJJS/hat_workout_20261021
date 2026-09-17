@@ -1,0 +1,129 @@
+---
+title: "Table 3"
+author: "Jeremy Selva"
+webr:
+  packages:
+    - gtsummary
+    - broom
+    - broom.helpers
+    - lme4
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{webr}
+#| label: load opt data
+#| envir: table_3
+opt_data <- readRDS("data/opt_data.rds") |> 
+  dplyr::filter(
+    .data[["Birth.outcome"]] %in% c("Non-live birth", "Live birth")
+  )
+```
+
+```{webr}
+#| envir: table_3
+birthweight_unadjusted_model <- glm(
+  Birthweight_2500_regression ~ Group,
+  data   = opt_data,
+  family = binomial
+)
+
+birthweight_unadjusted_table <- birthweight_unadjusted_model |> 
+  gtsummary::tbl_regression(
+    exponentiate = TRUE
+  ) |> 
+  gtsummary::add_n(
+    location = c("level")
+  ) |> 
+  gtsummary::add_nevent(
+    location = c("level")
+  )
+```
+
+
+```{webr}
+#| envir: table_3
+birthweight_adjusted_model <- glm(
+  Birthweight_2500_regression ~ Group + Age + Education + Hypertension + Diabetes,
+  data   = opt_data,
+  family = binomial
+)
+
+birthweight_adjusted_table <- birthweight_adjusted_model |> 
+  gtsummary::tbl_regression(
+    exponentiate = TRUE
+  ) |> 
+  gtsummary::add_n(
+    location = c("level")
+  ) |> 
+  gtsummary::add_nevent(
+    location = c("level")
+  )
+
+birthweight_adjusted_table
+```
+
+```{webr}
+#| envir: table_3
+preg_duration_unadjusted_model <- glm(
+  Preg_duration_37_regression ~ Group,
+  data   = opt_data,
+  family = binomial
+)
+
+preg_duration_unadjusted_table <- preg_duration_unadjusted_model |> 
+  gtsummary::tbl_regression(
+    exponentiate = TRUE
+  ) |> 
+  gtsummary::add_n(
+    location = c("level")
+  ) |> 
+  gtsummary::add_nevent(
+    location = c("level")
+  )
+```
+
+```{webr}
+#| envir: table_3
+preg_duration_adjusted_model <- glm(
+  Preg_duration_37_regression ~ Group + Age + Education + Hypertension + Diabetes,
+  data   = opt_data,
+  family = binomial
+)
+
+preg_duration_adjusted_table <- preg_duration_adjusted_model |> 
+  gtsummary::tbl_regression(
+    exponentiate = TRUE
+  ) |> 
+  gtsummary::add_n(
+    location = c("level")
+  ) |> 
+  gtsummary::add_nevent(
+    location = c("level")
+  )
+
+preg_duration_adjusted_table
+```
+
+```{webr}
+#| envir: table_3
+unadjusted_table <- gtsummary::tbl_merge(
+  tbls = list(birthweight_unadjusted_table, preg_duration_unadjusted_table),
+  tab_spanner = c("**Birth Weight <2500 g**", "**Pregnant Duration <37 wk**")
+)
+
+adjusted_table <- gtsummary::tbl_merge(
+  tbls = list(birthweight_adjusted_table, preg_duration_adjusted_table),
+  tab_spanner = c("**Birth Weight <2500 g**", "**Pregnant Duration <37 wk**")
+)
+```
+
+```{webr}
+#| envir: table_3
+combined_table <- gtsummary::tbl_stack(
+  list(unadjusted_table, adjusted_table),
+  group_header = c("Unadjusted", "Adjusted by Age, Education, Hypertension and Diabetes")
+)
+
+combined_table
+```

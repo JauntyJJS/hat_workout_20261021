@@ -1,0 +1,207 @@
+---
+title: "Table 1"
+author: "Jeremy Selva"
+webr:
+  # resources:
+  #   - data/opt_data.rds
+  packages:
+    - gtsummary
+    - broom
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{webr}
+#| label: load opt data
+#| envir: table_1
+opt_data <- readRDS("data/opt_data.rds")
+```
+
+
+```{webr}
+#| caption: age race and education summary table
+#| label: age race and education summary table
+#| envir: table_1
+# add_p() needs R package broom
+opt_age_race_data <- opt_data |>
+  gtsummary::tbl_summary(
+    include = c(
+      "Age", "White", "Black", "Hisp", "Education",
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Age" ~ "Age - yr",
+      "White" ~ "White",
+      "Black" ~ "Black",
+      "Hisp" ~ "Hispanic",
+      "Education" ~ "Education - no. (%)"
+    ),
+    statistic = list(
+      gtsummary::all_continuous() ~ "{mean}±{sd}",
+      gtsummary::all_categorical() ~ "{n} ({p})"
+    ),
+    digits = list(
+      gtsummary::all_continuous() ~ 1,
+      gtsummary::all_categorical() ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Race or ethnic group - no. (%)",
+    variables = c("White", "Black", "Hisp")
+  )|> 
+  gtsummary::add_p(
+    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)
+  ) |> 
+  gtsummary::remove_footnote_header()
+
+opt_age_race_data
+```
+
+```{webr}
+#| caption: age previous preg summary table
+#| label: age previous preg summary table
+#| envir: table_1
+# add_p() needs R package broom
+opt_previous_preg_data <- opt_data |>
+  gtsummary::tbl_summary(
+    include = c(
+      "Prev.preg","Any.live.ptb.sb.sp.ab.in.ab",
+      "previous_live_preterm_birth",
+      "Spont.ab", "Induced.ab", "Any.stillbirth",
+      "Any.live.ptb.sb.sp.ab.in.ab"
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Prev.preg" ~ "Any pregancy",
+      "Any.live.ptb.sb.sp.ab.in.ab" ~ "Any live preterm birth, abortion, or stillbirth",
+      "previous_live_preterm_birth" ~ "Live preterm birth",
+      "Spont.ab" ~ "Spontaneous abortion",
+      "Induced.ab" ~ "Induced abortion",
+      "Any.stillbirth" ~ "Stillbirth"
+    ),
+    statistic = list(
+      gtsummary::all_categorical() ~ "{n} ({p})"
+    ),
+    digits = list(
+      gtsummary::all_categorical() ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Previous pregnancies - no. (%)",
+    variables = c(
+      "Prev.preg","Any.live.ptb.sb.sp.ab.in.ab",
+      "previous_live_preterm_birth",
+      "Spont.ab", "Induced.ab", "Any.stillbirth",
+      "Any.live.ptb.sb.sp.ab.in.ab"
+    )
+  )|> 
+  gtsummary::add_p(
+    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)
+  ) |> 
+  gtsummary::remove_footnote_header()
+
+opt_previous_preg_data
+```
+
+```{webr}
+#| caption: clinical summary table
+#| label: clinical summary table
+#| envir: table_1
+p_value_style <- function(x) {
+  dplyr::case_when(
+    x > 0.99 ~ "0.99",
+    .default = gtsummary::style_pvalue(x, digits = 2)
+  )
+}
+opt_clincal_data <- opt_data |>
+  gtsummary::tbl_summary(
+    include = c("Diabetes", "Hypertension", "Use.Alc"),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Diabetes" ~ "Diabetes",
+      "Hypertension" ~ "Chronic hypertension",
+      "Use.Alc" ~ "Self-reported alcohol use"
+    ),
+    statistic = list(
+      gtsummary::all_continuous() ~ "{mean}±{sd}",
+      gtsummary::all_categorical() ~ "{n} ({p})"
+    ),
+    digits = list(
+      gtsummary::all_continuous() ~ 1,
+      gtsummary::all_categorical() ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Coexisiting medical condition - no. (%)",
+    variables = c("Diabetes", "Hypertension", "Use.Alc")
+  ) |> 
+  gtsummary::add_p(
+    pvalue_fun = p_value_style
+  ) |> 
+  gtsummary::remove_footnote_header()
+
+opt_clincal_data
+```
+
+```{webr}
+#| caption: stack table1
+#| label: stack table1
+#| envir: table_1
+# See table1$table_body
+# *, †, ‡, §, ‖, ¶, **, ††
+# table1 |> gtsummary::show_header_names()
+# gtsummary::modify_footnote_symbol need at least 2 symbols
+table1 <- gtsummary::tbl_stack(
+    list(opt_age_race_data, opt_previous_preg_data, opt_clincal_data)
+  ) |> 
+  gtsummary::modify_header(
+    stat_1 = "**Control Group**  \n**(N = {n})**",
+    stat_2 = "**Treatment Group**  \n**(N = {n})**",
+    p.value = "**P value**",
+    text_interpret = "md"
+  ) |>
+  gtsummary::remove_footnote_header() |> 
+  gtsummary::modify_footnote_body(
+    footnote = "Race or ethnic group was reported by the patients. Some women selected more than one category and were included in all.",
+    columns = "label",
+    rows = .data[["label"]] == "Race or ethnic group - no. (%)" & .data[["row_type"]] == "variable_group"
+  ) |> 
+  gtsummary::modify_footnote_body(
+    footnote = "Some patients reported more than one event.",
+    columns = "label",
+    rows = .data[["label"]] %in% c("Previous pregnancies - no. (%)")  & .data[["row_type"]] == "variable_group"
+  ) |> 
+  gtsummary::modify_footnote_body(
+    footnote = "Percentages are based on 263 women in the control group and 261 women in the treatment group who had had any live births.",
+    columns = "label",
+    rows = .data[["var_label"]] %in% c("Live preterm birth")  & .data[["row_type"]] == "label"
+  ) |> 
+  gtsummary::modify_footnote_body(
+    footnote = "Percentages are based on 305 women in the control group and 306 women in the treatment group who had had any previous pregnacies.",
+    columns = "label",
+    rows = .data[["var_label"]] %in% c("Spontaneous abortion", "Induced abortion", "Stillbirth")  & .data[["row_type"]] == "label"
+  ) |> 
+  # gtsummary::modify_footnote_symbol(
+  #   symbol = c("†")
+  # ) |> 
+  gtsummary::as_gt() |> 
+  gt::tab_header(
+    title = "Table 1. Baseline Characteristics of the Study Patients"
+  ) |> 
+  gt::tab_options(heading.align = "left") |> 
+  gt::tab_footnote(
+    footnote = "Plus-minus values are means±SD.",
+    locations = gt::cells_title(groups = "title")
+  ) |> 
+  gt::opt_footnote_marks(marks = c("*", "†", "‡", "§", "¶")) |> 
+  gt::opt_footnote_spec(
+    spec_ref = "i",   # Removes '^' (superscript), keeps italics 'i'
+    spec_ftr = "x"    # Unstyled or baseline text for the footer
+  )
+
+table1
+```
+

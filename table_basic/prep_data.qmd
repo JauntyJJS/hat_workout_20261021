@@ -1,0 +1,407 @@
+---
+title: "Cleaning Obstetrics and Periodontal Therapy Dataset"
+author: "Jeremy Selva"
+webr:
+  packages:
+    - medicaldata
+    - dplyr
+    - stringr
+    - purrr
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+## Data Preparation
+
+In this section, we highlight in detail how the [Obstetrics and Periodontal Therapy Dataset](https://higgi13425.github.io/medicaldata/reference/opt.html){target="_blank"} from R package [`medicaldata`](https://higgi13425.github.io/medicaldata/index.html){target="_blank"} is prepared so that we can use [`gtsummary`](https://www.danieldsjoberg.com/gtsummary/){target="_blank"} to create the clinical summary table. 
+
+### Columns that we need
+
+The dataset can be obtain from `medicaldata::opt`.
+
+The columns that we use are
+
+- `PID`: Participant ID.
+- `Group`: Randomized treatment assignment, factor.
+   - "T" = Intervention. 
+   - "C" = Control.
+- `Age`: Age of participant at baseline (years), numeric.
+- `Education`: Education level of participant, factor. 
+    - "LT 8 yrs&nbsp;" = Less than 8 years. 
+    - "8-12 yrs&nbsp;" = 8 to 12 years.
+    - "MT 12 yrs" = More than 12 years. 
+    - blank = Missing.
+- `Black`: Black participant (self-identified), factor; "Yes", "No&nbsp;", "&nbsp;&nbsp;&nbsp;".
+- `White`: White participant (self-identified), factor; "Yes", "No&nbsp;", "&nbsp;&nbsp;&nbsp;".
+- `Asian`: Asian participant (self-identified), factor; "Yes", "No&nbsp;", "&nbsp;&nbsp;&nbsp;".
+- `Nat.Am`: Native American participant, incl. Latin Americans with aboriginal origin(self-identified), factor; "Yes", "No ", "&nbsp;&nbsp;&nbsp;".
+- `Hisp`: Hispanic participant  (self-identified), factor; "Yes", "No&nbsp;", "&nbsp;&nbsp;&nbsp;".
+- `BMI`: Body mass index, numeric.
+- `Diabetes`: Whether participant had diabetes at baseline (self-reported), factor; "Yes", "No&nbsp;", "&nbsp;&nbsp;&nbsp;".
+- `Hypertension`: Whether participant had chronic hypertension at baseline, factor; "Yes", "No&nbsp;", "&nbsp;&nbsp;&nbsp;".
+- `Drug.Add`: Self-reported participant history of drug addiction, factor; "Yes", "No&nbsp;", "&nbsp;&nbsp;&nbsp;".
+- `Use.Alc`: Self-reported participant history of alcohol use, factor; "Yes", "No&nbsp;", "&nbsp;&nbsp;&nbsp;".
+- `Use.Tob`: Self-reported participant history of tobacco use, factor; "Yes", "No&nbsp;", "&nbsp;&nbsp;&nbsp;".
+- `Prev.preg`: Any previous pregnancy, factor; "Yes", "No&nbsp;".
+- `Spont.ab`: Previous spontaneous abortion, factor; "Yes", "No&nbsp;", "&nbsp;&nbsp;&nbsp;" = Missing or no previous pregnancies (`Prev.preg` = No).
+- `Induced.ab`: Previous induced abortion, factor; "Yes", "No&nbsp;", "&nbsp;&nbsp;&nbsp;" = Missing or no previous pregnancies (`Prev.preg` = No).
+- `Any.stillbirth`: Previous stillbirth, factor; "Yes", "No&nbsp;", "&nbsp;&nbsp;&nbsp;" = Missing or no previous pregnancies (`Prev.preg` = No).
+- `Live.PTB`: Previous live preterm birth for those with any previous pregnancy, factor; "Yes", "No&nbsp;", "&nbsp;&nbsp;&nbsp;" = Missing or no previous pregnancies (`Prev.preg` = No).
+- `Any.live.ptb.sb.sp.ab.in.ab`: Any previous live pre-term birth, stillbirth, spontaneous abortion, or induced abortion, factor; "Yes", "No&nbsp;", "&nbsp;&nbsp;&nbsp;" = Missing or no previous pregnancies (`Prev.preg` = No).
+- `N.living.kids`: Number of living children the subject had at baseline, numeric.
+- `Birth.outcome`: Birth outcome, factor, 
+    - "Elective abortion&nbsp;&nbsp;".
+    - "Live birth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".
+    - "Lost to FU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" = Lost to Follow-Up.
+    - "Non-live birth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" = Stillbirth or spontaneous abortion.
+- `Preg.ended...37.wk`: Whether the pregnancy ended before gestational age 37 weeks (259 days), factor, "Yes"; "No&nbsp"; "&nbsp;&nbsp;&nbsp;" = Lost to Follow-Up.
+- `GA.at.outcome`: Gestational age at end of pregnancy, or at mother's last follow-up visit if lost to follow-up, numeric.
+- `Birthweight`: Infant birth weight at time of birth, abstracted from obstetrical records (grams), numeric.
+
+We use [`stringr::str_trim`](https://stringr.tidyverse.org/reference/str_trim.html){target="_blank"} to remove any whitespace in the factor columns.
+    
+```{webr}
+#| caption: select relevant columns
+#| label: select relevant columns
+#| envir: prep_data
+opt_data <- medicaldata::opt |> 
+  dplyr::select(c(
+    "PID", "Group",
+    "Age", "Education",
+    "Black", "White", "Asian", "Nat.Am", "Hisp",
+    "BMI", "Diabetes", "Hypertension", "Drug.Add", "Use.Alc", "Use.Tob",
+    "Prev.preg", "Spont.ab", "Induced.ab", "Any.stillbirth", 
+    "Live.PTB", "Any.live.ptb.sb.sp.ab.in.ab", "N.living.kids",
+    "Birth.outcome", "Preg.ended...37.wk", "Birthweight", "GA.at.outcome"
+    )
+  ) |> 
+  dplyr::mutate(
+    dplyr::across(dplyr::where(is.factor), stringr::str_trim)
+  )
+
+opt_data |> dplyr::glimpse()
+```
+
+### Treatment and Control
+
+Next, in the `Group` column, we rename `C` as `Control` and `T` as `Treatment`.
+
+```{webr}
+#| caption: rename C to Control and T to Treatment
+#| label: rename C to Control and T to Treatment
+#| envir: prep_data
+opt_data <- opt_data |>
+  dplyr::mutate(
+    Group = dplyr::case_when(
+      .data[["Group"]] == "C"  ~ "Control",
+      .data[["Group"]] == "T"  ~ "Treatment"
+    ),
+    Group = factor(
+      .data[["Group"]],
+      levels = c("Control", "Treatment")
+    )    
+  )
+
+opt_data$Group |> table(useNA = "ifany")
+```
+
+### Education
+
+In the `Education` column, we rename `LT 8 yrs` as `≤8 yr`, `8-12 yrs` as `9-12 yr` and `MT 12 yrs` as `> 12 yr` to match the labels as seen in [Table 1](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg){target="_blank"}.
+
+```{webr}
+#| caption: rename education categories
+#| label: rename education categories
+#| envir: prep_data
+opt_data <- opt_data |>
+  dplyr::mutate(
+    Education = dplyr::case_when(
+      .data[["Education"]] == "LT 8 yrs"  ~ "≤8 yr",
+      .data[["Education"]] == "8-12 yrs"  ~ "9-12 yr",
+      .data[["Education"]] == "MT 12 yrs"  ~ "> 12 yr"
+    ),
+    Education = factor(
+      .data[["Education"]],
+      levels = c("≤8 yr", "9-12 yr", "> 12 yr")
+    ),   
+  )
+
+opt_data$Education |> table(useNA = "ifany")
+```
+
+### Race/Ethnicity
+
+In the `Hisp` column, we fill in the empty strings "" as `No`. We also convert `Black`, `White`, `Asian`, `Nat.Am` and `Hisp` to factors.
+
+```{webr}
+#| caption: rename race/ethnictiy categories
+#| label: rename race/ethnicity categories
+#| envir: prep_data
+opt_data <- opt_data |>
+  dplyr::mutate(
+    Hisp = dplyr::case_when(
+      .data[["Hisp"]] == ""  ~ "No",
+      .default = .data[["Hisp"]]
+    ),
+    dplyr::across(
+      .cols = c(
+        "Black", "White", "Asian", "Nat.Am", "Hisp"
+      ),
+      .fns = \(x){
+        factor(x, levels = c("No", "Yes"))
+      }
+    )
+  )
+
+opt_data |> 
+  dplyr::select(c("Black", "White", "Asian", "Nat.Am", "Hisp")) |> 
+  purrr::map(\(x) table(x, useNA = "ifany"))
+```
+
+### Clinical Risk Factors
+
+In the `Hypertension` column, we rename `N` as `No` and `Y` as `Yes`. In the `Diabetes`, `Drug.Add`, `Use.Alc` and `Use.Tob` columns, we convert "" to `NA`. We also convert `Hypertension`, `Diabetes`, `Drug.Add`, `Use.Alc` and `Use.Tob` to factors.
+
+```{webr}
+#| caption: rename clinical risk factors
+#| label: rename clinical risk factors
+#| envir: prep_data
+opt_data <- opt_data |>
+  dplyr::mutate(
+    Hypertension = dplyr::case_when(
+      .data[["Hypertension"]] == "N"  ~ "No",
+      .data[["Hypertension"]] == "Y"  ~ "Yes",
+    ),
+    dplyr::across(
+      .cols = c("Diabetes", "Drug.Add", "Use.Alc", "Use.Tob"),
+      .fns = \(x){
+        dplyr::case_when(
+          x == ""  ~ NA,
+          .default = x
+        )
+      }
+    ),
+    dplyr::across(
+      .cols = c(
+        "Hypertension", "Diabetes", 
+        "Drug.Add", "Use.Alc", "Use.Tob"),
+      .fns = \(x){
+        factor(x, levels = c("No", "Yes"))
+      }
+    )
+  )
+
+opt_data |> 
+  dplyr::select(c("Hypertension", "Diabetes", "Drug.Add", "Use.Alc", "Use.Tob")) |> 
+  purrr::map(\(x) table(x, useNA = "ifany"))
+```
+
+### Previous pregnancy
+
+In the `Spont.ab`, `Induced.ab`, `Any.stillbirth`, `Live.PTB` and `Any.live.ptb.sb.sp.ab.in.ab` columns, we convert "" to `NA`
+
+To match the labels as close as possible to [Table 1](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg){target="_blank"}, we let
+
+- `have_living_child` be `No` if `N.living.kids` is `NA` or `0` and `Yes` otherwise.
+- `previous_live_preterm_birth`
+   - `NA` if there is no previous pregnancy.
+   - `NA` if there is previous pregnancy but number of living kids `N.living.kids` is `NA` and `Live.PTB` is `No`.
+   - `NA` if there is previous pregnancy but number of living kids `N.living.kids` is `NA` and `Live.PTB` is `NA`.
+   - `NA` if there is previous pregnancy but number of living kids `N.living.kids` is `0`.
+   
+
+```{webr}
+#| caption: rename previous pregnancy factors
+#| label: rename previous pregnancy factors
+#| envir: prep_data
+opt_data <- opt_data |>
+  dplyr::mutate(
+    dplyr::across(
+      .cols = c("Spont.ab", "Induced.ab", "Any.stillbirth",
+                "Live.PTB", "Any.live.ptb.sb.sp.ab.in.ab"),
+      .fns = \(x){
+        dplyr::case_when(
+          x == ""  ~ NA,
+          .default = x
+        )
+      }
+    ),
+    have_living_child = dplyr::case_when(
+      is.na(.data[["N.living.kids"]]) ~ "No",
+      .data[["N.living.kids"]] == 0 ~ "No",
+      .data[["N.living.kids"]] %in% c("1", "2", "3", "4", "5", "6", "7", "8", "9") ~ "Yes"
+      .default = "Allocation"
+    ),
+    previous_live_preterm_birth = dplyr::case_when(
+      .data[["Prev.preg"]] == "No" ~ NA,
+      .data[["Prev.preg"]] == "Yes" & is.na(.data[["N.living.kids"]]) & is.na(.data[["Live.PTB"]]) ~ NA,
+      .data[["Prev.preg"]] == "Yes" & is.na(.data[["N.living.kids"]]) & .data[["Live.PTB"]] == "No" ~ NA,
+      .data[["Prev.preg"]] == "Yes" & .data[["N.living.kids"]] %in% c("0") & .data[["Live.PTB"]] == "No" ~ NA,
+      .data[["Prev.preg"]] == "Yes" & .data[["N.living.kids"]] %in% c("1", "2", "3", "4", "5", "6", "7", "8", "9") & .data[["Live.PTB"]] == "No" ~ "No",
+      .data[["Prev.preg"]] == "Yes" & is.na(.data[["N.living.kids"]]) & .data[["Live.PTB"]] == "Yes" ~ "Yes",
+      .data[["Prev.preg"]] == "Yes" & .data[["N.living.kids"]] %in% c("1", "2", "3", "4", "5", "6", "7", "8", "9") & .data[["Live.PTB"]] == "Yes" ~ "Yes",
+      .default = "Allocation"
+    ),
+    Spont.ab = dplyr::case_when(
+      .data[["Prev.preg"]] == "No" ~ NA,
+      .data[["Prev.preg"]] == "Yes" & .data[["Spont.ab"]] == "No" ~ "No",
+      .data[["Prev.preg"]] == "Yes" & is.na(.data[["Spont.ab"]]) ~ "No",
+      .data[["Prev.preg"]] == "Yes" & .data[["Spont.ab"]] == "Yes" ~ "Yes",
+      .default = "Allocation"
+    ),
+    Induced.ab = dplyr::case_when(
+      .data[["Prev.preg"]] == "No" ~ NA,
+      .data[["Prev.preg"]] == "Yes" & .data[["Induced.ab"]] == "No" ~ "No",
+      .data[["Prev.preg"]] == "Yes" & is.na(.data[["Induced.ab"]]) ~ "No",
+      .data[["Prev.preg"]] == "Yes" & .data[["Induced.ab"]] == "Yes" ~ "Yes",
+      .default = "Allocation"
+    ),
+    Any.stillbirth = dplyr::case_when(
+      .data[["Prev.preg"]] == "No" ~ NA,
+      .data[["Prev.preg"]] == "Yes" & .data[["Any.stillbirth"]] == "No" ~ "No",
+      .data[["Prev.preg"]] == "Yes" & is.na(.data[["Any.stillbirth"]]) ~ "No",
+      .data[["Prev.preg"]] == "Yes" & .data[["Any.stillbirth"]] == "Yes" ~ "Yes",
+      .default = "Allocation"
+    ),
+    dplyr::across(
+      .cols = c(
+        "Prev.preg", "have_living_child", "previous_live_preterm_birth", 
+        "Spont.ab", "Induced.ab", "Any.stillbirth"),
+      .fns = \(x){
+        factor(x, levels = c("No", "Yes"))
+      }
+    )
+  )
+
+opt_data |> 
+  dplyr::select(c("Hypertension", "Diabetes", "Drug.Add", "Use.Alc", "Use.Tob")) |> 
+  purrr::map(\(x) table(x, useNA = "ifany"))
+```
+
+### Pregnancy Duration
+
+```{webr}
+#| caption: pregnancy duration columns
+#| label: pregnancy duration columns
+#| envir: prep_data
+opt_data <- opt_data |>
+  dplyr::mutate(
+    GA.at.outcome.weeks = .data[["GA.at.outcome"]] / 7,
+    Preg_duration_32 = dplyr::case_when(
+      .data[["GA.at.outcome.weeks"]] < 32 ~ "Yes",
+      .default = "No"
+    ),
+    Preg_duration_35 = dplyr::case_when(
+      .data[["GA.at.outcome.weeks"]] < 35 ~ "Yes",
+      .default = "No"
+    ),
+    Preg_duration_37 = dplyr::case_when(
+      .data[["GA.at.outcome.weeks"]] < 37 ~ "Yes",
+      .default = "No"
+    ),
+    Preg_duration_37_regression = dplyr::case_when(
+      .data[["GA.at.outcome.weeks"]] < 37 ~ 1,
+      .default = 0
+    ),
+    Birthweight_2500 = dplyr::case_when(
+      .data[["Birthweight"]] < 2500 ~ "Yes",
+      is.na(.data[["Birthweight"]]) ~ NA,
+      .default = "No"
+    ),
+    Birthweight_2500_regression = dplyr::case_when(
+      .data[["Birthweight"]] < 2500 ~ 1,
+      is.na(.data[["Birthweight"]]) ~ NA,
+      .default = 0
+    ),
+    Birthweight_1500 = dplyr::case_when(
+      .data[["Birthweight"]] < 1500 ~ "Yes",
+      is.na(.data[["Birthweight"]]) ~ NA,
+      .default = "No"
+    ),
+    Total_Live_Birth = dplyr::case_when(
+      .data[["Birth.outcome"]] == "Live birth" ~ "Yes",
+      .default = "No"
+    ),
+    Preterm_32 = dplyr::case_when(
+      .data[["Birth.outcome"]] == "Non-live birth" ~ NA,
+      .data[["Birth.outcome"]] == "Live birth"  & .data[["GA.at.outcome.weeks"]] < 32 ~ "Yes",
+      .default = "No"
+    ),
+    Preterm_35 = dplyr::case_when(
+      .data[["Birth.outcome"]] == "Non-live birth" ~ NA,
+      .data[["Birth.outcome"]] == "Live birth"  & .data[["GA.at.outcome.weeks"]] < 35 ~ "Yes",
+      .default = "No"
+    ),
+    Preterm_37 = dplyr::case_when(
+      .data[["Birth.outcome"]] == "Non-live birth" ~ NA,
+      .data[["Birth.outcome"]] == "Live birth"  & .data[["GA.at.outcome.weeks"]] < 37 ~ "Yes",
+      .default = "No"
+    ),
+    dplyr::across(
+      .cols = c("Preg.ended...37.wk", 
+                "Spont.ab", "Induced.ab", "Any.stillbirth",
+                "Live.PTB", "Any.live.ptb.sb.sp.ab.in.ab"),
+      .fns = \(x){
+        dplyr::case_when(
+          x == ""  ~ NA,
+          .default = x
+        )
+      }
+    ),
+    have_living_child = dplyr::case_when(
+      is.na(.data[["N.living.kids"]]) ~ "No",
+      .data[["N.living.kids"]] == 0 ~ "No",
+      .default = "Yes"
+    ),
+    previous_live_preterm_birth = dplyr::case_when(
+      .data[["Prev.preg"]] == "No" ~ NA,
+      .data[["Prev.preg"]] == "Yes" & is.na(.data[["N.living.kids"]]) & is.na(.data[["Live.PTB"]]) ~ NA,
+      .data[["Prev.preg"]] == "Yes" & is.na(.data[["N.living.kids"]]) & .data[["Live.PTB"]] == "No" ~ NA,
+      .data[["Prev.preg"]] == "Yes" & .data[["N.living.kids"]] %in% c("0") & .data[["Live.PTB"]] == "No" ~ NA,
+      .data[["Prev.preg"]] == "Yes" & .data[["N.living.kids"]] %in% c("1", "2", "3", "4", "5", "6", "7", "8", "9") & .data[["Live.PTB"]] == "No" ~ "No",
+      .data[["Prev.preg"]] == "Yes" & is.na(.data[["N.living.kids"]]) & .data[["Live.PTB"]] == "Yes" ~ "Yes",
+      .data[["Prev.preg"]] == "Yes" & .data[["N.living.kids"]] %in% c("1", "2", "3", "4", "5", "6", "7", "8", "9") & .data[["Live.PTB"]] == "Yes" ~ "Yes",
+      .default = "Allocation"
+    ),
+    Spont.ab = dplyr::case_when(
+      .data[["Prev.preg"]] == "No" ~ NA,
+      .data[["Prev.preg"]] == "Yes" & .data[["Spont.ab"]] == "No" ~ "No",
+      .data[["Prev.preg"]] == "Yes" & is.na(.data[["Spont.ab"]]) ~ "No",
+      .data[["Prev.preg"]] == "Yes" & .data[["Spont.ab"]] == "Yes" ~ "Yes",
+      .default = "Allocation"
+    ),
+    Induced.ab = dplyr::case_when(
+      .data[["Prev.preg"]] == "No" ~ NA,
+      .data[["Prev.preg"]] == "Yes" & .data[["Induced.ab"]] == "No" ~ "No",
+      .data[["Prev.preg"]] == "Yes" & is.na(.data[["Induced.ab"]]) ~ "No",
+      .data[["Prev.preg"]] == "Yes" & .data[["Induced.ab"]] == "Yes" ~ "Yes",
+      .default = "Allocation"
+    ),
+    Any.stillbirth = dplyr::case_when(
+      .data[["Prev.preg"]] == "No" ~ NA,
+      .data[["Prev.preg"]] == "Yes" & .data[["Any.stillbirth"]] == "No" ~ "No",
+      .data[["Prev.preg"]] == "Yes" & is.na(.data[["Any.stillbirth"]]) ~ "No",
+      .data[["Prev.preg"]] == "Yes" & .data[["Any.stillbirth"]] == "Yes" ~ "Yes",
+      .default = "Allocation"
+    ),
+    dplyr::across(
+      .cols = c(
+        "Prev.preg", "Spont.ab", "Induced.ab", "Any.stillbirth",
+        "Live.PTB", "Any.live.ptb.sb.sp.ab.in.ab", 
+        "have_living_child", "previous_live_preterm_birth"),
+      .fns = \(x){
+        factor(x, levels = c("No", "Yes"))
+      }
+    )
+  )
+
+```
+
+```{r}
+#| label: output opt data
+#| eval: false
+
+saveRDS(opt_data, file = here::here("data", "opt_data.rds"))
+
+```
+

@@ -1,0 +1,9 @@
+---
+title: "HAT Workshop 20261021"
+subtitle: "Creating Clinical Summary Tables using gtsummary"
+author: "Jeremy Selva"
+---
+
+# Preface {.unnumbered}
+
+This workshop aims to introduce [`gtsummary`](https://www.danieldsjoberg.com/gtsummary/){target="_blank"} by creating clinical summary tables using the [Obstetrics and Periodontal Therapy Dataset](https://higgi13425.github.io/medicaldata/reference/opt.html){target="_blank"} from [`medicaldata`](https://higgi13425.github.io/medicaldata/index.html){target="_blank"}. As the dataset is meant to be the source data for the journal [Treatment of Periodontal Disease and the Risk of Preterm Birth](https://www.nejm.org/doi/full/10.1056/NEJMoa062249){target="_blank"}, we try to create the tables such that it matches the table content ([Table 1](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg){target="_blank"} and [Table 2](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/b981f44a-0873-42d4-ad60-d7545e1f63cb/assets/images/large/nejmoa062249_t2.jpg){target="_blank"}) from the paper as much as possible.
