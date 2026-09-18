@@ -73,6 +73,14 @@ birth_weight
 #| caption: live birth summary table
 #| label: live birth summary table
 #| envir: table_2
+p_value_style <- function(x) {
+  dplyr::case_when(
+    x == 1 ~ "1.0",
+    x > 0.99 & x < 1 ~ "0.99",
+    .default = gtsummary::style_pvalue(x, digits = 2)
+  )
+}
+
 live_birth <- opt_data |> 
   gtsummary::tbl_summary(
     include = c(
@@ -97,7 +105,7 @@ live_birth <- opt_data |>
     test = list(
       c("Preterm_32", "Preterm_35", "Preterm_37") ~ "fisher.test"
     ),
-    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)
+    pvalue_fun = p_value_style
   ) |> 
   gtsummary::add_variable_group_header(
     header = "Preterm",
@@ -112,6 +120,15 @@ live_birth <- opt_data |>
         .before = 1
       )
   ) |> 
+  gtsummary::modify_table_body(
+    ~ .x |> 
+      dplyr::mutate(
+        `p.value` = dplyr::case_when(
+          .data[["variable"]] == "Total_Live_Birth" ~ NA,
+          .default = .data[["p.value"]]
+        )
+      )
+  ) |>
   gtsummary::modify_indent(
     columns = "label", 
     rows = .data[["label"]] %in% c("Total", "Preterm"), 

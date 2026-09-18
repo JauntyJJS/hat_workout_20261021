@@ -111,7 +111,8 @@ opt_previous_preg_data
 #| envir: table_1
 p_value_style <- function(x) {
   dplyr::case_when(
-    x > 0.99 ~ "0.99",
+    x == 1 ~ "1.0",
+    x > 0.99 & x < 1 ~ "0.99",
     .default = gtsummary::style_pvalue(x, digits = 2)
   )
 }

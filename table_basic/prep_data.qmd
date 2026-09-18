@@ -203,13 +203,27 @@ In the `Spont.ab`, `Induced.ab`, `Any.stillbirth`, `Live.PTB` and `Any.live.ptb.
 To match the labels as close as possible to [Table 1](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg){target="_blank"}, we let
 
 - `have_living_child` be `No` if `N.living.kids` is `NA` or `0` and `Yes` otherwise.
-- `previous_live_preterm_birth`
+- `previous_live_preterm_birth` be
    - `NA` if there is no previous pregnancy.
    - `NA` if there is previous pregnancy but number of living kids `N.living.kids` is `NA` and `Live.PTB` is `No`.
    - `NA` if there is previous pregnancy but number of living kids `N.living.kids` is `NA` and `Live.PTB` is `NA`.
    - `NA` if there is previous pregnancy but number of living kids `N.living.kids` is `0`.
+   - `No` if there is previous pregnancy, number of living kids `N.living.kids` is `1` to `9` and `Live.PTB` is `No`.
+   - `Yes` if there is previous pregnancy, number of living kids `N.living.kids` is `NA` and `Live.PTB` is `Yes`.
+   - `Yes` if there is previous pregnancy, number of living kids `N.living.kids` is `1` to `9` and `Live.PTB` is `Yes`.
+- `Spont.ab` be
+   - `NA` if there is no previous pregnancy.
+   - `No` if there is previous pregnancy, spontaneous abortion `Spont.ab` is `NA` or `No`.
+   - `Yes` if there is previous pregnancy, spontaneous abortion `Spont.ab` is `Yes`.
+- `Induced.ab` be
+   - `NA` if there is no previous pregnancy.
+   - `No` if there is previous pregnancy, induced abortion `Induced.ab` is `NA` or `No`.
+   - `Yes` if there is previous pregnancy, induced abortion `Induced.ab` is `Yes`.
+- `Any.stillbirth` be
+   - `NA` if there is no previous pregnancy.
+   - `No` if there is previous pregnancy, stillbirth `Any.stillbirth` is `NA` or `No`.
+   - `Yes` if there is previous pregnancy, stillbirth `Any.stillbirth` is `Yes`.
    
-
 ```{webr}
 #| caption: rename previous pregnancy factors
 #| label: rename previous pregnancy factors
@@ -229,7 +243,7 @@ opt_data <- opt_data |>
     have_living_child = dplyr::case_when(
       is.na(.data[["N.living.kids"]]) ~ "No",
       .data[["N.living.kids"]] == 0 ~ "No",
-      .data[["N.living.kids"]] %in% c("1", "2", "3", "4", "5", "6", "7", "8", "9") ~ "Yes"
+      .data[["N.living.kids"]] %in% c("1", "2", "3", "4", "5", "6", "7", "8", "9") ~ "Yes",
       .default = "Allocation"
     ),
     previous_live_preterm_birth = dplyr::case_when(
@@ -274,7 +288,9 @@ opt_data <- opt_data |>
   )
 
 opt_data |> 
-  dplyr::select(c("Hypertension", "Diabetes", "Drug.Add", "Use.Alc", "Use.Tob")) |> 
+  dplyr::select(c("have_living_child", "previous_live_preterm_birth", 
+                  "Spont.ab", "Induced.ab", "Any.stillbirth",
+                  "Any.live.ptb.sb.sp.ab.in.ab")) |> 
   purrr::map(\(x) table(x, useNA = "ifany"))
 ```
 
@@ -338,9 +354,7 @@ opt_data <- opt_data |>
       .default = "No"
     ),
     dplyr::across(
-      .cols = c("Preg.ended...37.wk", 
-                "Spont.ab", "Induced.ab", "Any.stillbirth",
-                "Live.PTB", "Any.live.ptb.sb.sp.ab.in.ab"),
+      .cols = c("Preg.ended...37.wk"),
       .fns = \(x){
         dplyr::case_when(
           x == ""  ~ NA,
@@ -348,47 +362,12 @@ opt_data <- opt_data |>
         )
       }
     ),
-    have_living_child = dplyr::case_when(
-      is.na(.data[["N.living.kids"]]) ~ "No",
-      .data[["N.living.kids"]] == 0 ~ "No",
-      .default = "Yes"
-    ),
-    previous_live_preterm_birth = dplyr::case_when(
-      .data[["Prev.preg"]] == "No" ~ NA,
-      .data[["Prev.preg"]] == "Yes" & is.na(.data[["N.living.kids"]]) & is.na(.data[["Live.PTB"]]) ~ NA,
-      .data[["Prev.preg"]] == "Yes" & is.na(.data[["N.living.kids"]]) & .data[["Live.PTB"]] == "No" ~ NA,
-      .data[["Prev.preg"]] == "Yes" & .data[["N.living.kids"]] %in% c("0") & .data[["Live.PTB"]] == "No" ~ NA,
-      .data[["Prev.preg"]] == "Yes" & .data[["N.living.kids"]] %in% c("1", "2", "3", "4", "5", "6", "7", "8", "9") & .data[["Live.PTB"]] == "No" ~ "No",
-      .data[["Prev.preg"]] == "Yes" & is.na(.data[["N.living.kids"]]) & .data[["Live.PTB"]] == "Yes" ~ "Yes",
-      .data[["Prev.preg"]] == "Yes" & .data[["N.living.kids"]] %in% c("1", "2", "3", "4", "5", "6", "7", "8", "9") & .data[["Live.PTB"]] == "Yes" ~ "Yes",
-      .default = "Allocation"
-    ),
-    Spont.ab = dplyr::case_when(
-      .data[["Prev.preg"]] == "No" ~ NA,
-      .data[["Prev.preg"]] == "Yes" & .data[["Spont.ab"]] == "No" ~ "No",
-      .data[["Prev.preg"]] == "Yes" & is.na(.data[["Spont.ab"]]) ~ "No",
-      .data[["Prev.preg"]] == "Yes" & .data[["Spont.ab"]] == "Yes" ~ "Yes",
-      .default = "Allocation"
-    ),
-    Induced.ab = dplyr::case_when(
-      .data[["Prev.preg"]] == "No" ~ NA,
-      .data[["Prev.preg"]] == "Yes" & .data[["Induced.ab"]] == "No" ~ "No",
-      .data[["Prev.preg"]] == "Yes" & is.na(.data[["Induced.ab"]]) ~ "No",
-      .data[["Prev.preg"]] == "Yes" & .data[["Induced.ab"]] == "Yes" ~ "Yes",
-      .default = "Allocation"
-    ),
-    Any.stillbirth = dplyr::case_when(
-      .data[["Prev.preg"]] == "No" ~ NA,
-      .data[["Prev.preg"]] == "Yes" & .data[["Any.stillbirth"]] == "No" ~ "No",
-      .data[["Prev.preg"]] == "Yes" & is.na(.data[["Any.stillbirth"]]) ~ "No",
-      .data[["Prev.preg"]] == "Yes" & .data[["Any.stillbirth"]] == "Yes" ~ "Yes",
-      .default = "Allocation"
-    ),
     dplyr::across(
       .cols = c(
-        "Prev.preg", "Spont.ab", "Induced.ab", "Any.stillbirth",
-        "Live.PTB", "Any.live.ptb.sb.sp.ab.in.ab", 
-        "have_living_child", "previous_live_preterm_birth"),
+        "Preg_duration_32", "Preg_duration_35", 
+        "Preg_duration_37", "Preg_duration_37_regression",
+        "Birthweight_2500", "Birthweight_2500_regression", "Birthweight_1500", 
+        "Total_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37"),
       .fns = \(x){
         factor(x, levels = c("No", "Yes"))
       }
