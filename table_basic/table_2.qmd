@@ -84,21 +84,21 @@ p_value_style <- function(x) {
 live_birth <- opt_data |> 
   gtsummary::tbl_summary(
     include = c(
-      "Total_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37"
+      "Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37"
     ),
     by = "Group",
     missing = "no",
     label = list(
-      "Total_Live_Birth" ~ "Total",
+      "Have_Live_Birth" ~ "Total",
       "Preterm_32" ~ "<32 wk",
       "Preterm_35" ~ "<35 wk",
       "Preterm_37" ~ "<37 wk"
     ),
     statistic = list(
-      c("Total_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ "{n} ({p})"
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ "{n} ({p})"
     ),
     digits = list(
-      c("Total_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ c(0, 1)
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ c(0, 1)
     )
   ) |> 
   gtsummary::add_p(
@@ -124,7 +124,7 @@ live_birth <- opt_data |>
     ~ .x |> 
       dplyr::mutate(
         `p.value` = dplyr::case_when(
-          .data[["variable"]] == "Total_Live_Birth" ~ NA,
+          .data[["variable"]] == "Have_Live_Birth" ~ NA,
           .default = .data[["p.value"]]
         )
       )
