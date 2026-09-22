@@ -1,5 +1,38 @@
 [
   {
+    "objectID": "table_basic/table_1.html",
+    "href": "table_basic/table_1.html",
+    "title": "Table 1",
+    "section": "",
+    "text": "In this tutorial, we try to create a table that is close to (Table 1 from the journal Treatment of Periodontal Disease and the Risk of Preterm Birth.\nWe start first by choosing the relevant columns to make Table 1.\nAs the final output looks complex, let’s break the task down to simpler tasks.",
+    "crumbs": [
+      "Table Making",
+      "Table 1"
+    ]
+  },
+  {
+    "objectID": "table_basic/table_1.html#building-age-race-and-education-summary-table",
+    "href": "table_basic/table_1.html#building-age-race-and-education-summary-table",
+    "title": "Table 1",
+    "section": "Building Age, Race and Education Summary Table",
+    "text": "Building Age, Race and Education Summary Table\nThis task involves creating a summary table for age, race and number of years of education stratified by treatment group.\nHere is the dataset required.\n\n\n\n\n\n\n\n\nLet’s try to build a summary table from opt_age_race_data using the default parameters of gtsummary::tbl_summary. We can see that table is giving a descriptive statistics of the overall population. It even display the statistics the patient ID.\n\n\n\n\n\n\n\n\n\ninclude and by parameter\nTo exclude the patient ID being displayed, we set the parameter include a vector of column names to include in the summary table. To stratify the table by treatment group, we set the parameter by = \"Group\".\n\n\n\n\n\n\n\n\n\n\ntype parameter\nObserve that the (continuous) variable Age is expressed as Median (Q1, Q3) while categorical variables are expressed as n (%). Variables with two categories (dichotomous) like White and Hisp are displayed differently to those with multiple categories like Education.\nWe can use the function gtsummary::assign_summary_type to identify the default summary type for each variable\n\n\n\n\n\n\n\n\nOn the other hand, the type parameter in the gtsummary::tbl_summary allows us to specify the summary type for each variable. The type parameter accepts a list of formulas as input.\nBelow is an example which we change the variable White and Black from dichotomous to categorical.\n\n\n\n\n\n\n\n\n\n\nstatistics parameter\nNext, we need to ensure that - age is expressed in “means±SD”. - race and education is expressed in “no. (%)” (already done in default mode).\nThis can be achieved by using the statistic parameter which help users specify the statistics presented in the table. Like the type parameter, it accepts a list of formulas as input.\nBelow are some examples on how it can be done.\n\nVariable NamesUse Helpers\n\n\nClick on the different tabs.\n\n\nWe can list each variable individually as a character vector.\n\n\n\n\n\n\n\n\n\n\nWe can use all_ helper functions like gtsummary::all_continuous() and gtsummary::all_categorical() to make the code concise.\n\n\n\n\n\n\n\n\n\n\n\nIt can be observed that the displayed values {mean}±{sd} and {n} ({p}) are interpreted using glue::glue() syntax: a name that appears between curly brackets will be interpreted as a function name and the formatted result of that function will be placed in the table.\nIn gtsummary, some precalculated statistics availiable for display are\nFor categorical/dichotomous variable:\n\n{n} for frequency.\n{N} for denominator.\n{p} for percent.\n\nFor continuous variable:\n\n{median} for median.\n{mean} for mean.\n{sd} for standard deviation.\n{min} for minimum.\n{max} for maximum.\n{p##} for percentile where ## is an integer from 0 to 100.For example, {p25} is the 25th percentile calculating using p25: quantile(probs=0.25, type=2).\n\nA full list is provided here.\nFeel free to experiment with the different statistics below.\n\nSingle LineMultiple Line\n\n\nClick on the different tabs.\n\n\n\n\n\n\n\n\n\n\n\n\nSometimes, there may be a need to display continuous variables statistical summaries in multiple lines. To do that, you can change the variable type from continuous to continuous2.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFormatting in gtsummary\nIf we take a look at (Table 1 from the journal Treatment of Periodontal Disease and the Risk of Preterm Birth, the mean, standard deviation (sd) and percentage are expressed in 1 decimal place.\nIn gtsummary, we can specify the numerical format to display a given statistical result using the digits parameter. Though it accepts a list of formulas as input, it is also restricted based on what input is given to the statistic parameter.\nBefore we get to the digits parameter, let’s take a look at some default formatting from gtsummary\n\nstyle_number()style_percent()style_pvalue()style_ratio()style_ratio()\n\n\nClick on the different tabs.\n\n\ngtsummary::style_number is the default style that gtsummary used internally to style the number.\n\n\n\n\n\n\n\n\nIt has many flexible parameter to use and explore.\n\n\n\n\n\n\n\n\n\n\ngtsummary::style_percent is the default style that gtsummary used internally to style percentages in proportions of categorical variables.\nObserve that\n\nAll values are multiplied by 100.\nNegative values are set to NA.\nPositive numbers less than 0.1% are represented as &lt;0.1.\n\nNumbers less than 10% (exclusive) are rounded to digits + 1 places.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndigits parameter",
+    "crumbs": [
+      "Table Making",
+      "Table 1"
+    ]
+  },
+  {
+    "objectID": "table_basic/table_1.html#just-the-code",
+    "href": "table_basic/table_1.html#just-the-code",
+    "title": "Table 1",
+    "section": "Just the code",
+    "text": "Just the code",
+    "crumbs": [
+      "Table Making",
+      "Table 1"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "HAT Workshop 20261021",
