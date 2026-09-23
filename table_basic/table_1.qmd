@@ -1,5 +1,5 @@
 ---
-title: "Table 1"
+title: "Building Age, Race and Education Summary for Table 1"
 author: "Jeremy Selva"
 webr:
   # resources:
@@ -34,7 +34,7 @@ opt_data <- readRDS("data/opt_data.rds") |>
 
 As the final output looks complex, let's break the task down to simpler tasks.
 
-## Building Age, Race and Education Summary Table
+## Age, Race and Education Data
 
 This task involves creating a summary table for age, race and number of years of education stratified by treatment group.
 
@@ -57,6 +57,8 @@ opt_age_race_data |>
     defaultPageSize = 5,
     minRows = 5)
 ```
+
+## Using `tbl_summary`
 
 Let's try to build a summary table from `opt_age_race_data` using the default parameters of [`gtsummary::tbl_summary`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html){target="_blank"}. We can see that table is giving a descriptive statistics of the overall population. It even display the statistics the patient ID.
 
@@ -81,7 +83,7 @@ To exclude the patient ID being displayed, we set the parameter `include` a vect
 opt_age_race_table <- opt_age_race_data |>
   gtsummary::tbl_summary(
     include = c("Age", "White", "Black", "Hisp", "Education"),
-    by = "Group",    
+    by = "Group"
   )
 
 opt_age_race_table
@@ -121,7 +123,7 @@ opt_age_race_table <- opt_age_race_data |>
     type = list(
       c("White", "Black") ~ "categorical"
     ),
-    by = "Group",    
+    by = "Group"
   )
 
 opt_age_race_table
@@ -159,7 +161,7 @@ opt_age_race_table <- opt_age_race_data |>
       c("Age") ~ "{mean}±{sd}",
       c("White", "Black", "Hisp", "Education") ~ "{n} ({p})"
     ),
-    by = "Group",    
+    by = "Group"
   )
 
 opt_age_race_table
@@ -182,7 +184,7 @@ opt_age_race_table <- opt_age_race_data |>
       gtsummary::all_continuous() ~ "{mean}±{sd}",
       gtsummary::all_categorical() ~ "{n} ({p})"
     ),
-    by = "Group",    
+    by = "Group"
   )
 
 opt_age_race_table
@@ -192,7 +194,7 @@ opt_age_race_table
 
 It can be observed that the displayed values `{mean}±{sd}` and `{n} ({p})` are interpreted using [glue::glue()](https://glue.tidyverse.org/reference/glue.html){target="_blank"} syntax: a name that appears between curly brackets will be interpreted as a function name and the formatted result of that function will be placed in the table.
 
-In `gtsummary`, some precalculated statistics availiable for display are
+In `gtsummary`, some pre-calculated statistics available for display are
 
 For categorical/dichotomous variable:
 
@@ -266,34 +268,28 @@ opt_age_race_table
 
 ### Formatting in `gtsummary`
 
-If we take a look at ([Table 1](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg){target="_blank"} from the journal [Treatment of Periodontal Disease and the Risk of Preterm Birth](https://www.nejm.org/doi/full/10.1056/NEJMoa062249){target="_blank"}, the mean, standard deviation (sd) and percentage are expressed in 1 decimal place.
-
-In `gtsummary`, we can specify the numerical format to display a given statistical result using the `digits` parameter. Though it accepts a [list of formulas](https://www.danieldsjoberg.com/gtsummary/reference/syntax.html#formula-and-list-selectors){target="_blank"} as input, it is also restricted based on what input is given to the `statistic` parameter. 
-
 Before we get to the `digits` parameter, let's take a look at some default formatting from `gtsummary`
 
 ::: {.panel-tabset}
 
-### 
+#### 
 Click on the different tabs.
 
-### style_number()
+#### style_number()
 
-[`gtsummary::style_number`](https://www.danieldsjoberg.com/gtsummary/reference/style_number.html){target="_blank"} is the default style that `gtsummary` used internally to style the number.
+[`gtsummary::style_number`](https://www.danieldsjoberg.com/gtsummary/reference/style_number.html){target="_blank"} is the default style that `gtsummary` used internally to style the number. It rounds numbers to a fixed number of decimal places specified by the `digits` argument.
 
 ```{webr}
 #| caption: style number in gtsummary
 #| label: style number in gtsummary simple
-#| envir: table_1
 c(0.111, 12.3) |> gtsummary::style_number(digits = 2)
 ```
 
-It has many flexible parameter to use and explore.
+It has many flexible parameter to use and explore. The `digits` parameter can accept a vector of numbers to indicate how many decimal places to express for each number.
 
 ```{webr}
 #| caption: style number in gtsummary
 #| label: style number in gtsummary advanced
-#| envir: table_1
 c(1110, 1200000.36, NA, 0.25) |> 
   gtsummary::style_number(
     digits = c(2, 0, 0, 5),
@@ -302,12 +298,40 @@ c(1110, 1200000.36, NA, 0.25) |>
     scale = 0.001,
     prefix = "$",
     suffix = "K",
-    na = "Not Applicable",
+    na = "Not Applicable"
   )
 
 ```
 
-### style_percent()
+#### style_sigfig()
+
+[`gtsummary::style_sigfig`](https://www.danieldsjoberg.com/gtsummary/reference/style_sigfig.html){target="_blank"} rounds numbers to a minimum number of significant figures (significant digits) via `digits`, adapting the decimal count dynamically depending on the magnitude of the number.
+
+```{webr}
+#| caption: style sigfig in gtsummary
+#| label: style sigfig in gtsummary simple
+c(0.111, 12.3) |> gtsummary::style_sigfig(digits = 2)
+```
+
+Unlike [`gtsummary::style_number`](https://www.danieldsjoberg.com/gtsummary/reference/style_number.html){target="_blank"}, the `digits` parameter can only accept one number.
+
+```{webr}
+#| caption: style sigfig in gtsummary
+#| label: style sigfig in gtsummary advanced
+c(1110, 1200000.36, NA, 0.25) |> 
+  gtsummary::style_sigfig(
+    digits = 2,
+    big.mark = ",",
+    decimal.mark = ".",
+    scale = 0.001,
+    prefix = "$",
+    suffix = "K",
+    na = "Not Applicable"
+  )
+
+```
+
+#### style_percent()
 
 [`gtsummary::style_percent`](https://www.danieldsjoberg.com/gtsummary/reference/style_percent.html){target="_blank"} is the default style that `gtsummary` used internally to style percentages in proportions of categorical variables.
 
@@ -321,7 +345,6 @@ Observe that
 ```{webr}
 #| caption: style percent in gtsummary
 #| label: style percent in gtsummary simple
-#| envir: table_1
 percent_vals <- c(
   -1, 0, 
   0.0001, 0.0005,
@@ -334,35 +357,395 @@ percent_vals |>
   gtsummary::style_percent(digits = 0)
 ```
 
-### style_pvalue()
+#### style_ratio()
 
-### style_ratio()
+[`gtsummary::style_ratio`](https://www.danieldsjoberg.com/gtsummary/reference/style_sigfig.html){target="_blank"} is the default style that `gtsummary` used internally to format relative risk and odds ratio.
 
-### style_ratio()
+Observe that 
+
+- Values between -1 and 1 will display `digits` number of significant digits based on [`gtsummary::style_sigfig`](https://www.danieldsjoberg.com/gtsummary/reference/style_sigfig.html){target="_blank"}.
+- Values greater than 1 (or less than -1) will display `digits + 1` number of significant digits based on [`gtsummary::style_sigfig`](https://www.danieldsjoberg.com/gtsummary/reference/style_sigfig.html){target="_blank"}.
+
+```{webr}
+#| caption: style ratio in gtsummary
+#| label: style ratio in gtsummary simple
+ratio_vals <- c(
+  -101.234, -12.345,
+  -1.1234, -0.9, -0.123,
+  0,
+  0.123, 0.9, 
+  1,
+  1.1234, 12.345, 101.234
+)
+  
+ratio_vals |> 
+  gtsummary::style_ratio(digits = 2)
+```
+
+#### style_pvalue()
+
+[`gtsummary::style_pvalue`](https://www.danieldsjoberg.com/gtsummary/reference/style_pvalue.html){target="_blank"} is the default style that `gtsummary` used internally to format *p* values.
+
+Observe that 
+
+- Values greater than 1 are set to `NA`.
+- Negative values are set to `NA`.
+- `digits` can only hold value `1`, `2`, or `3`. It determines how many decimal places are presented.
+-  High *p* values have a limit based on the value of `digits`.
+   - When `digits` is `1`, values more than 0.9 is represented as `>0.9`.
+   - When `digits` is `2`, values more than 0.99 is represented as `>0.99`.
+   - When `digits` is `3`, values more than 0.999 is represented as `>0.999`.
+- *p* values less than 0.001 are represented as `<0.001`.   
+
+```{webr}
+#| caption: p value in gtsummary
+#| label: p value in gtsummary simple
+pvals <- c(
+  1.5, -1,
+  1, 
+  0.999, 0.99, 0.9,
+  0.5, 0.25, 0.2,  
+  0.10, 0.0999,
+  0.01, 0.001, 
+  0.00099, 0.0001, 0
+)
+  
+pvals |> 
+  gtsummary::style_pvalue(digits = 2)
+```
+
+:::
+
+Similar to the above `style_*()`functions, `gtsummary` has [`label_style_*()`](https://www.danieldsjoberg.com/gtsummary/reference/label_style.html){target="_blank"} functions that takes the same inputs as the `style_*()`functions but returns a "wrapper" function that perform the styling.
+
+::: {.panel-tabset}
+
+#### 
+Click on the different tabs.
+
+#### label_style_number()
+
+```{webr}
+#| caption: label style number in gtsummary
+#| label: label style number in gtsummary advanced
+my_style <- gtsummary::label_style_number(
+  digits = 1,
+  big.mark = ",",
+  decimal.mark = ".",
+  scale = 0.001,
+  prefix = "$",
+  suffix = "K",
+  na = "Not Applicable")
+
+my_style(c(1110, 1200000.36, NA))
+```
+
+#### label_style_sigfig
+
+```{webr}
+#| caption: label style sigfig in gtsummary
+#| label: label style sigfig in gtsummary advanced
+my_style <- gtsummary::label_style_sigfig(
+  digits = 2,
+  big.mark = ",",
+  decimal.mark = ".",
+  scale = 0.001,
+  prefix = "$",
+  suffix = "K",
+  na = "Not Applicable"
+)
+
+my_style(c(1110, 1200000.36, NA, 0.25))
+```
+
+#### label_style_percent
+
+```{webr}
+#| caption: label style percent in gtsummary
+#| label: label style percent in gtsummary simple
+my_style <- gtsummary::label_style_percent(
+  digits = 0
+)
+
+percent_vals <- c(
+  -1, 0, 
+  0.0001, 0.0005,
+  0.001 , 0.005, 
+  0.01, 0.05,
+  0.10, 0.445, 0.99, 1, 1.45
+)
+
+my_style(percent_vals)
+```
+
+#### label_style_ratio
+
+```{webr}
+#| caption: label style ratio in gtsummary
+#| label: label style ratio in gtsummary simple
+my_style <- gtsummary::label_style_ratio(
+  digits = 2
+)
+
+ratio_vals <- c(
+  -101.234, -12.345,
+  -1.1234, -0.9, -0.123,
+  0,
+  0.123, 0.9, 
+  1,
+  1.1234, 12.345, 101.234
+)
+
+my_style(ratio_vals)
+```
+
+#### label_style_pvalue
+
+```{webr}
+#| caption: label style pvalue in gtsummary
+#| label: label style pvalue in gtsummary simple
+my_style <- gtsummary::label_style_pvalue(
+  digits = 2
+)
+
+pvals <- c(
+  1.5, -1,
+  1, 
+  0.999, 0.99, 0.9,
+  0.5, 0.25, 0.2,  
+  0.10, 0.0999,
+  0.01, 0.001, 
+  0.00099, 0.0001, 0
+)
+
+my_style(pvals)
+```
 
 :::
 
 ### `digits` parameter
 
-## Just the code
+If we take a look at ([Table 1](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg){target="_blank"} from the journal [Treatment of Periodontal Disease and the Risk of Preterm Birth](https://www.nejm.org/doi/full/10.1056/NEJMoa062249){target="_blank"}, the mean, standard deviation (sd) and percentage are expressed in 1 decimal place.
 
+In `gtsummary`, we can specify the numerical format to display a given statistical result using the `digits` parameter. Though it accepts a [list of formulas](https://www.danieldsjoberg.com/gtsummary/reference/syntax.html#formula-and-list-selectors){target="_blank"} as input, it is also restricted based on what input is given to the `statistic` parameter.
+
+Looking at the example below,
+
+-  In the case of the statistic is `{mean} ({sd})`, passing the value `1` or `c(1, 1)` is the same as passing the output of `gtsummary::label_style_number(digits=1)` for both `{mean}` and `{sd}`.
+-  In the case of the statistic is `{n} ({p})`, passing the value `c(0, 1)` is the same as passing the output of `gtsummary::label_style_number(digits=0)` for both `{n}` and `gtsummary::label_style_percent(digits=1)` for `{p}`.
 
 ```{webr}
-#| caption: age race and education summary table
-#| label: age race and education summary table
+#| caption: age race and education summary table with statistics formatting
+#| label: age race and education summary table with statistics formatting
+#| envir: table_1
+opt_age_race_table <- opt_age_race_data |>
+  gtsummary::tbl_summary(
+    include = c("Age", "White", "Black", "Hisp", "Education"),
+    by = "Group",
+    statistic = list(
+      gtsummary::all_continuous() ~ "{mean}±{sd}",
+      gtsummary::all_categorical() ~ "{n} ({p})"
+    ),
+    digits = list(
+      gtsummary::all_continuous() ~ 1,
+      gtsummary::all_categorical() ~ c(0, 1)
+    )
+  )
+
+opt_age_race_table
+```
+
+### `label` parameter
+
+Currently, the column names of the dataset `opt_age_race_data` are used as the descriptive labels in the output table. We can update the descriptive labels printed using the `label` parameter. It accepts a [list of formulas](https://www.danieldsjoberg.com/gtsummary/reference/syntax.html#formula-and-list-selectors){target="_blank"} as input.
+
+In the example below, we rename the following to match the ([Table 1](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg){target="_blank"} in the publication.
+
+-  `Age` to `Age - yr`.
+-  `Hisp` to `Hispanic`.
+-  `Education` to `Education - no. (%)`.
+
+```{webr}
+#| caption: age race and education summary table with label updates
+#| label: age race and education summary table with label updates
+#| envir: table_1
+opt_age_race_table <- opt_age_race_data |>
+  gtsummary::tbl_summary(
+    include = c("Age", "White", "Black", "Hisp", "Education"),
+    by = "Group",
+    label = list(
+      "Age" ~ "Age - yr",
+      "Hisp" ~ "Hispanic",
+      "Education" ~ "Education - no. (%)"
+    ),
+    statistic = list(
+      gtsummary::all_continuous() ~ "{mean}±{sd}",
+      gtsummary::all_categorical() ~ "{n} ({p})"
+    ),
+    digits = list(
+      gtsummary::all_continuous() ~ 1,
+      gtsummary::all_categorical() ~ c(0, 1)
+    )
+  )
+
+opt_age_race_table
+```
+
+## Variable Group Header
+
+You will observe in [Table 1](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg){target="_blank"}, there is a group header added above `White`, `Black` and `Hispanic` called `Race or ethnic group - no. (%)"`. Unlike `Education`, we cannot create a categorical column `Race or ethnic group - no. (%)"` because some patients have mixed race/ethnicity (Both White and Hispanic). 
+
+Instead, we can use [`add_variable_group_header`](https://www.danieldsjoberg.com/gtsummary/reference/add_variable_group_header.html){target="_blank"} function in `gtsummary` to insert a custom section header row into a summary table and indents a chosen group of variables underneath it.
+
+In the example below, we indicate the desired header name to the `header` parameter and the column names to group to the `variables` parameter.
+
+```{webr}
+#| caption: age race and education summary table with group headers
+#| label: age race and education summary table with group headers
+#| envir: table_1
+opt_age_race_table <- opt_age_race_data |>
+  gtsummary::tbl_summary(
+    include = c("Age", "White", "Black", "Hisp", "Education"),
+    by = "Group",
+    label = list(
+      "Age" ~ "Age - yr",
+      "Hisp" ~ "Hispanic",
+      "Education" ~ "Education - no. (%)"
+    ),
+    statistic = list(
+      gtsummary::all_continuous() ~ "{mean}±{sd}",
+      gtsummary::all_categorical() ~ "{n} ({p})"
+    ),
+    digits = list(
+      gtsummary::all_continuous() ~ 1,
+      gtsummary::all_categorical() ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Race or ethnic group - no. (%)",
+    variables = c("White", "Black", "Hisp")
+  )
+
+opt_age_race_table
+```
+
+## *p* values
+
+We then use [`gtsummary::add_p`](https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html){target="_blank"} to add *p* values to tables created using [`gtsummary::tbl_summary`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html){target="_blank"}.
+
+::: {.panel-tabset}
+
+#### 
+Click on the different tabs.
+
+#### Defaults hidden
+
+By default based on the documentation, as 
+
+- the `by` variable used (`Group`) in [`gtsummary::tbl_summary`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html){target="_blank"} has two variables (`Control` and `Treatment`).
+- `group` variable in [`gtsummary::add_p`](https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html){target="_blank"} is `NULL` (not doing paired *t* test).
+- `adj.vars` variable in [`gtsummary::add_p`](https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html){target="_blank"} is `NULL` (not doing ANCOVA).
+- Each categorical groups to compare has at least 5 people. 
+
+Wilcoxon rank-sum test (`wilcox.test`) is applied to all continuous variables and Pearson's Chi-squared Test for Count Data without continuity correction (`chisq.test.no.correct`) is applied to all categorical variables.
+
+Also, the number of decimal place used for the *p* values by default is 1, hence we update the `pvalue_fun` input to `gtsummary::label_style_pvalue(digits = 2)`.
+
+```{webr}
+#| caption: age race and education summary table with p values
+#| label: age race and education summary table with p values simple
+#| envir: table_1
+opt_age_race_table <- opt_age_race_data |>
+  gtsummary::tbl_summary(
+    include = c("Age", "White", "Black", "Hisp", "Education"),
+    by = "Group",
+    label = list(
+      "Age" ~ "Age - yr",
+      "Hisp" ~ "Hispanic",
+      "Education" ~ "Education - no. (%)"
+    ),
+    statistic = list(
+      gtsummary::all_continuous() ~ "{mean}±{sd}",
+      gtsummary::all_categorical() ~ "{n} ({p})"
+    ),
+    digits = list(
+      gtsummary::all_continuous() ~ 1,
+      gtsummary::all_categorical() ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Race or ethnic group - no. (%)",
+    variables = c("White", "Black", "Hisp")
+  )|> 
+  gtsummary::add_p(
+    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)
+  ) 
+
+opt_age_race_table
+```
+
+#### Defaults explicit
+
+```{webr}
+#| caption: age race and education summary table with p values
+#| label: age race and education summary table with p values advanced
+#| envir: table_1
+opt_age_race_table <- opt_age_race_data |>
+  gtsummary::tbl_summary(
+    include = c("Age", "White", "Black", "Hisp", "Education"),
+    by = "Group",
+    label = list(
+      "Age" ~ "Age - yr",
+      "Hisp" ~ "Hispanic",
+      "Education" ~ "Education - no. (%)"
+    ),
+    statistic = list(
+      gtsummary::all_continuous() ~ "{mean}±{sd}",
+      gtsummary::all_categorical() ~ "{n} ({p})"
+    ),
+    digits = list(
+      gtsummary::all_continuous() ~ 1,
+      gtsummary::all_categorical() ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Race or ethnic group - no. (%)",
+    variables = c("White", "Black", "Hisp")
+  )|> 
+  gtsummary::add_p(
+    test = list(
+      gtsummary::all_continuous() ~ "wilcox.test",
+      gtsummary::all_categorical() ~ "chisq.test.no.correct"
+    ),
+    test.args = list(
+      gtsummary::all_tests("wilcox.test") ~ list(alternative = "two.sided", correct = TRUE),
+    ),
+    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)
+  ) 
+
+opt_age_race_table
+```
+
+:::
+
+List of comparison tests that available within `gtsummary` or ways to create custom statistical tests can be found [here](https://www.danieldsjoberg.com/gtsummary/reference/tests.html){target="_blank"}.
+
+## Remove footnotes
+
+Finally, we use [`gtsummary::remove_footnote_header`](https://www.danieldsjoberg.com/gtsummary/reference/modify_footnote2.html){target="_blank"} to remove any unnecessary footnote as this will be added in final stage.
+
+```{webr}
+#| caption: age race and education summary table remove footnotes
+#| label: age race and education summary table remove footnotes
 #| envir: table_1
 # add_p() needs R package broom
 opt_age_race_table <- opt_age_race_data |>
   gtsummary::tbl_summary(
-    include = c(
-      "Age", "White", "Black", "Hisp", "Education",
-    ),
+    include = c("Age", "White", "Black", "Hisp", "Education"),
     by = "Group",
     missing = "no",
     label = list(
       "Age" ~ "Age - yr",
-      "White" ~ "White",
-      "Black" ~ "Black",
       "Hisp" ~ "Hispanic",
       "Education" ~ "Education - no. (%)"
     ),
@@ -386,6 +769,10 @@ opt_age_race_table <- opt_age_race_data |>
 
 opt_age_race_table
 ```
+
+## Steps ahead
+
+From this section, we have managed to create the summary table for age, race and education for Table 1. In the next section, we proceed to build the other (previous pregnancy and clinical) summary tables.
 
 ```{webr}
 #| caption: age previous preg summary table
