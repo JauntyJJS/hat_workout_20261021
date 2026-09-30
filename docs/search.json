@@ -1,79 +1,156 @@
 [
   {
-    "objectID": "table_basic/table_1.html",
-    "href": "table_basic/table_1.html",
-    "title": "Building Age, Race and Education Summary for Table 1",
+    "objectID": "table_basic/table_1.html#using-tbl_stack",
+    "href": "table_basic/table_1.html#using-tbl_stack",
+    "title": "Building Table 1",
+    "section": "Using tbl_stack",
+    "text": "Using tbl_stack\nIn the previous section, we have completed creating our three tables as shown below.\n\nAge, Race, EducationPrevious PregnancyClinical\n\n\nClick on the different tabs to see the tables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe use gtsummary::tbl_stack to append the three tables together.",
+    "crumbs": [
+      "Table Making",
+      "Building Table 1"
+    ]
+  },
+  {
+    "objectID": "table_basic/table_1.html#understanding-gtsummary-object",
+    "href": "table_basic/table_1.html#understanding-gtsummary-object",
+    "title": "Building Table 1",
+    "section": "Understanding gtsummary object",
+    "text": "Understanding gtsummary object\nWe can now work on customising the table itself. To do this, we need to understand more about the gtsummary object.\nEvery gtsummary object is a list comprising of, at minimum table_body and table_styling. Here is how you can extract them.",
+    "crumbs": [
+      "Table Making",
+      "Building Table 1"
+    ]
+  },
+  {
+    "objectID": "table_basic/age_race_edu_table_1.html",
+    "href": "table_basic/age_race_edu_table_1.html",
+    "title": "Preparation for Table 1",
     "section": "",
     "text": "In this tutorial, we try to create a table that is close to (Table 1 from the journal Treatment of Periodontal Disease and the Risk of Preterm Birth.\nWe start first by choosing the relevant columns to make Table 1.\nAs the final output looks complex, let’s break the task down to simpler tasks.",
     "crumbs": [
       "Table Making",
-      "Building Age, Race and Education Summary for Table 1"
+      "Preparation for Table 1"
     ]
   },
   {
-    "objectID": "table_basic/table_1.html#age-race-and-education-data",
-    "href": "table_basic/table_1.html#age-race-and-education-data",
-    "title": "Building Age, Race and Education Summary for Table 1",
+    "objectID": "table_basic/age_race_edu_table_1.html#age-race-and-education-data",
+    "href": "table_basic/age_race_edu_table_1.html#age-race-and-education-data",
+    "title": "Preparation for Table 1",
     "section": "Age, Race and Education Data",
     "text": "Age, Race and Education Data\nThis task involves creating a summary table for age, race and number of years of education stratified by treatment group.\nHere is the dataset required.",
     "crumbs": [
       "Table Making",
-      "Building Age, Race and Education Summary for Table 1"
+      "Preparation for Table 1"
     ]
   },
   {
-    "objectID": "table_basic/table_1.html#using-tbl_summary",
-    "href": "table_basic/table_1.html#using-tbl_summary",
-    "title": "Building Age, Race and Education Summary for Table 1",
+    "objectID": "table_basic/age_race_edu_table_1.html#using-tbl_summary",
+    "href": "table_basic/age_race_edu_table_1.html#using-tbl_summary",
+    "title": "Preparation for Table 1",
     "section": "Using tbl_summary",
     "text": "Using tbl_summary\nLet’s try to build a summary table from opt_age_race_data using the default parameters of gtsummary::tbl_summary. We can see that table is giving a descriptive statistics of the overall population. It even display the statistics the patient ID.\n\n\n\n\n\n\n\n\n\ninclude and by parameter\nTo exclude the patient ID being displayed, we set the parameter include a vector of column names to include in the summary table. To stratify the table by treatment group, we set the parameter by = \"Group\".\n\n\n\n\n\n\n\n\n\n\ntype parameter\nObserve that the (continuous) variable Age is expressed as Median (Q1, Q3) while categorical variables are expressed as n (%). Variables with two categories (dichotomous) like White and Hisp are displayed differently to those with multiple categories like Education.\nWe can use the function gtsummary::assign_summary_type to identify the default summary type for each variable\n\n\n\n\n\n\n\n\nOn the other hand, the type parameter in the gtsummary::tbl_summary allows us to specify the summary type for each variable. The type parameter accepts a list of formulas as input.\nBelow is an example which we change the variable White and Black from dichotomous to categorical.\n\n\n\n\n\n\n\n\n\n\nstatistics parameter\nNext, we need to ensure that - age is expressed in “means±SD”. - race and education is expressed in “no. (%)” (already done in default mode).\nThis can be achieved by using the statistic parameter which help users specify the statistics presented in the table. Like the type parameter, it accepts a list of formulas as input.\nBelow are some examples on how it can be done.\n\nVariable NamesUse Helpers\n\n\nClick on the different tabs.\n\n\nWe can list each variable individually as a character vector.\n\n\n\n\n\n\n\n\n\n\nWe can use all_ helper functions like gtsummary::all_continuous() and gtsummary::all_categorical() to make the code concise.\n\n\n\n\n\n\n\n\n\n\n\nIt can be observed that the displayed values {mean}±{sd} and {n} ({p}) are interpreted using glue::glue() syntax: a name that appears between curly brackets will be interpreted as a function name and the formatted result of that function will be placed in the table.\nIn gtsummary, some pre-calculated statistics available for display are\nFor categorical/dichotomous variable:\n\n{n} for frequency.\n{N} for denominator.\n{p} for percent.\n\nFor continuous variable:\n\n{median} for median.\n{mean} for mean.\n{sd} for standard deviation.\n{min} for minimum.\n{max} for maximum.\n{p##} for percentile where ## is an integer from 0 to 100.For example, {p25} is the 25th percentile calculating using p25: quantile(probs=0.25, type=2).\n\nA full list is provided here.\nFeel free to experiment with the different statistics below.\n\nSingle LineMultiple Line\n\n\nClick on the different tabs.\n\n\n\n\n\n\n\n\n\n\n\n\nSometimes, there may be a need to display continuous variables statistical summaries in multiple lines. To do that, you can change the variable type from continuous to continuous2.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFormatting in gtsummary\nBefore we get to the digits parameter, let’s take a look at some default formatting from gtsummary\n\nstyle_number()style_sigfig()style_percent()style_ratio()style_pvalue()\n\n\nClick on the different tabs.\n\n\ngtsummary::style_number is the default style that gtsummary used internally to style the number. It rounds numbers to a fixed number of decimal places specified by the digits argument.\n\n\n\n\n\n\n\n\nIt has many flexible parameter to use and explore. The digits parameter can accept a vector of numbers to indicate how many decimal places to express for each number.\n\n\n\n\n\n\n\n\n\n\ngtsummary::style_sigfig rounds numbers to a minimum number of significant figures (significant digits) via digits, adapting the decimal count dynamically depending on the magnitude of the number.\n\n\n\n\n\n\n\n\nUnlike gtsummary::style_number, the digits parameter can only accept one number.\n\n\n\n\n\n\n\n\n\n\ngtsummary::style_percent is the default style that gtsummary used internally to style percentages in proportions of categorical variables.\nObserve that\n\nAll values are multiplied by 100.\nNegative values are set to NA.\nPositive numbers less than 0.1% are represented as &lt;0.1.\n\nNumbers less than 10% (exclusive) are rounded to digits + 1 places.\n\n\n\n\n\n\n\n\n\n\n\ngtsummary::style_ratio is the default style that gtsummary used internally to format relative risk and odds ratio.\nObserve that\n\nValues between -1 and 1 will display digits number of significant digits based on gtsummary::style_sigfig.\nValues greater than 1 (or less than -1) will display digits + 1 number of significant digits based on gtsummary::style_sigfig.\n\n\n\n\n\n\n\n\n\n\n\ngtsummary::style_pvalue is the default style that gtsummary used internally to format p values.\nObserve that\n\nValues greater than 1 are set to NA.\nNegative values are set to NA.\ndigits can only hold value 1, 2, or 3. It determines how many decimal places are presented.\nHigh p values have a limit based on the value of digits.\n\nWhen digits is 1, values more than 0.9 is represented as &gt;0.9.\nWhen digits is 2, values more than 0.99 is represented as &gt;0.99.\nWhen digits is 3, values more than 0.999 is represented as &gt;0.999.\n\np values less than 0.001 are represented as &lt;0.001.\n\n\n\n\n\n\n\n\n\n\n\n\nSimilar to the above style_*()functions, gtsummary has label_style_*() functions that takes the same inputs as the style_*()functions but returns a “wrapper” function that perform the styling.\n\nlabel_style_number()label_style_sigfiglabel_style_percentlabel_style_ratiolabel_style_pvalue\n\n\nClick on the different tabs.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndigits parameter\nIf we take a look at (Table 1 from the journal Treatment of Periodontal Disease and the Risk of Preterm Birth, the mean, standard deviation (sd) and percentage are expressed in 1 decimal place.\nIn gtsummary, we can specify the numerical format to display a given statistical result using the digits parameter. Though it accepts a list of formulas as input, it is also restricted based on what input is given to the statistic parameter.\nLooking at the example below,\n\nIn the case of the statistic is {mean} ({sd}), passing the value 1 or c(1, 1) is the same as passing the output of gtsummary::label_style_number(digits=1) for both {mean} and {sd}.\nIn the case of the statistic is {n} ({p}), passing the value c(0, 1) is the same as passing the output of gtsummary::label_style_number(digits=0) for both {n} and gtsummary::label_style_percent(digits=1) for {p}.\n\n\n\n\n\n\n\n\n\n\n\nlabel parameter\nCurrently, the column names of the dataset opt_age_race_data are used as the descriptive labels in the output table. We can update the descriptive labels printed using the label parameter. It accepts a list of formulas as input.\nIn the example below, we rename the following to match the (Table 1 in the publication.\n\nAge to Age - yr.\nHisp to Hispanic.\nEducation to Education - no. (%).",
     "crumbs": [
       "Table Making",
-      "Building Age, Race and Education Summary for Table 1"
+      "Preparation for Table 1"
     ]
   },
   {
-    "objectID": "table_basic/table_1.html#variable-group-header",
-    "href": "table_basic/table_1.html#variable-group-header",
-    "title": "Building Age, Race and Education Summary for Table 1",
+    "objectID": "table_basic/age_race_edu_table_1.html#variable-group-header",
+    "href": "table_basic/age_race_edu_table_1.html#variable-group-header",
+    "title": "Preparation for Table 1",
     "section": "Variable Group Header",
     "text": "Variable Group Header\nYou will observe in Table 1, there is a group header added above White, Black and Hispanic called Race or ethnic group - no. (%)\". Unlike Education, we cannot create a categorical column Race or ethnic group - no. (%)\" because some patients have mixed race/ethnicity (Both White and Hispanic).\nInstead, we can use add_variable_group_header function in gtsummary to insert a custom section header row into a summary table and indents a chosen group of variables underneath it.\nIn the example below, we indicate the desired header name to the header parameter and the column names to group to the variables parameter.",
     "crumbs": [
       "Table Making",
-      "Building Age, Race and Education Summary for Table 1"
+      "Preparation for Table 1"
     ]
   },
   {
-    "objectID": "table_basic/table_1.html#p-values",
-    "href": "table_basic/table_1.html#p-values",
-    "title": "Building Age, Race and Education Summary for Table 1",
+    "objectID": "table_basic/age_race_edu_table_1.html#p-values",
+    "href": "table_basic/age_race_edu_table_1.html#p-values",
+    "title": "Preparation for Table 1",
     "section": "p values",
-    "text": "p values\nWe then use gtsummary::add_p to add p values to tables created using gtsummary::tbl_summary.\n\nDefaults hiddenDefaults explicit\n\n\nClick on the different tabs.\n\n\nBy default based on the documentation, as\n\nthe by variable used (Group) in gtsummary::tbl_summary has two variables (Control and Treatment).\ngroup variable in gtsummary::add_p is NULL (not doing paired t test).\nadj.vars variable in gtsummary::add_p is NULL (not doing ANCOVA).\nEach categorical groups to compare has at least 5 people.\n\nWilcoxon rank-sum test (wilcox.test) is applied to all continuous variables and Pearson’s Chi-squared Test for Count Data without continuity correction (chisq.test.no.correct) is applied to all categorical variables.\nAlso, the number of decimal place used for the p values by default is 1, hence we update the pvalue_fun input to gtsummary::label_style_pvalue(digits = 2).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nList of comparison tests that available within gtsummary or ways to create custom statistical tests can be found here.",
+    "text": "p values\nWe then use gtsummary::add_p to add p values to tables created using gtsummary::tbl_summary.\nPlease note that gtsummary::add_p requires the R package broom for it to work.\n\nDefaults hiddenDefaults explicit\n\n\nClick on the different tabs.\n\n\nBy default based on the documentation, as\n\nthe by variable used (Group) in gtsummary::tbl_summary has two variables (Control and Treatment).\ngroup variable in gtsummary::add_p is NULL (not doing paired t test).\nadj.vars variable in gtsummary::add_p is NULL (not doing ANCOVA).\nEach categorical groups to compare has at least 5 people.\n\nWilcoxon rank-sum test (wilcox.test) is applied to all continuous variables and Pearson’s Chi-squared Test for Count Data without continuity correction (chisq.test.no.correct) is applied to all categorical variables.\nAlso, the number of decimal place used for the p values by default is 1, hence we update the pvalue_fun input to gtsummary::label_style_pvalue(digits = 2).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nList of comparison tests that available within gtsummary or ways to create custom statistical tests can be found here.",
     "crumbs": [
       "Table Making",
-      "Building Age, Race and Education Summary for Table 1"
+      "Preparation for Table 1"
     ]
   },
   {
-    "objectID": "table_basic/table_1.html#remove-footnotes",
-    "href": "table_basic/table_1.html#remove-footnotes",
-    "title": "Building Age, Race and Education Summary for Table 1",
+    "objectID": "table_basic/age_race_edu_table_1.html#remove-footnotes",
+    "href": "table_basic/age_race_edu_table_1.html#remove-footnotes",
+    "title": "Preparation for Table 1",
     "section": "Remove footnotes",
     "text": "Remove footnotes\nFinally, we use gtsummary::remove_footnote_header to remove any unnecessary footnote as this will be added in final stage.",
     "crumbs": [
       "Table Making",
-      "Building Age, Race and Education Summary for Table 1"
+      "Preparation for Table 1"
     ]
   },
   {
-    "objectID": "table_basic/table_1.html#steps-ahead",
-    "href": "table_basic/table_1.html#steps-ahead",
-    "title": "Building Age, Race and Education Summary for Table 1",
-    "section": "Steps ahead",
-    "text": "Steps ahead\nFrom this section, we have managed to create the summary table for age, race and education for Table 1. In the next section, we proceed to build the other (previous pregnancy and clinical) summary tables.",
+    "objectID": "table_basic/age_race_edu_table_1.html#previous-pregnancy-data",
+    "href": "table_basic/age_race_edu_table_1.html#previous-pregnancy-data",
+    "title": "Preparation for Table 1",
+    "section": "Previous Pregnancy Data",
+    "text": "Previous Pregnancy Data\nIn the next section, we proceed to build the previous pregnancy summary tables.\nHere is the dataset needed.",
     "crumbs": [
       "Table Making",
-      "Building Age, Race and Education Summary for Table 1"
+      "Preparation for Table 1"
+    ]
+  },
+  {
+    "objectID": "table_basic/age_race_edu_table_1.html#missingness-display",
+    "href": "table_basic/age_race_edu_table_1.html#missingness-display",
+    "title": "Preparation for Table 1",
+    "section": "Missingness Display",
+    "text": "Missingness Display\nIt is observed that this time we have to deal with missing values. By default, tbl_summary display missing values titled as “Unknown” followed by presenting its counts (number of missing values).\n\n\n\n\n\n\n\n\nThere are three main parameters that you can use to control what is displayed for missing values. They are the missing, missing_text, and missing_stat.\n\nThe missing parameter accepts a list of formulas as input to help users specify any of three options c(\"ifany\", \"no\", \"always\") to each of the variables to determine in what situation will the missing values be displayed.\n\nifany means we only add a row for missingness if the variables have missing values.\nno means we do not provide a row for missingness regardless if the variables have missing values or not.\nalways means we always provide a row for missingness regardless if the variables have missing values or not.\nthe default parameter for missing is all variables set to ifany or missing = gtsummary::everything() ~ \"ifany\".\n\nThe missing_text parameter accepts a string to determine what label to display for missing value. It is currently set to “Unknown” by default.\nThe missing_stats parameter accepts a string to determine what statistic to show on missing row. It is currently set to “{N_miss}” by default to highlight the frequency of missing values. Summary statistics on the number of available to display are\n\n{N_obs} for total number of observations.\n{N_miss} for number of missing observations.\n{N_nonmiss} for number of non-missing observations.\n{p_miss} for percentage of observations missing.\n{p_nonmiss} for percentage of observations not missing\n\n\nTo match Table 1, what we need is to simply set missing = \"no\".\n\nWhat we needLet’s experiment",
+    "crumbs": [
+      "Table Making",
+      "Preparation for Table 1"
+    ]
+  },
+  {
+    "objectID": "table_basic/age_race_edu_table_1.html#exercise",
+    "href": "table_basic/age_race_edu_table_1.html#exercise",
+    "title": "Preparation for Table 1",
+    "section": "Exercise",
+    "text": "Exercise\nLet’s make use of what we have learned in the previous section to replicate the previous pregnancy section in Table 1\nTry out this exercise below. Ensure that\n\nThe labels are set correctly,\nStatistics are displayed as counts (as integers) and percentages (in one decimal place).\np values are displayed in two decimal places.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nTake a look at how age race and education summary table is created and copy its parameters to the previous pregnancy table.\n\n\n\n\n\n\n\n\n\n\n\nTipFully worked solution:\n\n\n\n\n\n\n\nopt_previous_preg_data |&gt;\n  gtsummary::tbl_summary(\n    include = c(\n      \"Prev.preg\",\n      \"previous_live_preterm_birth\",\n      \"Spont.ab\", \"Induced.ab\", \"Any.stillbirth\"\n    ),\n    by = \"Group\",\n    missing = \"no\",\n    label = list(\n      \"Prev.preg\" ~ \"Any pregancy\",\n      \"previous_live_preterm_birth\" ~ \"Live preterm birth\",\n      \"Spont.ab\" ~ \"Spontaneous abortion\",\n      \"Induced.ab\" ~ \"Induced abortion\",\n      \"Any.stillbirth\" ~ \"Stillbirth\"\n    ),\n    statistic = list(\n      gtsummary::all_categorical() ~ \"{n} ({p})\"\n    ),\n    digits = list(\n      gtsummary::all_categorical() ~ c(0, 1)\n    )\n  ) |&gt; \n  gtsummary::add_variable_group_header(\n    header = \"Previous pregnancies - no. (%)\",\n    variables = c(\n      \"Prev.preg\",\n      \"previous_live_preterm_birth\",\n      \"Spont.ab\", \"Induced.ab\", \"Any.stillbirth\"\n    )\n  )|&gt; \n  gtsummary::add_p(\n    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)\n  ) |&gt; \n  gtsummary::remove_footnote_header()\nopt_previous_preg_data |&gt;\n  gtsummary::tbl_summary(\n    include = c(\n      \"Prev.preg\",\n      \"previous_live_preterm_birth\",\n      \"Spont.ab\", \"Induced.ab\", \"Any.stillbirth\"\n    ),\n    by = \"Group\",\n    missing = \"no\",\n    label = list(\n      \"Prev.preg\" ~ \"Any pregancy\",\n      \"previous_live_preterm_birth\" ~ \"Live preterm birth\",\n      \"Spont.ab\" ~ \"Spontaneous abortion\",\n      \"Induced.ab\" ~ \"Induced abortion\",\n      \"Any.stillbirth\" ~ \"Stillbirth\"\n    ),\n    statistic = list(\n      gtsummary::all_categorical() ~ \"{n} ({p})\"\n    ),\n    digits = list(\n      gtsummary::all_categorical() ~ c(0, 1)\n    )\n  ) |&gt; \n  gtsummary::add_variable_group_header(\n    header = \"Previous pregnancies - no. (%)\",\n    variables = c(\n      \"Prev.preg\",\n      \"previous_live_preterm_birth\",\n      \"Spont.ab\", \"Induced.ab\", \"Any.stillbirth\"\n    )\n  )|&gt; \n  gtsummary::add_p(\n    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)\n  ) |&gt; \n  gtsummary::remove_footnote_header()",
+    "crumbs": [
+      "Table Making",
+      "Preparation for Table 1"
+    ]
+  },
+  {
+    "objectID": "table_basic/age_race_edu_table_1.html#clinical-data",
+    "href": "table_basic/age_race_edu_table_1.html#clinical-data",
+    "title": "Preparation for Table 1",
+    "section": "Clinical Data",
+    "text": "Clinical Data\nIn the next section, we proceed to build the clinical summary tables.\nHere is the dataset needed.",
+    "crumbs": [
+      "Table Making",
+      "Preparation for Table 1"
+    ]
+  },
+  {
+    "objectID": "table_basic/age_race_edu_table_1.html#customised-p-value-format",
+    "href": "table_basic/age_race_edu_table_1.html#customised-p-value-format",
+    "title": "Preparation for Table 1",
+    "section": "Customised p value format",
+    "text": "Customised p value format\nLet’s create the clinical summary table using tbl_summary.\n\n\n\n\n\n\n\n\nIt is observed that using pvalue_fun = gtsummary::label_style_pvalue(digits = 2) give &gt;0.99 for Self-reported alcohol use. One way to match Table 1 is to create a customised function to control how p values are reported.\nBelow is an example of how a customised function p_value_style is created and used to ensure it matches the p value reporting style you see in Table 1 and later Table 2.",
+    "crumbs": [
+      "Table Making",
+      "Preparation for Table 1"
+    ]
+  },
+  {
+    "objectID": "table_basic/age_race_edu_table_1.html#steps-ahead",
+    "href": "table_basic/age_race_edu_table_1.html#steps-ahead",
+    "title": "Preparation for Table 1",
+    "section": "Steps ahead",
+    "text": "Steps ahead\nFrom this section, we have managed to create the summary table for age, race and education, previous pregnancy and clinical for Table 1. In the next section, we proceed to combine the three tables with further modification to match Table 1.",
+    "crumbs": [
+      "Table Making",
+      "Preparation for Table 1"
     ]
   },
   {

@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.21">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jeremy Selva">
+
+<title>Preparation for Table 1 – HAT Workshop 20261021</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../table_basic/table_1.html" rel="next">
+<link href="../table_basic/prep_data.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea1d7ac60288e0f1efdbc993fd8432ae.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-71f74fb38ba799e0c52a7ee3500dc36a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../table_basic/age_race_edu_table_1.html">Table Making</a></li><li class="breadcrumb-item"><a href="../table_basic/age_race_edu_table_1.html">Preparation for Table 1</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HAT Workshop 20261021</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Data Preparation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../table_basic/prep_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cleaning Obstetrics and Periodontal Therapy Dataset</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Table Making</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../table_basic/age_race_edu_table_1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Preparation for Table 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../table_basic/table_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Building Table 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../table_basic/table_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Table 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../table_basic/table_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Table 3</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#age-race-and-education-data" id="toc-age-race-and-education-data" class="nav-link active" data-scroll-target="#age-race-and-education-data">Age, Race and Education Data</a></li>
+  <li><a href="#using-tbl_summary" id="toc-using-tbl_summary" class="nav-link" data-scroll-target="#using-tbl_summary">Using <code>tbl_summary</code></a>
+  <ul class="collapse">
+  <li><a href="#include-and-by-parameter" id="toc-include-and-by-parameter" class="nav-link" data-scroll-target="#include-and-by-parameter"><code>include</code> and <code>by</code> parameter</a></li>
+  <li><a href="#type-parameter" id="toc-type-parameter" class="nav-link" data-scroll-target="#type-parameter"><code>type</code> parameter</a></li>
+  <li><a href="#statistics-parameter" id="toc-statistics-parameter" class="nav-link" data-scroll-target="#statistics-parameter"><code>statistics</code> parameter</a></li>
+  <li><a href="#formatting-in-gtsummary" id="toc-formatting-in-gtsummary" class="nav-link" data-scroll-target="#formatting-in-gtsummary">Formatting in <code>gtsummary</code></a></li>
+  <li><a href="#digits-parameter" id="toc-digits-parameter" class="nav-link" data-scroll-target="#digits-parameter"><code>digits</code> parameter</a></li>
+  <li><a href="#label-parameter" id="toc-label-parameter" class="nav-link" data-scroll-target="#label-parameter"><code>label</code> parameter</a></li>
+  </ul></li>
+  <li><a href="#variable-group-header" id="toc-variable-group-header" class="nav-link" data-scroll-target="#variable-group-header">Variable Group Header</a></li>
+  <li><a href="#p-values" id="toc-p-values" class="nav-link" data-scroll-target="#p-values"><em>p</em> values</a></li>
+  <li><a href="#remove-footnotes" id="toc-remove-footnotes" class="nav-link" data-scroll-target="#remove-footnotes">Remove footnotes</a></li>
+  <li><a href="#previous-pregnancy-data" id="toc-previous-pregnancy-data" class="nav-link" data-scroll-target="#previous-pregnancy-data">Previous Pregnancy Data</a></li>
+  <li><a href="#missingness-display" id="toc-missingness-display" class="nav-link" data-scroll-target="#missingness-display">Missingness Display</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
+  <li><a href="#clinical-data" id="toc-clinical-data" class="nav-link" data-scroll-target="#clinical-data">Clinical Data</a></li>
+  <li><a href="#customised-p-value-format" id="toc-customised-p-value-format" class="nav-link" data-scroll-target="#customised-p-value-format">Customised <em>p</em> value format</a></li>
+  <li><a href="#steps-ahead" id="toc-steps-ahead" class="nav-link" data-scroll-target="#steps-ahead">Steps ahead</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../table_basic/age_race_edu_table_1.html">Table Making</a></li><li class="breadcrumb-item"><a href="../table_basic/age_race_edu_table_1.html">Preparation for Table 1</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Preparation for Table 1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jeremy Selva </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In this tutorial, we try to create a table that is close to (<a href="https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg" target="_blank">Table 1</a> from the journal <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa062249" target="_blank">Treatment of Periodontal Disease and the Risk of Preterm Birth</a>.</p>
+<p>We start first by choosing the relevant columns to make Table 1.</p>
+<div class="cell" data-envir="setup_table_1" data-autorun="true">
+<div>
+<div id="webr-1" class="exercise-cell">
+
+</div>
+<script type="webr-1-contents">
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImVkaXQiOnRydWUsImVudmlyIjoic2V0dXBfdGFibGVfMSIsImV2YWwiOnRydWUsImxhYmVsIjoibG9hZCBvcHQgZGF0YSBmb3IgdGFibGUgMSJ9LCJjb2RlIjoib3B0X2RhdGEgPC0gcmVhZFJEUyhcImRhdGEvb3B0X2RhdGEucmRzXCIpIHw+IFxuICBkcGx5cjo6c2VsZWN0KFxuICAgIGMoXCJQSURcIiwgXCJHcm91cFwiLCBcbiAgICAgIFwiQWdlXCIsIFwiV2hpdGVcIiwgXCJCbGFja1wiLCBcIkhpc3BcIiwgXCJFZHVjYXRpb25cIixcbiAgICAgIFwiUHJldi5wcmVnXCIsXCJBbnkubGl2ZS5wdGIuc2Iuc3AuYWIuaW4uYWJcIixcbiAgICAgIFwicHJldmlvdXNfbGl2ZV9wcmV0ZXJtX2JpcnRoXCIsXG4gICAgICBcIlNwb250LmFiXCIsIFwiSW5kdWNlZC5hYlwiLCBcIkFueS5zdGlsbGJpcnRoXCIsXG4gICAgICBcIkFueS5saXZlLnB0Yi5zYi5zcC5hYi5pbi5hYlwiLCBcbiAgICAgIFwiRGlhYmV0ZXNcIiwgXCJIeXBlcnRlbnNpb25cIiwgXCJVc2UuQWxjXCIpXG4gICkifQ==
+</script>
+</div>
+</div>
+<p>As the final output looks complex, let’s break the task down to simpler tasks.</p>
+<section id="age-race-and-education-data" class="level2">
+<h2 class="anchored" data-anchor-id="age-race-and-education-data">Age, Race and Education Data</h2>
+<p>This task involves creating a summary table for age, race and number of years of education stratified by treatment group.</p>
+<p>Here is the dataset required.</p>
+<div class="cell" data-envir="setup_table_1" data-autorun="true">
+<div>
+<div id="webr-2" class="exercise-cell">
+
+</div>
+<script type="webr-2-contents">
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImVkaXQiOnRydWUsImVudmlyIjoic2V0dXBfdGFibGVfMSIsImV2YWwiOnRydWUsImxhYmVsIjoibG9hZCBvcHQgZGF0YSBmb3IgYWdlIHN1bW1hcnkgdGFibGUifSwiY29kZSI6Im9wdF9hZ2VfcmFjZV9kYXRhIDwtIG9wdF9kYXRhIHw+IFxuICBkcGx5cjo6c2VsZWN0KFxuICAgIGMoXCJQSURcIiwgXCJHcm91cFwiLCBcbiAgICAgIFwiQWdlXCIsIFwiV2hpdGVcIiwgXCJCbGFja1wiLCBcIkhpc3BcIiwgXCJFZHVjYXRpb25cIilcbiAgKVxuXG5vcHRfYWdlX3JhY2VfZGF0YSB8PiBcbiAgcmVhY3RhYmxlOjpyZWFjdGFibGUoXG4gICAgZmlsdGVyYWJsZSA9IFRSVUUsXG4gICAgcGFnaW5hdGlvblR5cGUgPSBcImp1bXBcIixcbiAgICBkZWZhdWx0UGFnZVNpemUgPSA1LFxuICAgIG1pblJvd3MgPSA1KSJ9
+</script>
+</div>
+</div>
+</section>
+<section id="using-tbl_summary" class="level2">
+<h2 class="anchored" data-anchor-id="using-tbl_summary">Using <code>tbl_summary</code></h2>
+<p>Let’s try to build a summary table from <code>opt_age_race_data</code> using the default parameters of <a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" target="_blank"><code>gtsummary::tbl_summary</code></a>. We can see that table is giving a descriptive statistics of the overall population. It even display the statistics the patient ID.</p>
+<div class="cell" data-caption="age race and education basic table" data-envir="setup_table_1">
+<div>
+<div id="webr-3" class="exercise-cell">
+
+</div>
+<script type="webr-3-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIGJhc2ljIHRhYmxlIiwiZWRpdCI6dHJ1ZSwiZW52aXIiOiJzZXR1cF90YWJsZV8xIiwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIGJhc2ljIHRhYmxlIGRlZmF1bHQgcGFyYW1ldGVycyJ9LCJjb2RlIjoib3B0X2FnZV9yYWNlX3RhYmxlIDwtIG9wdF9hZ2VfcmFjZV9kYXRhIHw+XG4gIGd0c3VtbWFyeTo6dGJsX3N1bW1hcnkoKVxuXG5vcHRfYWdlX3JhY2VfdGFibGUifQ==
+</script>
+</div>
+</div>
+<section id="include-and-by-parameter" class="level3">
+<h3 class="anchored" data-anchor-id="include-and-by-parameter"><code>include</code> and <code>by</code> parameter</h3>
+<p>To exclude the patient ID being displayed, we set the parameter <code>include</code> a vector of column names to include in the summary table. To stratify the table by treatment group, we set the parameter <code>by = "Group"</code>.</p>
+<div class="cell" data-caption="age race and education basic table" data-envir="setup_table_1">
+<div>
+<div id="webr-4" class="exercise-cell">
+
+</div>
+<script type="webr-4-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIGJhc2ljIHRhYmxlIiwiZWRpdCI6dHJ1ZSwiZW52aXIiOiJzZXR1cF90YWJsZV8xIiwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIGJhc2ljIHRhYmxlIHdpdGggaW5jbHVkZSBhbmQgYnkifSwiY29kZSI6Im9wdF9hZ2VfcmFjZV90YWJsZSA8LSBvcHRfYWdlX3JhY2VfZGF0YSB8PlxuICBndHN1bW1hcnk6OnRibF9zdW1tYXJ5KFxuICAgIGluY2x1ZGUgPSBjKFwiQWdlXCIsIFwiV2hpdGVcIiwgXCJCbGFja1wiLCBcIkhpc3BcIiwgXCJFZHVjYXRpb25cIiksXG4gICAgYnkgPSBcIkdyb3VwXCJcbiAgKVxuXG5vcHRfYWdlX3JhY2VfdGFibGUifQ==
+</script>
+</div>
+</div>
+</section>
+<section id="type-parameter" class="level3">
+<h3 class="anchored" data-anchor-id="type-parameter"><code>type</code> parameter</h3>
+<p>Observe that the (continuous) variable <code>Age</code> is expressed as Median (Q1, Q3) while categorical variables are expressed as n (%). Variables with two categories (dichotomous) like <code>White</code> and <code>Hisp</code> are displayed differently to those with multiple categories like <code>Education</code>.</p>
+<p>We can use the function <a href="https://www.danieldsjoberg.com/gtsummary/reference/assign_summary_type.html" target="_blank"><code>gtsummary::assign_summary_type</code></a> to identify the default summary type for each variable</p>
+<div class="cell" data-caption="view summary type" data-envir="setup_table_1">
+<div>
+<div id="webr-5" class="exercise-cell">
+
+</div>
+<script type="webr-5-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJ2aWV3IHN1bW1hcnkgdHlwZSIsImVkaXQiOnRydWUsImVudmlyIjoic2V0dXBfdGFibGVfMSIsImV2YWwiOnRydWUsImxhYmVsIjoiZmluZCBkZWZhdWx0IHN1bW1hcnkgdHlwZSJ9LCJjb2RlIjoic3VtbWFyeV90eXBlIDwtIG9wdF9hZ2VfcmFjZV9kYXRhIHw+XG4gIGd0c3VtbWFyeTo6YXNzaWduX3N1bW1hcnlfdHlwZShcbiAgICB2YXJpYWJsZXMgPSBjKFwiR3JvdXBcIiAsXCJBZ2VcIiwgXCJXaGl0ZVwiLCBcbiAgICAgICAgICAgICAgICAgIFwiQmxhY2tcIiwgXCJIaXNwXCIsIFwiRWR1Y2F0aW9uXCIpLFxuICAgIHZhbHVlID0gIE5VTExcbiAgKVxuXG5zdW1tYXJ5X3R5cGUifQ==
+</script>
+</div>
+</div>
+<p>On the other hand, the <code>type</code> parameter in the <a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" target="_blank"><code>gtsummary::tbl_summary</code></a> allows us to specify the summary type for each variable. The <code>type</code> parameter accepts a <a href="https://www.danieldsjoberg.com/gtsummary/reference/syntax.html#formula-and-list-selectors" target="_blank">list of formulas</a> as input.</p>
+<p>Below is an example which we change the variable <code>White</code> and <code>Black</code> from dichotomous to categorical.</p>
+<div class="cell" data-caption="age race and education basic assign type" data-envir="setup_table_1">
+<div>
+<div id="webr-6" class="exercise-cell">
+
+</div>
+<script type="webr-6-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIGJhc2ljIGFzc2lnbiB0eXBlIiwiZWRpdCI6dHJ1ZSwiZW52aXIiOiJzZXR1cF90YWJsZV8xIiwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIGJhc2ljIHRhYmxlIGFzc2lnbiB3aXRoIHR5cGUifSwiY29kZSI6Im9wdF9hZ2VfcmFjZV90YWJsZSA8LSBvcHRfYWdlX3JhY2VfZGF0YSB8PlxuICBndHN1bW1hcnk6OnRibF9zdW1tYXJ5KFxuICAgIGluY2x1ZGUgPSBjKFwiQWdlXCIsIFwiV2hpdGVcIiwgXCJCbGFja1wiLCBcIkhpc3BcIiwgXCJFZHVjYXRpb25cIiksXG4gICAgdHlwZSA9IGxpc3QoXG4gICAgICBjKFwiV2hpdGVcIiwgXCJCbGFja1wiKSB+IFwiY2F0ZWdvcmljYWxcIlxuICAgICksXG4gICAgYnkgPSBcIkdyb3VwXCJcbiAgKVxuXG5vcHRfYWdlX3JhY2VfdGFibGUifQ==
+</script>
+</div>
+</div>
+</section>
+<section id="statistics-parameter" class="level3">
+<h3 class="anchored" data-anchor-id="statistics-parameter"><code>statistics</code> parameter</h3>
+<p>Next, we need to ensure that - age is expressed in “means±SD”. - race and education is expressed in “no. (%)” (already done in default mode).</p>
+<p>This can be achieved by using the <code>statistic</code> parameter which help users specify the statistics presented in the table. Like the <code>type</code> parameter, it accepts a <a href="https://www.danieldsjoberg.com/gtsummary/reference/syntax.html#formula-and-list-selectors" target="_blank">list of formulas</a> as input.</p>
+<p>Below are some examples on how it can be done.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Variable Names</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Use Helpers</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Click on the different tabs.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>We can list each variable individually as a character vector.</p>
+<div class="cell" data-caption="age race and education basic table statistics list all variables" data-envir="setup_table_1">
+<div>
+<div id="webr-7" class="exercise-cell">
+
+</div>
+<script type="webr-7-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIGJhc2ljIHRhYmxlIHN0YXRpc3RpY3MgbGlzdCBhbGwgdmFyaWFibGVzIiwiZWRpdCI6dHJ1ZSwiZW52aXIiOiJzZXR1cF90YWJsZV8xIiwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIGJhc2ljIHRhYmxlIGF0dGVtcHQgcHJlc2VudCBzdGF0aXN0aWNzIGJ5IHZhcmlhYmxlIG5hbWUifSwiY29kZSI6Im9wdF9hZ2VfcmFjZV90YWJsZSA8LSBvcHRfYWdlX3JhY2VfZGF0YSB8PlxuICBndHN1bW1hcnk6OnRibF9zdW1tYXJ5KFxuICAgIGluY2x1ZGUgPSBjKFxuICAgICAgXCJBZ2VcIiwgXCJXaGl0ZVwiLCBcIkJsYWNrXCIsIFwiSGlzcFwiLCBcIkVkdWNhdGlvblwiLFxuICAgICksXG4gICAgc3RhdGlzdGljID0gbGlzdChcbiAgICAgIGMoXCJBZ2VcIikgfiBcInttZWFufcKxe3NkfVwiLFxuICAgICAgYyhcIldoaXRlXCIsIFwiQmxhY2tcIiwgXCJIaXNwXCIsIFwiRWR1Y2F0aW9uXCIpIH4gXCJ7bn0gKHtwfSlcIlxuICAgICksXG4gICAgYnkgPSBcIkdyb3VwXCJcbiAgKVxuXG5vcHRfYWdlX3JhY2VfdGFibGUifQ==
+</script>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>We can use <code>all_</code> helper functions like <a href="https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html" target="_blank"><code>gtsummary::all_continuous()</code></a> and <a href="https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html" target="_blank"><code>gtsummary::all_categorical()</code></a> to make the code concise.</p>
+<div class="cell" data-caption="age race and education basic table statistics list all variables" data-envir="setup_table_1">
+<div>
+<div id="webr-8" class="exercise-cell">
+
+</div>
+<script type="webr-8-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIGJhc2ljIHRhYmxlIHN0YXRpc3RpY3MgbGlzdCBhbGwgdmFyaWFibGVzIiwiZWRpdCI6dHJ1ZSwiZW52aXIiOiJzZXR1cF90YWJsZV8xIiwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIGJhc2ljIHRhYmxlIGF0dGVtcHQgcHJlc2VudCBzdGF0aXN0aWNzIGJ5IGhlbHBlciBmdW5jdGlvbiJ9LCJjb2RlIjoib3B0X2FnZV9yYWNlX3RhYmxlIDwtIG9wdF9hZ2VfcmFjZV9kYXRhIHw+XG4gIGd0c3VtbWFyeTo6dGJsX3N1bW1hcnkoXG4gICAgaW5jbHVkZSA9IGMoXG4gICAgICBcIkFnZVwiLCBcIldoaXRlXCIsIFwiQmxhY2tcIiwgXCJIaXNwXCIsIFwiRWR1Y2F0aW9uXCIsXG4gICAgKSxcbiAgICBzdGF0aXN0aWMgPSBsaXN0KFxuICAgICAgZ3RzdW1tYXJ5OjphbGxfY29udGludW91cygpIH4gXCJ7bWVhbn3CsXtzZH1cIixcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NhdGVnb3JpY2FsKCkgfiBcIntufSAoe3B9KVwiXG4gICAgKSxcbiAgICBieSA9IFwiR3JvdXBcIlxuICApXG5cbm9wdF9hZ2VfcmFjZV90YWJsZSJ9
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>It can be observed that the displayed values <code>{mean}±{sd}</code> and <code>{n} ({p})</code> are interpreted using <a href="https://glue.tidyverse.org/reference/glue.html" target="_blank">glue::glue()</a> syntax: a name that appears between curly brackets will be interpreted as a function name and the formatted result of that function will be placed in the table.</p>
+<p>In <code>gtsummary</code>, some pre-calculated statistics available for display are</p>
+<p>For categorical/dichotomous variable:</p>
+<ul>
+<li>{n} for frequency.</li>
+<li>{N} for denominator.</li>
+<li>{p} for percent.</li>
+</ul>
+<p>For continuous variable:</p>
+<ul>
+<li>{median} for median.</li>
+<li>{mean} for mean.</li>
+<li>{sd} for standard deviation.</li>
+<li>{min} for minimum.</li>
+<li>{max} for maximum.</li>
+<li>{p##} for percentile where ## is an integer from 0 to 100.For example, {p25} is the 25th percentile calculating using <code>p25: quantile(probs=0.25, type=2)</code>.</li>
+</ul>
+<p>A full list is provided <a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html#statistic-argument" target="_blank">here</a>.</p>
+<p>Feel free to experiment with the different statistics below.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Single Line</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Multiple Line</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Click on the different tabs.</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell" data-caption="age race and education basic table different stats" data-envir="setup_table_1">
+<div>
+<div id="webr-9" class="exercise-cell">
+
+</div>
+<script type="webr-9-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIGJhc2ljIHRhYmxlIGRpZmZlcmVudCBzdGF0cyIsImVkaXQiOnRydWUsImVudmlyIjoic2V0dXBfdGFibGVfMSIsImV2YWwiOnRydWUsImxhYmVsIjoiYWdlIHJhY2UgYW5kIGVkdWNhdGlvbiBiYXNpYyB0YWJsZSBhdHRlbXB0IGRpZmZlcmVudCBzdGF0cyBzaW5nbGUgbGluZSJ9LCJjb2RlIjoib3B0X2FnZV9yYWNlX3RhYmxlIDwtIG9wdF9hZ2VfcmFjZV9kYXRhIHw+XG4gIGd0c3VtbWFyeTo6dGJsX3N1bW1hcnkoXG4gICAgaW5jbHVkZSA9IGMoXCJBZ2VcIiwgXCJXaGl0ZVwiLCBcIkJsYWNrXCIsIFwiSGlzcFwiLCBcIkVkdWNhdGlvblwiKSxcbiAgICBzdGF0aXN0aWMgPSBsaXN0KFxuICAgICAgZ3RzdW1tYXJ5OjphbGxfY29udGludW91cygpIH4gXCJ7bWVkaWFufSAoe3AyNX0sIHtwNzV9KVwiLFxuICAgICAgZ3RzdW1tYXJ5OjphbGxfY2F0ZWdvcmljYWwoKSB+IFwie259L3tOfSAoe3B9JSlcIlxuICAgICksXG4gICAgYnkgPSBcIkdyb3VwXCIsICAgIFxuICApXG5cbm9wdF9hZ2VfcmFjZV90YWJsZSJ9
+</script>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>Sometimes, there may be a need to display continuous variables statistical summaries in multiple lines. To do that, you can change the variable <code>type</code> from <code>continuous</code> to <code>continuous2</code>.</p>
+<div class="cell" data-caption="age race and education basic table different stats" data-envir="setup_table_1">
+<div>
+<div id="webr-10" class="exercise-cell">
+
+</div>
+<script type="webr-10-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIGJhc2ljIHRhYmxlIGRpZmZlcmVudCBzdGF0cyIsImVkaXQiOnRydWUsImVudmlyIjoic2V0dXBfdGFibGVfMSIsImV2YWwiOnRydWUsImxhYmVsIjoiYWdlIHJhY2UgYW5kIGVkdWNhdGlvbiBiYXNpYyB0YWJsZSBhdHRlbXB0IGRpZmZlcmVudCBzdGF0cyBtdWx0aXBsZSBsaW5lIn0sImNvZGUiOiJvcHRfYWdlX3JhY2VfdGFibGUgPC0gb3B0X2FnZV9yYWNlX2RhdGEgfD5cbiAgZ3RzdW1tYXJ5Ojp0Ymxfc3VtbWFyeShcbiAgICBpbmNsdWRlID0gYyhcIkFnZVwiLCBcIldoaXRlXCIsIFwiQmxhY2tcIiwgXCJIaXNwXCIsIFwiRWR1Y2F0aW9uXCIpLFxuICAgIHR5cGUgPSBsaXN0KFwiQWdlXCIgfiBcImNvbnRpbnVvdXMyXCIpLFxuICAgIHN0YXRpc3RpYyA9IGxpc3QoXG4gICAgICBcIkFnZVwiIH4gYyhcbiAgICAgICAgXCJ7bWVhbn3CsXtzZH1cIixcbiAgICAgICAgXCJ7bWVkaWFufSAoe3AyNX0sIHtwNzV9KVwiXG4gICAgICApLFxuICAgICAgZ3RzdW1tYXJ5OjphbGxfY2F0ZWdvcmljYWwoKSB+IFwie259L3tOfSAoe3B9JSlcIlxuICAgICksXG4gICAgYnkgPSBcIkdyb3VwXCIsICAgIFxuICApXG5cbm9wdF9hZ2VfcmFjZV90YWJsZSJ9
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="formatting-in-gtsummary" class="level3">
+<h3 class="anchored" data-anchor-id="formatting-in-gtsummary">Formatting in <code>gtsummary</code></h3>
+<p>Before we get to the <code>digits</code> parameter, let’s take a look at some default formatting from <code>gtsummary</code></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">style_number()</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">style_sigfig()</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">style_percent()</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-5" role="tab" aria-controls="tabset-3-5" aria-selected="false">style_ratio()</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-6" role="tab" aria-controls="tabset-3-6" aria-selected="false">style_pvalue()</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Click on the different tabs.</p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p><a href="https://www.danieldsjoberg.com/gtsummary/reference/style_number.html" target="_blank"><code>gtsummary::style_number</code></a> is the default style that <code>gtsummary</code> used internally to style the number. It rounds numbers to a fixed number of decimal places specified by the <code>digits</code> argument.</p>
+<div class="cell" data-caption="style number in gtsummary">
+<div>
+<div id="webr-11" class="exercise-cell">
+
+</div>
+<script type="webr-11-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJzdHlsZSBudW1iZXIgaW4gZ3RzdW1tYXJ5IiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJzdHlsZSBudW1iZXIgaW4gZ3RzdW1tYXJ5IHNpbXBsZSJ9LCJjb2RlIjoiYygwLjExMSwgMTIuMykgfD4gZ3RzdW1tYXJ5OjpzdHlsZV9udW1iZXIoZGlnaXRzID0gMikifQ==
+</script>
+</div>
+</div>
+<p>It has many flexible parameter to use and explore. The <code>digits</code> parameter can accept a vector of numbers to indicate how many decimal places to express for each number.</p>
+<div class="cell" data-caption="style number in gtsummary">
+<div>
+<div id="webr-12" class="exercise-cell">
+
+</div>
+<script type="webr-12-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJzdHlsZSBudW1iZXIgaW4gZ3RzdW1tYXJ5IiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJzdHlsZSBudW1iZXIgaW4gZ3RzdW1tYXJ5IGFkdmFuY2VkIn0sImNvZGUiOiJjKDExMTAsIDEyMDAwMDAuMzYsIE5BLCAwLjI1KSB8PiBcbiAgZ3RzdW1tYXJ5OjpzdHlsZV9udW1iZXIoXG4gICAgZGlnaXRzID0gYygyLCAwLCAwLCA1KSxcbiAgICBiaWcubWFyayA9IFwiLFwiLFxuICAgIGRlY2ltYWwubWFyayA9IFwiLlwiLFxuICAgIHNjYWxlID0gMC4wMDEsXG4gICAgcHJlZml4ID0gXCIkXCIsXG4gICAgc3VmZml4ID0gXCJLXCIsXG4gICAgbmEgPSBcIk5vdCBBcHBsaWNhYmxlXCJcbiAgKSJ9
+</script>
+</div>
+</div>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p><a href="https://www.danieldsjoberg.com/gtsummary/reference/style_sigfig.html" target="_blank"><code>gtsummary::style_sigfig</code></a> rounds numbers to a minimum number of significant figures (significant digits) via <code>digits</code>, adapting the decimal count dynamically depending on the magnitude of the number.</p>
+<div class="cell" data-caption="style sigfig in gtsummary">
+<div>
+<div id="webr-13" class="exercise-cell">
+
+</div>
+<script type="webr-13-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJzdHlsZSBzaWdmaWcgaW4gZ3RzdW1tYXJ5IiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJzdHlsZSBzaWdmaWcgaW4gZ3RzdW1tYXJ5IHNpbXBsZSJ9LCJjb2RlIjoiYygwLjExMSwgMTIuMykgfD4gZ3RzdW1tYXJ5OjpzdHlsZV9zaWdmaWcoZGlnaXRzID0gMikifQ==
+</script>
+</div>
+</div>
+<p>Unlike <a href="https://www.danieldsjoberg.com/gtsummary/reference/style_number.html" target="_blank"><code>gtsummary::style_number</code></a>, the <code>digits</code> parameter can only accept one number.</p>
+<div class="cell" data-caption="style sigfig in gtsummary">
+<div>
+<div id="webr-14" class="exercise-cell">
+
+</div>
+<script type="webr-14-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJzdHlsZSBzaWdmaWcgaW4gZ3RzdW1tYXJ5IiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJzdHlsZSBzaWdmaWcgaW4gZ3RzdW1tYXJ5IGFkdmFuY2VkIn0sImNvZGUiOiJjKDExMTAsIDEyMDAwMDAuMzYsIE5BLCAwLjI1KSB8PiBcbiAgZ3RzdW1tYXJ5OjpzdHlsZV9zaWdmaWcoXG4gICAgZGlnaXRzID0gMixcbiAgICBiaWcubWFyayA9IFwiLFwiLFxuICAgIGRlY2ltYWwubWFyayA9IFwiLlwiLFxuICAgIHNjYWxlID0gMC4wMDEsXG4gICAgcHJlZml4ID0gXCIkXCIsXG4gICAgc3VmZml4ID0gXCJLXCIsXG4gICAgbmEgPSBcIk5vdCBBcHBsaWNhYmxlXCJcbiAgKSJ9
+</script>
+</div>
+</div>
+</div>
+<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<p><a href="https://www.danieldsjoberg.com/gtsummary/reference/style_percent.html" target="_blank"><code>gtsummary::style_percent</code></a> is the default style that <code>gtsummary</code> used internally to style percentages in proportions of categorical variables.</p>
+<p>Observe that</p>
+<ul>
+<li>All values are multiplied by 100.</li>
+<li>Negative values are set to <code>NA</code>.</li>
+<li>Positive numbers less than 0.1% are represented as <code>&lt;0.1</code>.<br>
+</li>
+<li>Numbers less than 10% (exclusive) are rounded to <code>digits + 1</code> places.</li>
+</ul>
+<div class="cell" data-caption="style percent in gtsummary">
+<div>
+<div id="webr-15" class="exercise-cell">
+
+</div>
+<script type="webr-15-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJzdHlsZSBwZXJjZW50IGluIGd0c3VtbWFyeSIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImxhYmVsIjoic3R5bGUgcGVyY2VudCBpbiBndHN1bW1hcnkgc2ltcGxlIn0sImNvZGUiOiJwZXJjZW50X3ZhbHMgPC0gYyhcbiAgLTEsIDAsIFxuICAwLjAwMDEsIDAuMDAwNSxcbiAgMC4wMDEgLCAwLjAwNSwgXG4gIDAuMDEsIDAuMDUsXG4gIDAuMTAsIDAuNDQ1LCAwLjk5LCAxLCAxLjQ1XG4pXG4gIFxucGVyY2VudF92YWxzIHw+IFxuICBndHN1bW1hcnk6OnN0eWxlX3BlcmNlbnQoZGlnaXRzID0gMCkifQ==
+</script>
+</div>
+</div>
+</div>
+<div id="tabset-3-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-5-tab">
+<p><a href="https://www.danieldsjoberg.com/gtsummary/reference/style_sigfig.html" target="_blank"><code>gtsummary::style_ratio</code></a> is the default style that <code>gtsummary</code> used internally to format relative risk and odds ratio.</p>
+<p>Observe that</p>
+<ul>
+<li>Values between -1 and 1 will display <code>digits</code> number of significant digits based on <a href="https://www.danieldsjoberg.com/gtsummary/reference/style_sigfig.html" target="_blank"><code>gtsummary::style_sigfig</code></a>.</li>
+<li>Values greater than 1 (or less than -1) will display <code>digits + 1</code> number of significant digits based on <a href="https://www.danieldsjoberg.com/gtsummary/reference/style_sigfig.html" target="_blank"><code>gtsummary::style_sigfig</code></a>.</li>
+</ul>
+<div class="cell" data-caption="style ratio in gtsummary">
+<div>
+<div id="webr-16" class="exercise-cell">
+
+</div>
+<script type="webr-16-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJzdHlsZSByYXRpbyBpbiBndHN1bW1hcnkiLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJsYWJlbCI6InN0eWxlIHJhdGlvIGluIGd0c3VtbWFyeSBzaW1wbGUifSwiY29kZSI6InJhdGlvX3ZhbHMgPC0gYyhcbiAgLTEwMS4yMzQsIC0xMi4zNDUsXG4gIC0xLjEyMzQsIC0wLjksIC0wLjEyMyxcbiAgMCxcbiAgMC4xMjMsIDAuOSwgXG4gIDEsXG4gIDEuMTIzNCwgMTIuMzQ1LCAxMDEuMjM0XG4pXG4gIFxucmF0aW9fdmFscyB8PiBcbiAgZ3RzdW1tYXJ5OjpzdHlsZV9yYXRpbyhkaWdpdHMgPSAyKSJ9
+</script>
+</div>
+</div>
+</div>
+<div id="tabset-3-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-6-tab">
+<p><a href="https://www.danieldsjoberg.com/gtsummary/reference/style_pvalue.html" target="_blank"><code>gtsummary::style_pvalue</code></a> is the default style that <code>gtsummary</code> used internally to format <em>p</em> values.</p>
+<p>Observe that</p>
+<ul>
+<li>Values greater than 1 are set to <code>NA</code>.</li>
+<li>Negative values are set to <code>NA</code>.</li>
+<li><code>digits</code> can only hold value <code>1</code>, <code>2</code>, or <code>3</code>. It determines how many decimal places are presented.</li>
+<li>High <em>p</em> values have a limit based on the value of <code>digits</code>.
+<ul>
+<li>When <code>digits</code> is <code>1</code>, values more than 0.9 is represented as <code>&gt;0.9</code>.</li>
+<li>When <code>digits</code> is <code>2</code>, values more than 0.99 is represented as <code>&gt;0.99</code>.</li>
+<li>When <code>digits</code> is <code>3</code>, values more than 0.999 is represented as <code>&gt;0.999</code>.</li>
+</ul></li>
+<li><em>p</em> values less than 0.001 are represented as <code>&lt;0.001</code>.</li>
+</ul>
+<div class="cell" data-caption="p value in gtsummary">
+<div>
+<div id="webr-17" class="exercise-cell">
+
+</div>
+<script type="webr-17-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJwIHZhbHVlIGluIGd0c3VtbWFyeSIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImxhYmVsIjoicCB2YWx1ZSBpbiBndHN1bW1hcnkgc2ltcGxlIn0sImNvZGUiOiJwdmFscyA8LSBjKFxuICAxLjUsIC0xLFxuICAxLCBcbiAgMC45OTksIDAuOTksIDAuOSxcbiAgMC41LCAwLjI1LCAwLjIsICBcbiAgMC4xMCwgMC4wOTk5LFxuICAwLjAxLCAwLjAwMSwgXG4gIDAuMDAwOTksIDAuMDAwMSwgMFxuKVxuICBcbnB2YWxzIHw+IFxuICBndHN1bW1hcnk6OnN0eWxlX3B2YWx1ZShkaWdpdHMgPSAyKSJ9
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Similar to the above <code>style_*()</code>functions, <code>gtsummary</code> has <a href="https://www.danieldsjoberg.com/gtsummary/reference/label_style.html" target="_blank"><code>label_style_*()</code></a> functions that takes the same inputs as the <code>style_*()</code>functions but returns a “wrapper” function that perform the styling.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">label_style_number()</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">label_style_sigfig</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">label_style_percent</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-5" role="tab" aria-controls="tabset-4-5" aria-selected="false">label_style_ratio</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-6" role="tab" aria-controls="tabset-4-6" aria-selected="false">label_style_pvalue</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>Click on the different tabs.</p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell" data-caption="label style number in gtsummary">
+<div>
+<div id="webr-18" class="exercise-cell">
+
+</div>
+<script type="webr-18-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJsYWJlbCBzdHlsZSBudW1iZXIgaW4gZ3RzdW1tYXJ5IiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJsYWJlbCBzdHlsZSBudW1iZXIgaW4gZ3RzdW1tYXJ5IGFkdmFuY2VkIn0sImNvZGUiOiJteV9zdHlsZSA8LSBndHN1bW1hcnk6OmxhYmVsX3N0eWxlX251bWJlcihcbiAgZGlnaXRzID0gMSxcbiAgYmlnLm1hcmsgPSBcIixcIixcbiAgZGVjaW1hbC5tYXJrID0gXCIuXCIsXG4gIHNjYWxlID0gMC4wMDEsXG4gIHByZWZpeCA9IFwiJFwiLFxuICBzdWZmaXggPSBcIktcIixcbiAgbmEgPSBcIk5vdCBBcHBsaWNhYmxlXCIpXG5cbm15X3N0eWxlKGMoMTExMCwgMTIwMDAwMC4zNiwgTkEpKSJ9
+</script>
+</div>
+</div>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<div class="cell" data-caption="label style sigfig in gtsummary">
+<div>
+<div id="webr-19" class="exercise-cell">
+
+</div>
+<script type="webr-19-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJsYWJlbCBzdHlsZSBzaWdmaWcgaW4gZ3RzdW1tYXJ5IiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJsYWJlbCBzdHlsZSBzaWdmaWcgaW4gZ3RzdW1tYXJ5IGFkdmFuY2VkIn0sImNvZGUiOiJteV9zdHlsZSA8LSBndHN1bW1hcnk6OmxhYmVsX3N0eWxlX3NpZ2ZpZyhcbiAgZGlnaXRzID0gMixcbiAgYmlnLm1hcmsgPSBcIixcIixcbiAgZGVjaW1hbC5tYXJrID0gXCIuXCIsXG4gIHNjYWxlID0gMC4wMDEsXG4gIHByZWZpeCA9IFwiJFwiLFxuICBzdWZmaXggPSBcIktcIixcbiAgbmEgPSBcIk5vdCBBcHBsaWNhYmxlXCJcbilcblxubXlfc3R5bGUoYygxMTEwLCAxMjAwMDAwLjM2LCBOQSwgMC4yNSkpIn0=
+</script>
+</div>
+</div>
+</div>
+<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
+<div class="cell" data-caption="label style percent in gtsummary">
+<div>
+<div id="webr-20" class="exercise-cell">
+
+</div>
+<script type="webr-20-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJsYWJlbCBzdHlsZSBwZXJjZW50IGluIGd0c3VtbWFyeSIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImxhYmVsIjoibGFiZWwgc3R5bGUgcGVyY2VudCBpbiBndHN1bW1hcnkgc2ltcGxlIn0sImNvZGUiOiJteV9zdHlsZSA8LSBndHN1bW1hcnk6OmxhYmVsX3N0eWxlX3BlcmNlbnQoXG4gIGRpZ2l0cyA9IDBcbilcblxucGVyY2VudF92YWxzIDwtIGMoXG4gIC0xLCAwLCBcbiAgMC4wMDAxLCAwLjAwMDUsXG4gIDAuMDAxICwgMC4wMDUsIFxuICAwLjAxLCAwLjA1LFxuICAwLjEwLCAwLjQ0NSwgMC45OSwgMSwgMS40NVxuKVxuXG5teV9zdHlsZShwZXJjZW50X3ZhbHMpIn0=
+</script>
+</div>
+</div>
+</div>
+<div id="tabset-4-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-5-tab">
+<div class="cell" data-caption="label style ratio in gtsummary">
+<div>
+<div id="webr-21" class="exercise-cell">
+
+</div>
+<script type="webr-21-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJsYWJlbCBzdHlsZSByYXRpbyBpbiBndHN1bW1hcnkiLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJsYWJlbCI6ImxhYmVsIHN0eWxlIHJhdGlvIGluIGd0c3VtbWFyeSBzaW1wbGUifSwiY29kZSI6Im15X3N0eWxlIDwtIGd0c3VtbWFyeTo6bGFiZWxfc3R5bGVfcmF0aW8oXG4gIGRpZ2l0cyA9IDJcbilcblxucmF0aW9fdmFscyA8LSBjKFxuICAtMTAxLjIzNCwgLTEyLjM0NSxcbiAgLTEuMTIzNCwgLTAuOSwgLTAuMTIzLFxuICAwLFxuICAwLjEyMywgMC45LCBcbiAgMSxcbiAgMS4xMjM0LCAxMi4zNDUsIDEwMS4yMzRcbilcblxubXlfc3R5bGUocmF0aW9fdmFscykifQ==
+</script>
+</div>
+</div>
+</div>
+<div id="tabset-4-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-6-tab">
+<div class="cell" data-caption="label style pvalue in gtsummary">
+<div>
+<div id="webr-22" class="exercise-cell">
+
+</div>
+<script type="webr-22-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJsYWJlbCBzdHlsZSBwdmFsdWUgaW4gZ3RzdW1tYXJ5IiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJsYWJlbCBzdHlsZSBwdmFsdWUgaW4gZ3RzdW1tYXJ5IHNpbXBsZSJ9LCJjb2RlIjoibXlfc3R5bGUgPC0gZ3RzdW1tYXJ5OjpsYWJlbF9zdHlsZV9wdmFsdWUoXG4gIGRpZ2l0cyA9IDJcbilcblxucHZhbHMgPC0gYyhcbiAgMS41LCAtMSxcbiAgMSwgXG4gIDAuOTk5LCAwLjk5LCAwLjksXG4gIDAuNSwgMC4yNSwgMC4yLCAgXG4gIDAuMTAsIDAuMDk5OSxcbiAgMC4wMSwgMC4wMDEsIFxuICAwLjAwMDk5LCAwLjAwMDEsIDBcbilcblxubXlfc3R5bGUocHZhbHMpIn0=
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="digits-parameter" class="level3">
+<h3 class="anchored" data-anchor-id="digits-parameter"><code>digits</code> parameter</h3>
+<p>If we take a look at (<a href="https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg" target="_blank">Table 1</a> from the journal <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa062249" target="_blank">Treatment of Periodontal Disease and the Risk of Preterm Birth</a>, the mean, standard deviation (sd) and percentage are expressed in 1 decimal place.</p>
+<p>In <code>gtsummary</code>, we can specify the numerical format to display a given statistical result using the <code>digits</code> parameter. Though it accepts a <a href="https://www.danieldsjoberg.com/gtsummary/reference/syntax.html#formula-and-list-selectors" target="_blank">list of formulas</a> as input, it is also restricted based on what input is given to the <code>statistic</code> parameter.</p>
+<p>Looking at the example below,</p>
+<ul>
+<li>In the case of the statistic is <code>{mean} ({sd})</code>, passing the value <code>1</code> or <code>c(1, 1)</code> is the same as passing the output of <code>gtsummary::label_style_number(digits=1)</code> for both <code>{mean}</code> and <code>{sd}</code>.</li>
+<li>In the case of the statistic is <code>{n} ({p})</code>, passing the value <code>c(0, 1)</code> is the same as passing the output of <code>gtsummary::label_style_number(digits=0)</code> for both <code>{n}</code> and <code>gtsummary::label_style_percent(digits=1)</code> for <code>{p}</code>.</li>
+</ul>
+<div class="cell" data-caption="age race and education summary table with statistics formatting" data-envir="setup_table_1">
+<div>
+<div id="webr-23" class="exercise-cell">
+
+</div>
+<script type="webr-23-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIHN1bW1hcnkgdGFibGUgd2l0aCBzdGF0aXN0aWNzIGZvcm1hdHRpbmciLCJlZGl0Ijp0cnVlLCJlbnZpciI6InNldHVwX3RhYmxlXzEiLCJldmFsIjp0cnVlLCJsYWJlbCI6ImFnZSByYWNlIGFuZCBlZHVjYXRpb24gc3VtbWFyeSB0YWJsZSB3aXRoIHN0YXRpc3RpY3MgZm9ybWF0dGluZyJ9LCJjb2RlIjoib3B0X2FnZV9yYWNlX3RhYmxlIDwtIG9wdF9hZ2VfcmFjZV9kYXRhIHw+XG4gIGd0c3VtbWFyeTo6dGJsX3N1bW1hcnkoXG4gICAgaW5jbHVkZSA9IGMoXCJBZ2VcIiwgXCJXaGl0ZVwiLCBcIkJsYWNrXCIsIFwiSGlzcFwiLCBcIkVkdWNhdGlvblwiKSxcbiAgICBieSA9IFwiR3JvdXBcIixcbiAgICBzdGF0aXN0aWMgPSBsaXN0KFxuICAgICAgZ3RzdW1tYXJ5OjphbGxfY29udGludW91cygpIH4gXCJ7bWVhbn3CsXtzZH1cIixcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NhdGVnb3JpY2FsKCkgfiBcIntufSAoe3B9KVwiXG4gICAgKSxcbiAgICBkaWdpdHMgPSBsaXN0KFxuICAgICAgZ3RzdW1tYXJ5OjphbGxfY29udGludW91cygpIH4gMSxcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NhdGVnb3JpY2FsKCkgfiBjKDAsIDEpXG4gICAgKVxuICApXG5cbm9wdF9hZ2VfcmFjZV90YWJsZSJ9
+</script>
+</div>
+</div>
+</section>
+<section id="label-parameter" class="level3">
+<h3 class="anchored" data-anchor-id="label-parameter"><code>label</code> parameter</h3>
+<p>Currently, the column names of the dataset <code>opt_age_race_data</code> are used as the descriptive labels in the output table. We can update the descriptive labels printed using the <code>label</code> parameter. It accepts a <a href="https://www.danieldsjoberg.com/gtsummary/reference/syntax.html#formula-and-list-selectors" target="_blank">list of formulas</a> as input.</p>
+<p>In the example below, we rename the following to match the (<a href="https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg" target="_blank">Table 1</a> in the publication.</p>
+<ul>
+<li><code>Age</code> to <code>Age - yr</code>.</li>
+<li><code>Hisp</code> to <code>Hispanic</code>.</li>
+<li><code>Education</code> to <code>Education - no. (%)</code>.</li>
+</ul>
+<div class="cell" data-caption="age race and education summary table with label updates" data-envir="setup_table_1">
+<div>
+<div id="webr-24" class="exercise-cell">
+
+</div>
+<script type="webr-24-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIHN1bW1hcnkgdGFibGUgd2l0aCBsYWJlbCB1cGRhdGVzIiwiZWRpdCI6dHJ1ZSwiZW52aXIiOiJzZXR1cF90YWJsZV8xIiwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIHN1bW1hcnkgdGFibGUgd2l0aCBsYWJlbCB1cGRhdGVzIn0sImNvZGUiOiJvcHRfYWdlX3JhY2VfdGFibGUgPC0gb3B0X2FnZV9yYWNlX2RhdGEgfD5cbiAgZ3RzdW1tYXJ5Ojp0Ymxfc3VtbWFyeShcbiAgICBpbmNsdWRlID0gYyhcIkFnZVwiLCBcIldoaXRlXCIsIFwiQmxhY2tcIiwgXCJIaXNwXCIsIFwiRWR1Y2F0aW9uXCIpLFxuICAgIGJ5ID0gXCJHcm91cFwiLFxuICAgIGxhYmVsID0gbGlzdChcbiAgICAgIFwiQWdlXCIgfiBcIkFnZSAtIHlyXCIsXG4gICAgICBcIkhpc3BcIiB+IFwiSGlzcGFuaWNcIixcbiAgICAgIFwiRWR1Y2F0aW9uXCIgfiBcIkVkdWNhdGlvbiAtIG5vLiAoJSlcIlxuICAgICksXG4gICAgc3RhdGlzdGljID0gbGlzdChcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NvbnRpbnVvdXMoKSB+IFwie21lYW59wrF7c2R9XCIsXG4gICAgICBndHN1bW1hcnk6OmFsbF9jYXRlZ29yaWNhbCgpIH4gXCJ7bn0gKHtwfSlcIlxuICAgICksXG4gICAgZGlnaXRzID0gbGlzdChcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NvbnRpbnVvdXMoKSB+IDEsXG4gICAgICBndHN1bW1hcnk6OmFsbF9jYXRlZ29yaWNhbCgpIH4gYygwLCAxKVxuICAgIClcbiAgKVxuXG5vcHRfYWdlX3JhY2VfdGFibGUifQ==
+</script>
+</div>
+</div>
+</section>
+</section>
+<section id="variable-group-header" class="level2">
+<h2 class="anchored" data-anchor-id="variable-group-header">Variable Group Header</h2>
+<p>You will observe in <a href="https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg" target="_blank">Table 1</a>, there is a group header added above <code>White</code>, <code>Black</code> and <code>Hispanic</code> called <code>Race or ethnic group - no. (%)"</code>. Unlike <code>Education</code>, we cannot create a categorical column <code>Race or ethnic group - no. (%)"</code> because some patients have mixed race/ethnicity (Both White and Hispanic).</p>
+<p>Instead, we can use <a href="https://www.danieldsjoberg.com/gtsummary/reference/add_variable_group_header.html" target="_blank"><code>add_variable_group_header</code></a> function in <code>gtsummary</code> to insert a custom section header row into a summary table and indents a chosen group of variables underneath it.</p>
+<p>In the example below, we indicate the desired header name to the <code>header</code> parameter and the column names to group to the <code>variables</code> parameter.</p>
+<div class="cell" data-caption="age race and education summary table with group headers" data-envir="setup_table_1">
+<div>
+<div id="webr-25" class="exercise-cell">
+
+</div>
+<script type="webr-25-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIHN1bW1hcnkgdGFibGUgd2l0aCBncm91cCBoZWFkZXJzIiwiZWRpdCI6dHJ1ZSwiZW52aXIiOiJzZXR1cF90YWJsZV8xIiwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIHN1bW1hcnkgdGFibGUgd2l0aCBncm91cCBoZWFkZXJzIn0sImNvZGUiOiJvcHRfYWdlX3JhY2VfdGFibGUgPC0gb3B0X2FnZV9yYWNlX2RhdGEgfD5cbiAgZ3RzdW1tYXJ5Ojp0Ymxfc3VtbWFyeShcbiAgICBpbmNsdWRlID0gYyhcIkFnZVwiLCBcIldoaXRlXCIsIFwiQmxhY2tcIiwgXCJIaXNwXCIsIFwiRWR1Y2F0aW9uXCIpLFxuICAgIGJ5ID0gXCJHcm91cFwiLFxuICAgIGxhYmVsID0gbGlzdChcbiAgICAgIFwiQWdlXCIgfiBcIkFnZSAtIHlyXCIsXG4gICAgICBcIkhpc3BcIiB+IFwiSGlzcGFuaWNcIixcbiAgICAgIFwiRWR1Y2F0aW9uXCIgfiBcIkVkdWNhdGlvbiAtIG5vLiAoJSlcIlxuICAgICksXG4gICAgc3RhdGlzdGljID0gbGlzdChcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NvbnRpbnVvdXMoKSB+IFwie21lYW59wrF7c2R9XCIsXG4gICAgICBndHN1bW1hcnk6OmFsbF9jYXRlZ29yaWNhbCgpIH4gXCJ7bn0gKHtwfSlcIlxuICAgICksXG4gICAgZGlnaXRzID0gbGlzdChcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NvbnRpbnVvdXMoKSB+IDEsXG4gICAgICBndHN1bW1hcnk6OmFsbF9jYXRlZ29yaWNhbCgpIH4gYygwLCAxKVxuICAgIClcbiAgKSB8PiBcbiAgZ3RzdW1tYXJ5OjphZGRfdmFyaWFibGVfZ3JvdXBfaGVhZGVyKFxuICAgIGhlYWRlciA9IFwiUmFjZSBvciBldGhuaWMgZ3JvdXAgLSBuby4gKCUpXCIsXG4gICAgdmFyaWFibGVzID0gYyhcIldoaXRlXCIsIFwiQmxhY2tcIiwgXCJIaXNwXCIpXG4gIClcblxub3B0X2FnZV9yYWNlX3RhYmxlIn0=
+</script>
+</div>
+</div>
+</section>
+<section id="p-values" class="level2">
+<h2 class="anchored" data-anchor-id="p-values"><em>p</em> values</h2>
+<p>We then use <a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html" target="_blank"><code>gtsummary::add_p</code></a> to add <em>p</em> values to tables created using <a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" target="_blank"><code>gtsummary::tbl_summary</code></a>.</p>
+<p>Please note that <a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html" target="_blank"><code>gtsummary::add_p</code></a> requires the R package <a href="https://broom.tidymodels.org/" target="_blank"><code>broom</code></a> for it to work.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Defaults hidden</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Defaults explicit</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>Click on the different tabs.</p>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<p>By default based on the documentation, as</p>
+<ul>
+<li>the <code>by</code> variable used (<code>Group</code>) in <a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" target="_blank"><code>gtsummary::tbl_summary</code></a> has two variables (<code>Control</code> and <code>Treatment</code>).</li>
+<li><code>group</code> variable in <a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html" target="_blank"><code>gtsummary::add_p</code></a> is <code>NULL</code> (not doing paired <em>t</em> test).</li>
+<li><code>adj.vars</code> variable in <a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html" target="_blank"><code>gtsummary::add_p</code></a> is <code>NULL</code> (not doing ANCOVA).</li>
+<li>Each categorical groups to compare has at least 5 people.</li>
+</ul>
+<p>Wilcoxon rank-sum test (<code>wilcox.test</code>) is applied to all continuous variables and Pearson’s Chi-squared Test for Count Data without continuity correction (<code>chisq.test.no.correct</code>) is applied to all categorical variables.</p>
+<p>Also, the number of decimal place used for the <em>p</em> values by default is 1, hence we update the <code>pvalue_fun</code> input to <code>gtsummary::label_style_pvalue(digits = 2)</code>.</p>
+<div class="cell" data-caption="age race and education summary table with p values" data-envir="setup_table_1">
+<div>
+<div id="webr-26" class="exercise-cell">
+
+</div>
+<script type="webr-26-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIHN1bW1hcnkgdGFibGUgd2l0aCBwIHZhbHVlcyIsImVkaXQiOnRydWUsImVudmlyIjoic2V0dXBfdGFibGVfMSIsImV2YWwiOnRydWUsImxhYmVsIjoiYWdlIHJhY2UgYW5kIGVkdWNhdGlvbiBzdW1tYXJ5IHRhYmxlIHdpdGggcCB2YWx1ZXMgc2ltcGxlIn0sImNvZGUiOiJvcHRfYWdlX3JhY2VfdGFibGUgPC0gb3B0X2FnZV9yYWNlX2RhdGEgfD5cbiAgZ3RzdW1tYXJ5Ojp0Ymxfc3VtbWFyeShcbiAgICBpbmNsdWRlID0gYyhcIkFnZVwiLCBcIldoaXRlXCIsIFwiQmxhY2tcIiwgXCJIaXNwXCIsIFwiRWR1Y2F0aW9uXCIpLFxuICAgIGJ5ID0gXCJHcm91cFwiLFxuICAgIGxhYmVsID0gbGlzdChcbiAgICAgIFwiQWdlXCIgfiBcIkFnZSAtIHlyXCIsXG4gICAgICBcIkhpc3BcIiB+IFwiSGlzcGFuaWNcIixcbiAgICAgIFwiRWR1Y2F0aW9uXCIgfiBcIkVkdWNhdGlvbiAtIG5vLiAoJSlcIlxuICAgICksXG4gICAgc3RhdGlzdGljID0gbGlzdChcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NvbnRpbnVvdXMoKSB+IFwie21lYW59wrF7c2R9XCIsXG4gICAgICBndHN1bW1hcnk6OmFsbF9jYXRlZ29yaWNhbCgpIH4gXCJ7bn0gKHtwfSlcIlxuICAgICksXG4gICAgZGlnaXRzID0gbGlzdChcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NvbnRpbnVvdXMoKSB+IDEsXG4gICAgICBndHN1bW1hcnk6OmFsbF9jYXRlZ29yaWNhbCgpIH4gYygwLCAxKVxuICAgIClcbiAgKSB8PiBcbiAgZ3RzdW1tYXJ5OjphZGRfdmFyaWFibGVfZ3JvdXBfaGVhZGVyKFxuICAgIGhlYWRlciA9IFwiUmFjZSBvciBldGhuaWMgZ3JvdXAgLSBuby4gKCUpXCIsXG4gICAgdmFyaWFibGVzID0gYyhcIldoaXRlXCIsIFwiQmxhY2tcIiwgXCJIaXNwXCIpXG4gICl8PiBcbiAgZ3RzdW1tYXJ5OjphZGRfcChcbiAgICBwdmFsdWVfZnVuID0gZ3RzdW1tYXJ5OjpsYWJlbF9zdHlsZV9wdmFsdWUoZGlnaXRzID0gMilcbiAgKSBcblxub3B0X2FnZV9yYWNlX3RhYmxlIn0=
+</script>
+</div>
+</div>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<div class="cell" data-caption="age race and education summary table with p values" data-envir="setup_table_1">
+<div>
+<div id="webr-27" class="exercise-cell">
+
+</div>
+<script type="webr-27-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIHN1bW1hcnkgdGFibGUgd2l0aCBwIHZhbHVlcyIsImVkaXQiOnRydWUsImVudmlyIjoic2V0dXBfdGFibGVfMSIsImV2YWwiOnRydWUsImxhYmVsIjoiYWdlIHJhY2UgYW5kIGVkdWNhdGlvbiBzdW1tYXJ5IHRhYmxlIHdpdGggcCB2YWx1ZXMgYWR2YW5jZWQifSwiY29kZSI6Im9wdF9hZ2VfcmFjZV90YWJsZSA8LSBvcHRfYWdlX3JhY2VfZGF0YSB8PlxuICBndHN1bW1hcnk6OnRibF9zdW1tYXJ5KFxuICAgIGluY2x1ZGUgPSBjKFwiQWdlXCIsIFwiV2hpdGVcIiwgXCJCbGFja1wiLCBcIkhpc3BcIiwgXCJFZHVjYXRpb25cIiksXG4gICAgYnkgPSBcIkdyb3VwXCIsXG4gICAgbGFiZWwgPSBsaXN0KFxuICAgICAgXCJBZ2VcIiB+IFwiQWdlIC0geXJcIixcbiAgICAgIFwiSGlzcFwiIH4gXCJIaXNwYW5pY1wiLFxuICAgICAgXCJFZHVjYXRpb25cIiB+IFwiRWR1Y2F0aW9uIC0gbm8uICglKVwiXG4gICAgKSxcbiAgICBzdGF0aXN0aWMgPSBsaXN0KFxuICAgICAgZ3RzdW1tYXJ5OjphbGxfY29udGludW91cygpIH4gXCJ7bWVhbn3CsXtzZH1cIixcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NhdGVnb3JpY2FsKCkgfiBcIntufSAoe3B9KVwiXG4gICAgKSxcbiAgICBkaWdpdHMgPSBsaXN0KFxuICAgICAgZ3RzdW1tYXJ5OjphbGxfY29udGludW91cygpIH4gMSxcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NhdGVnb3JpY2FsKCkgfiBjKDAsIDEpXG4gICAgKVxuICApIHw+IFxuICBndHN1bW1hcnk6OmFkZF92YXJpYWJsZV9ncm91cF9oZWFkZXIoXG4gICAgaGVhZGVyID0gXCJSYWNlIG9yIGV0aG5pYyBncm91cCAtIG5vLiAoJSlcIixcbiAgICB2YXJpYWJsZXMgPSBjKFwiV2hpdGVcIiwgXCJCbGFja1wiLCBcIkhpc3BcIilcbiAgKXw+IFxuICBndHN1bW1hcnk6OmFkZF9wKFxuICAgIHRlc3QgPSBsaXN0KFxuICAgICAgZ3RzdW1tYXJ5OjphbGxfY29udGludW91cygpIH4gXCJ3aWxjb3gudGVzdFwiLFxuICAgICAgZ3RzdW1tYXJ5OjphbGxfY2F0ZWdvcmljYWwoKSB+IFwiY2hpc3EudGVzdC5uby5jb3JyZWN0XCJcbiAgICApLFxuICAgIHRlc3QuYXJncyA9IGxpc3QoXG4gICAgICBndHN1bW1hcnk6OmFsbF90ZXN0cyhcIndpbGNveC50ZXN0XCIpIH4gbGlzdChhbHRlcm5hdGl2ZSA9IFwidHdvLnNpZGVkXCIsIGNvcnJlY3QgPSBUUlVFKVxuICAgICksXG4gICAgcHZhbHVlX2Z1biA9IGd0c3VtbWFyeTo6bGFiZWxfc3R5bGVfcHZhbHVlKGRpZ2l0cyA9IDIpXG4gICkgXG5cbm9wdF9hZ2VfcmFjZV90YWJsZSJ9
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>List of comparison tests that available within <code>gtsummary</code> or ways to create custom statistical tests can be found <a href="https://www.danieldsjoberg.com/gtsummary/reference/tests.html" target="_blank">here</a>.</p>
+</section>
+<section id="remove-footnotes" class="level2">
+<h2 class="anchored" data-anchor-id="remove-footnotes">Remove footnotes</h2>
+<p>Finally, we use <a href="https://www.danieldsjoberg.com/gtsummary/reference/modify_footnote2.html" target="_blank"><code>gtsummary::remove_footnote_header</code></a> to remove any unnecessary footnote as this will be added in final stage.</p>
+<div class="cell" data-caption="age race and education summary table remove footnotes" data-envir="setup_table_1">
+<div>
+<div id="webr-28" class="exercise-cell">
+
+</div>
+<script type="webr-28-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJhZ2UgcmFjZSBhbmQgZWR1Y2F0aW9uIHN1bW1hcnkgdGFibGUgcmVtb3ZlIGZvb3Rub3RlcyIsImVkaXQiOnRydWUsImVudmlyIjoic2V0dXBfdGFibGVfMSIsImV2YWwiOnRydWUsImxhYmVsIjoiYWdlIHJhY2UgYW5kIGVkdWNhdGlvbiBzdW1tYXJ5IHRhYmxlIHJlbW92ZSBmb290bm90ZXMifSwiY29kZSI6IiMgYWRkX3AoKSBuZWVkcyBSIHBhY2thZ2UgYnJvb21cbm9wdF9hZ2VfcmFjZV90YWJsZSA8LSBvcHRfYWdlX3JhY2VfZGF0YSB8PlxuICBndHN1bW1hcnk6OnRibF9zdW1tYXJ5KFxuICAgIGluY2x1ZGUgPSBjKFwiQWdlXCIsIFwiV2hpdGVcIiwgXCJCbGFja1wiLCBcIkhpc3BcIiwgXCJFZHVjYXRpb25cIiksXG4gICAgYnkgPSBcIkdyb3VwXCIsXG4gICAgbGFiZWwgPSBsaXN0KFxuICAgICAgXCJBZ2VcIiB+IFwiQWdlIC0geXJcIixcbiAgICAgIFwiSGlzcFwiIH4gXCJIaXNwYW5pY1wiLFxuICAgICAgXCJFZHVjYXRpb25cIiB+IFwiRWR1Y2F0aW9uIC0gbm8uICglKVwiXG4gICAgKSxcbiAgICBzdGF0aXN0aWMgPSBsaXN0KFxuICAgICAgZ3RzdW1tYXJ5OjphbGxfY29udGludW91cygpIH4gXCJ7bWVhbn3CsXtzZH1cIixcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NhdGVnb3JpY2FsKCkgfiBcIntufSAoe3B9KVwiXG4gICAgKSxcbiAgICBkaWdpdHMgPSBsaXN0KFxuICAgICAgZ3RzdW1tYXJ5OjphbGxfY29udGludW91cygpIH4gMSxcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NhdGVnb3JpY2FsKCkgfiBjKDAsIDEpXG4gICAgKVxuICApIHw+IFxuICBndHN1bW1hcnk6OmFkZF92YXJpYWJsZV9ncm91cF9oZWFkZXIoXG4gICAgaGVhZGVyID0gXCJSYWNlIG9yIGV0aG5pYyBncm91cCAtIG5vLiAoJSlcIixcbiAgICB2YXJpYWJsZXMgPSBjKFwiV2hpdGVcIiwgXCJCbGFja1wiLCBcIkhpc3BcIilcbiAgKXw+IFxuICBndHN1bW1hcnk6OmFkZF9wKFxuICAgIHB2YWx1ZV9mdW4gPSBndHN1bW1hcnk6OmxhYmVsX3N0eWxlX3B2YWx1ZShkaWdpdHMgPSAyKVxuICApIHw+IFxuICBndHN1bW1hcnk6OnJlbW92ZV9mb290bm90ZV9oZWFkZXIoKVxuXG5vcHRfYWdlX3JhY2VfdGFibGUifQ==
+</script>
+</div>
+</div>
+</section>
+<section id="previous-pregnancy-data" class="level2">
+<h2 class="anchored" data-anchor-id="previous-pregnancy-data">Previous Pregnancy Data</h2>
+<p>In the next section, we proceed to build the previous pregnancy summary tables.</p>
+<p>Here is the dataset needed.</p>
+<div class="cell" data-envir="setup_table_1" data-autorun="true">
+<div>
+<div id="webr-29" class="exercise-cell">
+
+</div>
+<script type="webr-29-contents">
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImVkaXQiOnRydWUsImVudmlyIjoic2V0dXBfdGFibGVfMSIsImV2YWwiOnRydWUsImxhYmVsIjoicHJldmlvdXMgcHJlZ25hbmN5IGRhdGEgZm9yIHRhYmxlIDEifSwiY29kZSI6Im9wdF9wcmV2aW91c19wcmVnX2RhdGEgPC0gb3B0X2RhdGEgfD4gXG4gIGRwbHlyOjpzZWxlY3QoXG4gICAgYyhcIlBJRFwiLCBcIkdyb3VwXCIsIFxuICAgICAgXCJQcmV2LnByZWdcIixcbiAgICAgIFwicHJldmlvdXNfbGl2ZV9wcmV0ZXJtX2JpcnRoXCIsXG4gICAgICBcIlNwb250LmFiXCIsIFwiSW5kdWNlZC5hYlwiLCBcIkFueS5zdGlsbGJpcnRoXCIpXG4gIClcblxub3B0X3ByZXZpb3VzX3ByZWdfZGF0YSB8PiBcbiAgcmVhY3RhYmxlOjpyZWFjdGFibGUoXG4gICAgZmlsdGVyYWJsZSA9IFRSVUUsXG4gICAgcGFnaW5hdGlvblR5cGUgPSBcImp1bXBcIixcbiAgICBkZWZhdWx0UGFnZVNpemUgPSA1LFxuICAgIG1pblJvd3MgPSA1KSJ9
+</script>
+</div>
+</div>
+</section>
+<section id="missingness-display" class="level2">
+<h2 class="anchored" data-anchor-id="missingness-display">Missingness Display</h2>
+<p>It is observed that this time we have to deal with missing values. By default, <a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" target="_blank"><code>tbl_summary</code></a> display missing values titled as “Unknown” followed by presenting its counts (number of missing values).</p>
+<div class="cell" data-caption="summary table with missingness" data-envir="setup_table_1">
+<div>
+<div id="webr-30" class="exercise-cell">
+
+</div>
+<script type="webr-30-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJzdW1tYXJ5IHRhYmxlIHdpdGggbWlzc2luZ25lc3MiLCJlZGl0Ijp0cnVlLCJlbnZpciI6InNldHVwX3RhYmxlXzEiLCJldmFsIjp0cnVlLCJsYWJlbCI6InN1bW1hcnkgdGFibGUgd2l0aCBtaXNzaW5nbmVzcyJ9LCJjb2RlIjoib3B0X3ByZXZpb3VzX3ByZWdfdGFibGUgPC0gb3B0X3ByZXZpb3VzX3ByZWdfZGF0YSB8PlxuICBndHN1bW1hcnk6OnRibF9zdW1tYXJ5KFxuICAgIGluY2x1ZGUgPSBjKFxuICAgICAgXCJQcmV2LnByZWdcIixcbiAgICAgIFwicHJldmlvdXNfbGl2ZV9wcmV0ZXJtX2JpcnRoXCIsXG4gICAgICBcIlNwb250LmFiXCIsIFwiSW5kdWNlZC5hYlwiLCBcIkFueS5zdGlsbGJpcnRoXCJcbiAgICApLFxuICAgIGJ5ID0gXCJHcm91cFwiXG4gICkgXG5cbm9wdF9wcmV2aW91c19wcmVnX3RhYmxlIn0=
+</script>
+</div>
+</div>
+<p>There are three main parameters that you can use to control what is displayed for missing values. They are the <code>missing</code>, <code>missing_text</code>, and <code>missing_stat</code>.</p>
+<ul>
+<li>The <code>missing</code> parameter accepts a <a href="https://www.danieldsjoberg.com/gtsummary/reference/syntax.html#formula-and-list-selectors" target="_blank">list of formulas</a> as input to help users specify any of three options <code>c("ifany", "no", "always")</code> to each of the variables to determine in what situation will the missing values be displayed.
+<ul>
+<li><code>ifany</code> means we only add a row for missingness if the variables have missing values.</li>
+<li><code>no</code> means we do not provide a row for missingness regardless if the variables have missing values or not.</li>
+<li><code>always</code> means we always provide a row for missingness regardless if the variables have missing values or not.</li>
+<li>the default parameter for <code>missing</code> is all variables set to <code>ifany</code> or <code>missing = gtsummary::everything() ~ "ifany"</code>.</li>
+</ul></li>
+<li>The <code>missing_text</code> parameter accepts a string to determine what label to display for missing value. It is currently set to “Unknown” by default.</li>
+<li>The <code>missing_stats</code> parameter accepts a string to determine what statistic to show on missing row. It is currently set to “{N_miss}” by default to highlight the frequency of missing values. Summary statistics on the number of available to display are
+<ul>
+<li><code>{N_obs}</code> for total number of observations.</li>
+<li><code>{N_miss}</code> for number of missing observations.</li>
+<li><code>{N_nonmiss}</code> for number of non-missing observations.</li>
+<li><code>{p_miss}</code> for percentage of observations missing.</li>
+<li><code>{p_nonmiss}</code> for percentage of observations not missing</li>
+</ul></li>
+</ul>
+<p>To match <a href="https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg" target="_blank">Table 1</a>, what we need is to simply set <code>missing = "no"</code>.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">What we need</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Let’s experiment</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<div class="cell" data-caption="summary table with missing as no" data-envir="setup_table_1">
+<div>
+<div id="webr-31" class="exercise-cell">
+
+</div>
+<script type="webr-31-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJzdW1tYXJ5IHRhYmxlIHdpdGggbWlzc2luZyBhcyBubyIsImVkaXQiOnRydWUsImVudmlyIjoic2V0dXBfdGFibGVfMSIsImV2YWwiOnRydWUsImxhYmVsIjoic3VtbWFyeSB0YWJsZSB3aXRoIG1pc3NpbmcgYXMgbm8ifSwiY29kZSI6Im9wdF9wcmV2aW91c19wcmVnX3RhYmxlIDwtIG9wdF9wcmV2aW91c19wcmVnX2RhdGEgfD5cbiAgZ3RzdW1tYXJ5Ojp0Ymxfc3VtbWFyeShcbiAgICBpbmNsdWRlID0gYyhcbiAgICAgIFwiUHJldi5wcmVnXCIsXG4gICAgICBcInByZXZpb3VzX2xpdmVfcHJldGVybV9iaXJ0aFwiLFxuICAgICAgXCJTcG9udC5hYlwiLCBcIkluZHVjZWQuYWJcIiwgXCJBbnkuc3RpbGxiaXJ0aFwiXG4gICAgKSxcbiAgICBieSA9IFwiR3JvdXBcIixcbiAgICBtaXNzaW5nID0gXCJub1wiXG4gICkgXG5cbm9wdF9wcmV2aW91c19wcmVnX3RhYmxlIn0=
+</script>
+</div>
+</div>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div class="cell" data-caption="summary table with missingness playground" data-envir="setup_table_1">
+<div>
+<div id="webr-32" class="exercise-cell">
+
+</div>
+<script type="webr-32-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJzdW1tYXJ5IHRhYmxlIHdpdGggbWlzc2luZ25lc3MgcGxheWdyb3VuZCIsImVkaXQiOnRydWUsImVudmlyIjoic2V0dXBfdGFibGVfMSIsImV2YWwiOnRydWUsImxhYmVsIjoic3VtbWFyeSB0YWJsZSB3aXRoIG1pc3NpbmduZXNzIHBsYXlncm91bmQifSwiY29kZSI6Im9wdF9wcmV2aW91c19wcmVnX3RhYmxlIDwtIG9wdF9wcmV2aW91c19wcmVnX2RhdGEgfD5cbiAgZ3RzdW1tYXJ5Ojp0Ymxfc3VtbWFyeShcbiAgICBpbmNsdWRlID0gYyhcbiAgICAgIFwiUHJldi5wcmVnXCIsXG4gICAgICBcInByZXZpb3VzX2xpdmVfcHJldGVybV9iaXJ0aFwiLFxuICAgICAgXCJTcG9udC5hYlwiLCBcIkluZHVjZWQuYWJcIiwgXCJBbnkuc3RpbGxiaXJ0aFwiLFxuICAgICAgXCJBbnkubGl2ZS5wdGIuc2Iuc3AuYWIuaW4uYWJcIlxuICAgICksXG4gICAgYnkgPSBcIkdyb3VwXCIsXG4gICAgbWlzc2luZyA9IGxpc3QoXG4gICAgICBcIlByZXYucHJlZ1wiIH4gXCJhbHdheXNcIixcbiAgICAgIFwicHJldmlvdXNfbGl2ZV9wcmV0ZXJtX2JpcnRoXCIgfiBcImlmYW55XCIsXG4gICAgICBjKFwiU3BvbnQuYWJcIiwgXCJJbmR1Y2VkLmFiXCIsIFxuICAgICAgICBcIkFueS5zdGlsbGJpcnRoXCIpIH4gXCJub1wiXG4gICAgKSxcbiAgICBtaXNzaW5nX3RleHQgPSBcIk1pc3NpbmdcIixcbiAgICBtaXNzaW5nX3N0YXQgPSBcIntOX21pc3N9L3tOX29ic30gKHtwX21pc3N9KVwiXG4gICkgXG5cbm9wdF9wcmV2aW91c19wcmVnX3RhYmxlIn0=
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise" class="level2">
+<h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
+<p>Let’s make use of what we have learned in the previous section to replicate the previous pregnancy section in <a href="https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg" target="_blank">Table 1</a></p>
+<p>Try out this exercise below. Ensure that</p>
+<ul>
+<li>The labels are set correctly,</li>
+<li>Statistics are displayed as counts (as integers) and percentages (in one decimal place).</li>
+<li><em>p</em> values are displayed in two decimal places.</li>
+</ul>
+<div class="cell" data-setup="true" data-exercise="previous_pregnancy_table">
+<script type="exercise-setup-previous_pregnancy_table-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoicHJldmlvdXNfcHJlZ25hbmN5X3RhYmxlIiwic2V0dXAiOnRydWV9LCJjb2RlIjoiXG5vcHRfcHJldmlvdXNfcHJlZ19kYXRhIDwtIHJlYWRSRFMoXCJkYXRhL29wdF9kYXRhLnJkc1wiKSB8PiBcbiAgZHBseXI6OnNlbGVjdChcbiAgICBjKFwiUElEXCIsIFwiR3JvdXBcIiwgXG4gICAgICBcIlByZXYucHJlZ1wiLFxuICAgICAgXCJwcmV2aW91c19saXZlX3ByZXRlcm1fYmlydGhcIixcbiAgICAgIFwiU3BvbnQuYWJcIiwgXCJJbmR1Y2VkLmFiXCIsIFwiQW55LnN0aWxsYmlydGhcIilcbiAgKSJ9
+</script>
+</div>
+<div class="cell" data-exercise="previous_pregnancy_table">
+<div>
+<div id="webr-34" class="exercise-cell">
+
+</div>
+<script type="webr-34-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoicHJldmlvdXNfcHJlZ25hbmN5X3RhYmxlIn0sImNvZGUiOiJvcHRfcHJldmlvdXNfcHJlZ19kYXRhIHw+XG4gIGd0c3VtbWFyeTo6dGJsX3N1bW1hcnkoXG4gICAgaW5jbHVkZSA9IGMoXG4gICAgICBcIlByZXYucHJlZ1wiLFxuICAgICAgXCJwcmV2aW91c19saXZlX3ByZXRlcm1fYmlydGhcIixcbiAgICAgIFwiU3BvbnQuYWJcIiwgXCJJbmR1Y2VkLmFiXCIsIFwiQW55LnN0aWxsYmlydGhcIlxuICAgICksXG4gICAgYnkgPSBcIkdyb3VwXCIsXG4gICAgbWlzc2luZyA9IFwibm9cIixcbiAgICBsYWJlbCA9IGxpc3QoXG4gICAgICBcIlByZXYucHJlZ1wiIH4gX19fX19fXyxcbiAgICAgIFwicHJldmlvdXNfbGl2ZV9wcmV0ZXJtX2JpcnRoXCIgfiBfX19fX19fLFxuICAgICAgXCJTcG9udC5hYlwiIH4gX19fX19fXyxcbiAgICAgIFwiSW5kdWNlZC5hYlwiIH4gX19fX19fXyxcbiAgICAgIFwiQW55LnN0aWxsYmlydGhcIiB+IF9fX19fX19cbiAgICApLFxuICAgIHN0YXRpc3RpYyA9IGxpc3QoXG4gICAgICBndHN1bW1hcnk6OmFsbF9jYXRlZ29yaWNhbCgpIH4gX19fX19fX1xuICAgICksXG4gICAgZGlnaXRzID0gbGlzdChcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NhdGVnb3JpY2FsKCkgfiBfX19fX19fXG4gICAgKVxuICApIHw+IFxuICBndHN1bW1hcnk6OmFkZF92YXJpYWJsZV9ncm91cF9oZWFkZXIoXG4gICAgaGVhZGVyID0gX19fX19fXyxcbiAgICB2YXJpYWJsZXMgPSBjKFxuICAgICAgXCJQcmV2LnByZWdcIixcbiAgICAgIFwicHJldmlvdXNfbGl2ZV9wcmV0ZXJtX2JpcnRoXCIsXG4gICAgICBcIlNwb250LmFiXCIsIFwiSW5kdWNlZC5hYlwiLCBcIkFueS5zdGlsbGJpcnRoXCJcbiAgICApXG4gICkgfD4gXG4gIGd0c3VtbWFyeTo6YWRkX3AoXG4gICAgcHZhbHVlX2Z1biA9IF9fX19fX19cbiAgKSB8PiBcbiAgZ3RzdW1tYXJ5OjpyZW1vdmVfZm9vdG5vdGVfaGVhZGVyKCkifQ==
+</script>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="previous_pregnancy_table">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Take a look at how age race and education summary table is created and copy its parameters to the previous pregnancy table.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="previous_pregnancy_table">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Fully worked solution:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="cell" data-exercise="previous_pregnancy_table" data-solution="true">
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="previous_pregnancy_table">
+<code id="interpolate-36" class="solution-code d-none">opt_previous_preg_data |&gt;
+  gtsummary::tbl_summary(
+    include = c(
+      "Prev.preg",
+      "previous_live_preterm_birth",
+      "Spont.ab", "Induced.ab", "Any.stillbirth"
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Prev.preg" ~ "Any pregancy",
+      "previous_live_preterm_birth" ~ "Live preterm birth",
+      "Spont.ab" ~ "Spontaneous abortion",
+      "Induced.ab" ~ "Induced abortion",
+      "Any.stillbirth" ~ "Stillbirth"
+    ),
+    statistic = list(
+      gtsummary::all_categorical() ~ "{n} ({p})"
+    ),
+    digits = list(
+      gtsummary::all_categorical() ~ c(0, 1)
+    )
+  ) |&gt; 
+  gtsummary::add_variable_group_header(
+    header = "Previous pregnancies - no. (%)",
+    variables = c(
+      "Prev.preg",
+      "previous_live_preterm_birth",
+      "Spont.ab", "Induced.ab", "Any.stillbirth"
+    )
+  )|&gt; 
+  gtsummary::add_p(
+    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)
+  ) |&gt; 
+  gtsummary::remove_footnote_header()</code>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="interpolate-37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="interpolate-37-1"><a href="#interpolate-37-1" aria-hidden="true" tabindex="-1"></a>opt_previous_preg_data <span class="sc">|&gt;</span></span>
+<span id="interpolate-37-2"><a href="#interpolate-37-2" aria-hidden="true" tabindex="-1"></a>  gtsummary<span class="sc">::</span><span class="fu">tbl_summary</span>(</span>
+<span id="interpolate-37-3"><a href="#interpolate-37-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">include =</span> <span class="fu">c</span>(</span>
+<span id="interpolate-37-4"><a href="#interpolate-37-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Prev.preg"</span>,</span>
+<span id="interpolate-37-5"><a href="#interpolate-37-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">"previous_live_preterm_birth"</span>,</span>
+<span id="interpolate-37-6"><a href="#interpolate-37-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Spont.ab"</span>, <span class="st">"Induced.ab"</span>, <span class="st">"Any.stillbirth"</span></span>
+<span id="interpolate-37-7"><a href="#interpolate-37-7" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="interpolate-37-8"><a href="#interpolate-37-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"Group"</span>,</span>
+<span id="interpolate-37-9"><a href="#interpolate-37-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">missing =</span> <span class="st">"no"</span>,</span>
+<span id="interpolate-37-10"><a href="#interpolate-37-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="fu">list</span>(</span>
+<span id="interpolate-37-11"><a href="#interpolate-37-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Prev.preg"</span> <span class="sc">~</span> <span class="st">"Any pregancy"</span>,</span>
+<span id="interpolate-37-12"><a href="#interpolate-37-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">"previous_live_preterm_birth"</span> <span class="sc">~</span> <span class="st">"Live preterm birth"</span>,</span>
+<span id="interpolate-37-13"><a href="#interpolate-37-13" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Spont.ab"</span> <span class="sc">~</span> <span class="st">"Spontaneous abortion"</span>,</span>
+<span id="interpolate-37-14"><a href="#interpolate-37-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Induced.ab"</span> <span class="sc">~</span> <span class="st">"Induced abortion"</span>,</span>
+<span id="interpolate-37-15"><a href="#interpolate-37-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Any.stillbirth"</span> <span class="sc">~</span> <span class="st">"Stillbirth"</span></span>
+<span id="interpolate-37-16"><a href="#interpolate-37-16" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="interpolate-37-17"><a href="#interpolate-37-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="fu">list</span>(</span>
+<span id="interpolate-37-18"><a href="#interpolate-37-18" aria-hidden="true" tabindex="-1"></a>      gtsummary<span class="sc">::</span><span class="fu">all_categorical</span>() <span class="sc">~</span> <span class="st">"{n} ({p})"</span></span>
+<span id="interpolate-37-19"><a href="#interpolate-37-19" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="interpolate-37-20"><a href="#interpolate-37-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits =</span> <span class="fu">list</span>(</span>
+<span id="interpolate-37-21"><a href="#interpolate-37-21" aria-hidden="true" tabindex="-1"></a>      gtsummary<span class="sc">::</span><span class="fu">all_categorical</span>() <span class="sc">~</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="interpolate-37-22"><a href="#interpolate-37-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="interpolate-37-23"><a href="#interpolate-37-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="interpolate-37-24"><a href="#interpolate-37-24" aria-hidden="true" tabindex="-1"></a>  gtsummary<span class="sc">::</span><span class="fu">add_variable_group_header</span>(</span>
+<span id="interpolate-37-25"><a href="#interpolate-37-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">header =</span> <span class="st">"Previous pregnancies - no. (%)"</span>,</span>
+<span id="interpolate-37-26"><a href="#interpolate-37-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="fu">c</span>(</span>
+<span id="interpolate-37-27"><a href="#interpolate-37-27" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Prev.preg"</span>,</span>
+<span id="interpolate-37-28"><a href="#interpolate-37-28" aria-hidden="true" tabindex="-1"></a>      <span class="st">"previous_live_preterm_birth"</span>,</span>
+<span id="interpolate-37-29"><a href="#interpolate-37-29" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Spont.ab"</span>, <span class="st">"Induced.ab"</span>, <span class="st">"Any.stillbirth"</span></span>
+<span id="interpolate-37-30"><a href="#interpolate-37-30" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="interpolate-37-31"><a href="#interpolate-37-31" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">|&gt;</span> </span>
+<span id="interpolate-37-32"><a href="#interpolate-37-32" aria-hidden="true" tabindex="-1"></a>  gtsummary<span class="sc">::</span><span class="fu">add_p</span>(</span>
+<span id="interpolate-37-33"><a href="#interpolate-37-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">pvalue_fun =</span> gtsummary<span class="sc">::</span><span class="fu">label_style_pvalue</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="interpolate-37-34"><a href="#interpolate-37-34" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="interpolate-37-35"><a href="#interpolate-37-35" aria-hidden="true" tabindex="-1"></a>  gtsummary<span class="sc">::</span><span class="fu">remove_footnote_header</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-exercise="previous_pregnancy_table" data-check="true">
+<script type="exercise-check-previous_pregnancy_table-contents">
+eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6InByZXZpb3VzX3ByZWduYW5jeV90YWJsZSJ9LCJjb2RlIjoiZ3JhZGV0aGlzOjpncmFkZV90aGlzX2NvZGUoKSJ9
+</script>
+</div>
+</section>
+<section id="clinical-data" class="level2">
+<h2 class="anchored" data-anchor-id="clinical-data">Clinical Data</h2>
+<p>In the next section, we proceed to build the clinical summary tables.</p>
+<p>Here is the dataset needed.</p>
+<div class="cell" data-envir="setup_table_1" data-autorun="true">
+<div>
+<div id="webr-39" class="exercise-cell">
+
+</div>
+<script type="webr-39-contents">
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImVkaXQiOnRydWUsImVudmlyIjoic2V0dXBfdGFibGVfMSIsImV2YWwiOnRydWUsImxhYmVsIjoiY2xpbmljYWwgZGF0YSBmb3IgdGFibGUgMSJ9LCJjb2RlIjoib3B0X2NsaW5pY2FsX2RhdGEgPC0gb3B0X2RhdGEgfD4gXG4gIGRwbHlyOjpzZWxlY3QoXG4gICAgYyhcIlBJRFwiLCBcIkdyb3VwXCIsIFxuICAgICAgXCJEaWFiZXRlc1wiLCBcIkh5cGVydGVuc2lvblwiLCBcIlVzZS5BbGNcIilcbiAgKVxuXG5vcHRfY2xpbmljYWxfZGF0YSB8PiBcbiAgcmVhY3RhYmxlOjpyZWFjdGFibGUoXG4gICAgZmlsdGVyYWJsZSA9IFRSVUUsXG4gICAgcGFnaW5hdGlvblR5cGUgPSBcImp1bXBcIixcbiAgICBkZWZhdWx0UGFnZVNpemUgPSA1LFxuICAgIG1pblJvd3MgPSA1KSJ9
+</script>
+</div>
+</div>
+</section>
+<section id="customised-p-value-format" class="level2">
+<h2 class="anchored" data-anchor-id="customised-p-value-format">Customised <em>p</em> value format</h2>
+<p>Let’s create the clinical summary table using <a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" target="_blank"><code>tbl_summary</code></a>.</p>
+<div class="cell" data-caption="clinical summary table with modified p value" data-envir="setup_table_1">
+<div>
+<div id="webr-40" class="exercise-cell">
+
+</div>
+<script type="webr-40-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJjbGluaWNhbCBzdW1tYXJ5IHRhYmxlIHdpdGggbW9kaWZpZWQgcCB2YWx1ZSIsImVkaXQiOnRydWUsImVudmlyIjoic2V0dXBfdGFibGVfMSIsImV2YWwiOnRydWUsImxhYmVsIjoiY2xpbmljYWwgc3VtbWFyeSB0YWJsZSB3aXRob3V0IG1vZGlmaWVkIHAgdmFsdWUifSwiY29kZSI6Im9wdF9jbGluY2FsX3RhYmxlIDwtIG9wdF9jbGluaWNhbF9kYXRhIHw+XG4gIGd0c3VtbWFyeTo6dGJsX3N1bW1hcnkoXG4gICAgaW5jbHVkZSA9IGMoXCJEaWFiZXRlc1wiLCBcIkh5cGVydGVuc2lvblwiLCBcIlVzZS5BbGNcIiksXG4gICAgYnkgPSBcIkdyb3VwXCIsXG4gICAgbWlzc2luZyA9IFwibm9cIixcbiAgICBsYWJlbCA9IGxpc3QoXG4gICAgICBcIkRpYWJldGVzXCIgfiBcIkRpYWJldGVzXCIsXG4gICAgICBcIkh5cGVydGVuc2lvblwiIH4gXCJDaHJvbmljIGh5cGVydGVuc2lvblwiLFxuICAgICAgXCJVc2UuQWxjXCIgfiBcIlNlbGYtcmVwb3J0ZWQgYWxjb2hvbCB1c2VcIlxuICAgICksXG4gICAgc3RhdGlzdGljID0gbGlzdChcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NvbnRpbnVvdXMoKSB+IFwie21lYW59wrF7c2R9XCIsXG4gICAgICBndHN1bW1hcnk6OmFsbF9jYXRlZ29yaWNhbCgpIH4gXCJ7bn0gKHtwfSlcIlxuICAgICksXG4gICAgZGlnaXRzID0gbGlzdChcbiAgICAgIGd0c3VtbWFyeTo6YWxsX2NvbnRpbnVvdXMoKSB+IDEsXG4gICAgICBndHN1bW1hcnk6OmFsbF9jYXRlZ29yaWNhbCgpIH4gYygwLCAxKVxuICAgIClcbiAgKSB8PiBcbiAgZ3RzdW1tYXJ5OjphZGRfdmFyaWFibGVfZ3JvdXBfaGVhZGVyKFxuICAgIGhlYWRlciA9IFwiQ29leGlzaXRpbmcgbWVkaWNhbCBjb25kaXRpb24gLSBuby4gKCUpXCIsXG4gICAgdmFyaWFibGVzID0gYyhcIkRpYWJldGVzXCIsIFwiSHlwZXJ0ZW5zaW9uXCIsIFwiVXNlLkFsY1wiKVxuICApIHw+IFxuICBndHN1bW1hcnk6OmFkZF9wKFxuICAgIHB2YWx1ZV9mdW4gPSBndHN1bW1hcnk6OmxhYmVsX3N0eWxlX3B2YWx1ZShkaWdpdHMgPSAyKVxuICApIHw+IFxuICBndHN1bW1hcnk6OnJlbW92ZV9mb290bm90ZV9oZWFkZXIoKVxuXG5vcHRfY2xpbmNhbF90YWJsZSJ9
+</script>
+</div>
+</div>
+<p>It is observed that using <code>pvalue_fun = gtsummary::label_style_pvalue(digits = 2)</code> give <code>&gt;0.99</code> for <code>Self-reported alcohol use</code>. One way to match <a href="https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg" target="_blank">Table 1</a> is to create a customised function to control how <em>p</em> values are reported.</p>
+<p>Below is an example of how a customised function <code>p_value_style</code> is created and used to ensure it matches the <em>p</em> value reporting style you see in <a href="https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg" target="_blank">Table 1</a> and later <a href="https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/b981f44a-0873-42d4-ad60-d7545e1f63cb/assets/images/large/nejmoa062249_t2.jpg" target="_blank">Table 2</a>.</p>
+<div class="cell" data-caption="clinical summary table with modified p value" data-envir="setup_table_1">
+<div>
+<div id="webr-41" class="exercise-cell">
+
+</div>
+<script type="webr-41-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJjbGluaWNhbCBzdW1tYXJ5IHRhYmxlIHdpdGggbW9kaWZpZWQgcCB2YWx1ZSIsImVkaXQiOnRydWUsImVudmlyIjoic2V0dXBfdGFibGVfMSIsImV2YWwiOnRydWUsImxhYmVsIjoiY2xpbmljYWwgc3VtbWFyeSB0YWJsZSB3aXRoIG1vZGlmaWVkIHAgdmFsdWUifSwiY29kZSI6InBfdmFsdWVfc3R5bGUgPC0gZnVuY3Rpb24oeCkge1xuICBkcGx5cjo6Y2FzZV93aGVuKFxuICAgIHggPT0gMSB+IFwiMS4wXCIsXG4gICAgeCA+IDAuOTkgJiB4IDwgMSB+IFwiMC45OVwiLFxuICAgIC5kZWZhdWx0ID0gZ3RzdW1tYXJ5OjpzdHlsZV9wdmFsdWUoeCwgZGlnaXRzID0gMilcbiAgKVxufVxub3B0X2NsaW5jYWxfZGF0YSA8LSBvcHRfZGF0YSB8PlxuICBndHN1bW1hcnk6OnRibF9zdW1tYXJ5KFxuICAgIGluY2x1ZGUgPSBjKFwiRGlhYmV0ZXNcIiwgXCJIeXBlcnRlbnNpb25cIiwgXCJVc2UuQWxjXCIpLFxuICAgIGJ5ID0gXCJHcm91cFwiLFxuICAgIG1pc3NpbmcgPSBcIm5vXCIsXG4gICAgbGFiZWwgPSBsaXN0KFxuICAgICAgXCJEaWFiZXRlc1wiIH4gXCJEaWFiZXRlc1wiLFxuICAgICAgXCJIeXBlcnRlbnNpb25cIiB+IFwiQ2hyb25pYyBoeXBlcnRlbnNpb25cIixcbiAgICAgIFwiVXNlLkFsY1wiIH4gXCJTZWxmLXJlcG9ydGVkIGFsY29ob2wgdXNlXCJcbiAgICApLFxuICAgIHN0YXRpc3RpYyA9IGxpc3QoXG4gICAgICBndHN1bW1hcnk6OmFsbF9jb250aW51b3VzKCkgfiBcInttZWFufcKxe3NkfVwiLFxuICAgICAgZ3RzdW1tYXJ5OjphbGxfY2F0ZWdvcmljYWwoKSB+IFwie259ICh7cH0pXCJcbiAgICApLFxuICAgIGRpZ2l0cyA9IGxpc3QoXG4gICAgICBndHN1bW1hcnk6OmFsbF9jb250aW51b3VzKCkgfiAxLFxuICAgICAgZ3RzdW1tYXJ5OjphbGxfY2F0ZWdvcmljYWwoKSB+IGMoMCwgMSlcbiAgICApXG4gICkgfD4gXG4gIGd0c3VtbWFyeTo6YWRkX3ZhcmlhYmxlX2dyb3VwX2hlYWRlcihcbiAgICBoZWFkZXIgPSBcIkNvZXhpc2l0aW5nIG1lZGljYWwgY29uZGl0aW9uIC0gbm8uICglKVwiLFxuICAgIHZhcmlhYmxlcyA9IGMoXCJEaWFiZXRlc1wiLCBcIkh5cGVydGVuc2lvblwiLCBcIlVzZS5BbGNcIilcbiAgKSB8PiBcbiAgZ3RzdW1tYXJ5OjphZGRfcChcbiAgICBwdmFsdWVfZnVuID0gcF92YWx1ZV9zdHlsZVxuICApIHw+IFxuICBndHN1bW1hcnk6OnJlbW92ZV9mb290bm90ZV9oZWFkZXIoKVxuXG5vcHRfY2xpbmNhbF9kYXRhIn0=
+</script>
+</div>
+</div>
+</section>
+<section id="steps-ahead" class="level2">
+<h2 class="anchored" data-anchor-id="steps-ahead">Steps ahead</h2>
+<p>From this section, we have managed to create the summary table for age, race and education, previous pregnancy and clinical for <a href="https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg" target="_blank">Table 1</a>. In the next section, we proceed to combine the three tables with further modification to match <a href="https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg" target="_blank">Table 1</a>.</p>
+
+
+<script type="webr-data">
+eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC42LjAvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyIsInJlYWN0YWJsZSIsImd0c3VtbWFyeSIsImJyb29tIl0sInJlcG9zIjpbImh0dHBzOi8vZGRzam9iZXJnLnItdW5pdmVyc2UuZGV2L2d0c3VtbWFyeSJdfSwicmVuZGVyX2RmIjoiZGVmYXVsdCJ9
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC00MSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfNDE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici00MSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzQxID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItNDEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici00MS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV80MSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfNDEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC00MCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfNDA7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici00MCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzQwID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItNDAtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici00MC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV80MCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfNDAsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0zOSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMzk7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0zOSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzM5ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMzktY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0zOS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8zOSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMzksIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0zNCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMzQ7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0zNCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzM0ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMzQtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0zNC1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzM0ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8zNCwge30pO1xuX3dlYnJfZmVlZGJhY2tfMzQgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzM0LmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0zMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMzI7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0zMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzMyID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMzItY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0zMi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8zMiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMzIsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0zMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMzE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0zMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzMxID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMzEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0zMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8zMSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMzEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0zMCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMzA7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0zMCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzMwID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMzAtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0zMC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8zMCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMzAsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yOSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjk7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0yOSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzI5ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjktY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yOS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yOSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjksIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yOCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjg7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0yOCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzI4ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjgtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yOC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yOCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjgsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yNyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjc7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0yNyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzI3ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjctY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yNy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yNyA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjcsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yNiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjY7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0yNiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzI2ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjYtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yNi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yNiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjYsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjU7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0yNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzI1ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjUtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yNS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yNSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjUsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yNCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjQ7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0yNCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzI0ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjQtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yNC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yNCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjQsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yMyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjM7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0yMyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIzID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjMtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yMy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yMyA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjMsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjI7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0yMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIyID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjItY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yMi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yMiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjIsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0yMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIxID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yMSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yMCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjA7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0yMCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIwID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjAtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0yMC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yMCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMjAsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xOSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTk7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xOSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE5ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTktY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xOS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xOSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTksIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xOCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTg7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xOCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE4ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTgtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xOC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xOCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTgsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xNyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTc7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xNyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE3ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTctY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xNy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xNyA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTcsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xNiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTY7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xNiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE2ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTYtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xNi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xNiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTYsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTU7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE1ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTUtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xNS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xNSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTUsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xNCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTQ7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xNCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE0ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTQtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xNC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xNCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTQsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xMyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTM7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xMyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEzID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTMtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xMy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xMyA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTMsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTI7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEyID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTItY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xMi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xMiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTIsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzExID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xMSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xMCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTA7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xMCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEwID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTAtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xMC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xMCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTAsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC05IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV85O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItOSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzkgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici05LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItOS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV85ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl85LCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtOCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfODtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTgiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl84ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItOC1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTgtY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfOCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfOCwge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTciLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzc7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici03IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfNyA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTctY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici03LWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzcgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzcsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC02IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV82O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItNiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzYgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici02LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItNi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV82ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl82LCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfNTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl81ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItNS1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTUtY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfNSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfNSwge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTQiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzQ7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici00IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfNCA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTQtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici00LWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzQgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzQsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0zIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8zO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzMgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0zLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItMy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8zID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8zLCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTIiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl8yID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMi1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTItY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfMiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMiwge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfMSA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xLWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzEgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJpbnRlcnBvbGF0ZS0zNiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgY29uc3QgeyBpbnRlcnBvbGF0ZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgYmxvY2tfaWQgPSBcIjM2XCI7XG4gIGNvbnN0IGxhbmd1YWdlID0gXCJub25lXCI7XG4gIGNvbnN0IGRlZl9tYXAgPSB7XG59O1xuICBjb25zdCBlbGVtID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoYGludGVycG9sYXRlLSR7YmxvY2tfaWR9YCk7XG5cbiAgLy8gU3RvcmUgb3JpZ2luYWwgdGVtcGxhdGVkIEhUTUwgZm9yIHJlZmVyZW5jZSBpbiBmdXR1cmUgcmVhY3RpdmUgdXBkYXRlc1xuICBpZiAoIWVsZW0ub3JpZ0hUTUwpIGVsZW0ub3JpZ0hUTUwgPSBlbGVtLmlubmVySFRNTDtcblxuICAvLyBJbnRlcnBvbGF0ZSByZWFjdGl2ZSBPSlMgdmFyaWFibGVzIGludG8gZXN0YWJsaXNoZWQgSFRNTCBlbGVtZW50XG4gIGVsZW0uaW5uZXJIVE1MID0gZWxlbS5vcmlnSFRNTDtcbiAgT2JqZWN0LmtleXMoZGVmX21hcCkuZm9yRWFjaCgoZGVmKSA9PlxuICAgIGludGVycG9sYXRlKGVsZW0sIFwiJHtcIiArIGRlZiArIFwifVwiLCBkZWZfbWFwW2RlZl0sIGxhbmd1YWdlKVxuICApO1xufVxuIn0seyJjZWxsTmFtZSI6ImludGVycG9sYXRlLTM3IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICBjb25zdCB7IGludGVycG9sYXRlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBibG9ja19pZCA9IFwiMzdcIjtcbiAgY29uc3QgbGFuZ3VhZ2UgPSBcInJcIjtcbiAgY29uc3QgZGVmX21hcCA9IHtcbn07XG4gIGNvbnN0IGVsZW0gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChgaW50ZXJwb2xhdGUtJHtibG9ja19pZH1gKTtcblxuICAvLyBTdG9yZSBvcmlnaW5hbCB0ZW1wbGF0ZWQgSFRNTCBmb3IgcmVmZXJlbmNlIGluIGZ1dHVyZSByZWFjdGl2ZSB1cGRhdGVzXG4gIGlmICghZWxlbS5vcmlnSFRNTCkgZWxlbS5vcmlnSFRNTCA9IGVsZW0uaW5uZXJIVE1MO1xuXG4gIC8vIEludGVycG9sYXRlIHJlYWN0aXZlIE9KUyB2YXJpYWJsZXMgaW50byBlc3RhYmxpc2hlZCBIVE1MIGVsZW1lbnRcbiAgZWxlbS5pbm5lckhUTUwgPSBlbGVtLm9yaWdIVE1MO1xuICBPYmplY3Qua2V5cyhkZWZfbWFwKS5mb3JFYWNoKChkZWYpID0+XG4gICAgaW50ZXJwb2xhdGUoZWxlbSwgXCIke1wiICsgZGVmICsgXCJ9XCIsIGRlZl9tYXBbZGVmXSwgbGFuZ3VhZ2UpXG4gICk7XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici1wcmVsdWRlIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoid2ViUk9qcyA9IHtcbiAgY29uc3QgeyBXZWJSLCBDaGFubmVsVHlwZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZS5XZWJSO1xuICBjb25zdCB7XG4gICAgV2ViUkV2YWx1YXRvcixcbiAgICBXZWJSRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoXG4gIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHN0YXR1c0NvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1zdGF0dXNcIik7XG4gIGNvbnN0IGluZGljYXRvckNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGluZGljYXRvckNvbnRhaW5lci5jbGFzc0xpc3QucmVtb3ZlKFwiZC1ub25lXCIpO1xuXG4gIGxldCBzdGF0dXNUZXh0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKVxuICBzdGF0dXNUZXh0LmNsYXNzTGlzdCA9IFwiZXhlcmNpc2UtbG9hZGluZy1kZXRhaWxzXCI7XG4gIHN0YXR1c1RleHQgPSBzdGF0dXNDb250YWluZXIuYXBwZW5kQ2hpbGQoc3RhdHVzVGV4dCk7XG4gIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5pdGlhbGlzZWA7XG5cbiAgLy8gSG9pc3QgaW5kaWNhdG9yIG91dCBmcm9tIGZpbmFsIHNsaWRlIHdoZW4gcnVubmluZyB1bmRlciByZXZlYWxcbiAgY29uc3QgcmV2ZWFsU3RhdHVzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgLmV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpZiAocmV2ZWFsU3RhdHVzKSB7XG4gICAgcmV2ZWFsU3RhdHVzLnJlbW92ZSgpO1xuICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsID4gLnNsaWRlc1wiKS5hcHBlbmRDaGlsZChyZXZlYWxTdGF0dXMpO1xuICB9XG5cbiAgLy8gTWFrZSBhbnkgcmV2ZWFsIHNsaWRlcyB3aXRoIGxpdmUgY2VsbHMgc2Nyb2xsYWJsZVxuICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKFwiLnJldmVhbCAuZXhlcmNpc2UtY2VsbFwiKS5mb3JFYWNoKChlbCkgPT4ge1xuICAgIGVsLmNsb3Nlc3QoJ3NlY3Rpb24uc2xpZGUnKS5jbGFzc0xpc3QuYWRkKFwic2Nyb2xsYWJsZVwiKTtcbiAgfSlcblxuICAvLyB3ZWJSIHN1cHBsZW1lbnRhbCBkYXRhIGFuZCBvcHRpb25zXG4gIGNvbnN0IGRhdGFDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItZGF0YVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGRhdGEgPSBKU09OLnBhcnNlKGI2NERlY29kZShkYXRhQ29udGVudCkpO1xuXG4gIC8vIEdyYWIgbGlzdCBvZiByZXNvdXJjZXMgdG8gYmUgZG93bmxvYWRlZFxuICBjb25zdCBmaWxlc0NvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwidmZzLWZpbGVcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBmaWxlcyA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGZpbGVzQ29udGVudCkpO1xuXG4gIC8vIEluaXRpYWxpc2Ugd2ViUiBhbmQgc2V0dXAgZm9yIFIgY29kZSBldmFsdWF0aW9uXG4gIGxldCB3ZWJSUHJvbWlzZSA9IChhc3luYyAod2ViUikgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgd2ViUmA7XG4gICAgYXdhaXQgd2ViUi5pbml0KCk7XG5cbiAgICAvLyBJbnN0YWxsIHByb3ZpZGVkIGxpc3Qgb2YgcGFja2FnZXNcbiAgICAvLyBFbnN1cmUgd2ViUiBkZWZhdWx0IHJlcG8gaXMgaW5jbHVkZWRcbiAgICBkYXRhLnBhY2thZ2VzLnJlcG9zLnB1c2goXCJodHRwczovL3JlcG8uci13YXNtLm9yZ1wiKVxuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIHdlYlIuZXZhbFJWb2lkKGBcbiAgICAgICAgd2Vicjo6aW5zdGFsbChwa2csIHJlcG9zID0gcmVwb3MpXG4gICAgICAgIGxpYnJhcnkocGtnLCBjaGFyYWN0ZXIub25seSA9IFRSVUUpXG4gICAgICBgLCB7IGVudjoge1xuICAgICAgICBwa2c6IHBrZyxcbiAgICAgICAgcmVwb3M6IGRhdGEucGFja2FnZXMucmVwb3MsXG4gICAgICB9fSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ29sbGFwc2UgaGlnaGVyIGRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGZpbGUgPSBjb2xsYXBzZVBhdGgoZmlsZSk7XG5cbiAgICAgIC8vIENyZWF0ZSBkaXJlY3RvcnkgdHJlZSwgaWdub3JpbmcgXCJkaXJlY3RvcnkgZXhpc3RzXCIgVkZTIGVycm9yc1xuICAgICAgY29uc3QgcGFydHMgPSBmaWxlLnNwbGl0KCcvJykuc2xpY2UoMCwgLTEpO1xuICAgICAgbGV0IHBhdGggPSAnJztcbiAgICAgIHdoaWxlIChwYXJ0cy5sZW5ndGggPiAwKSB7XG4gICAgICAgIHBhdGggKz0gcGFydHMuc2hpZnQoKSArICcvJztcbiAgICAgICAgY29uc3QgYW5hbHlzaXMgPSBhd2FpdCB3ZWJSLkZTLmFuYWx5emVQYXRoKHBhdGgpO1xuICAgICAgICBpZiAoIWFuYWx5c2lzLmV4aXN0cykge1xuICAgICAgICAgIHRyeSB7XG4gICAgICAgICAgICBhd2FpdCB3ZWJSLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgICAgICAgIHRocm93IG5ldyBFcnJvcihgRmlsZXN5c3RlbSBFcnJvcjogXCIke2UubWVzc2FnZX1cIi5gKTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLy8gV3JpdGUgdGhpcyBmaWxlIHRvIHRoZSBWRlNcbiAgICAgIHJldHVybiBhd2FpdCB3ZWJSLkZTLndyaXRlRmlsZShmaWxlLCBuZXcgVWludDhBcnJheShkYXRhKSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluc3RhbGxpbmcgd2ViUiBzaGltc2A7XG4gICAgYXdhaXQgd2ViUi5ldmFsUlZvaWQoYHdlYnI6OnNoaW1faW5zdGFsbCgpYCk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYFdlYlIgZW52aXJvbm1lbnQgc2V0dXBgO1xuICAgIGF3YWl0IHNldHVwUih3ZWJSLCBkYXRhKTtcblxuICAgIHN0YXR1c1RleHQucmVtb3ZlKCk7XG4gICAgaWYgKHN0YXR1c0NvbnRhaW5lci5jaGlsZHJlbi5sZW5ndGggPT0gMCkge1xuICAgICAgc3RhdHVzQ29udGFpbmVyLnBhcmVudE5vZGUucmVtb3ZlKCk7XG4gICAgfVxuICAgIHJldHVybiB3ZWJSO1xuICB9KShuZXcgV2ViUihkYXRhLm9wdGlvbnMpKTtcblxuICAvLyBLZWVwIHRyYWNrIG9mIGluaXRpYWwgT0pTIGJsb2NrIHJlbmRlclxuICBjb25zdCByZW5kZXJlZE9qcyA9IHt9O1xuXG4gIGNvbnN0IHByb2Nlc3MgPSBhc3luYyAoY29udGV4dCwgaW5wdXRzKSA9PiB7XG4gICAgY29uc3Qgd2ViUiA9IGF3YWl0IHdlYlJQcm9taXNlO1xuICAgIGNvbnN0IGV2YWx1YXRvciA9IG5ldyBXZWJSRXZhbHVhdG9yKHdlYlIsIGNvbnRleHQpXG4gICAgYXdhaXQgZXZhbHVhdG9yLnByb2Nlc3MoaW5wdXRzKTtcbiAgICByZXR1cm4gZXZhbHVhdG9yLmNvbnRhaW5lcjtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgcHJvY2VzcyxcbiAgICB3ZWJSUHJvbWlzZSxcbiAgICByZW5kZXJlZE9qcyxcbiAgfTtcbn1cbiJ9XX0=
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+WyIuLi9kYXRhL29wdF9kYXRhLnJkcyJd
+</script>
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../table_basic";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../table_basic/prep_data.html" class="pagination-link" aria-label="Cleaning Obstetrics and Periodontal Therapy Dataset">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Cleaning Obstetrics and Periodontal Therapy Dataset</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../table_basic/table_1.html" class="pagination-link" aria-label="Building Table 1">
+        <span class="nav-page-text">Building Table 1</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

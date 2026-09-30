@@ -22,6 +22,7 @@ website:
           - table_basic/prep_data.qmd
       - section: "Table Making"
         contents:
+          - table_basic/age_race_edu_table_1.qmd
           - table_basic/table_1.qmd
           - table_basic/table_2.qmd
           - table_basic/table_3.qmd
