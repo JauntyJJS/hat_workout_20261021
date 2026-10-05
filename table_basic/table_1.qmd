@@ -9,6 +9,10 @@ webr:
     - gtsummary
     - broom
     - listviewer
+    - rmarkdown
+    - downloadthis
+    - flextable
+    - officer
   repos:
     - https://ddsjoberg.r-universe.dev/gtsummary
 ---
@@ -209,12 +213,25 @@ table1
 
 We can now work on customising the table itself. To do this, we need to understand more about the [`gtsummary` object](https://www.danieldsjoberg.com/gtsummary/articles/gtsummary_definition.html){target="_blank"}.
 
-Every `gtsummary` object is a list comprising of, at minimum `table_body` and `table_styling`. Here is how you can extract them.
+Every `gtsummary` object is a list comprising of, at minimum `table_body`, `table_styling`. Here is how you can extract `table_body` and `table_styling` and print the `header_names`.
+
+::: {.panel-tabset}
+
+### 
+Click on the different tabs.
+
+### table_body
+
+`table_body` object is the data frame that defines what gets printed as the output. The compulsory columns are `variable`, `row_type` and `label`. `label` depicts what is printed at the `Characteristic` column. `stat_1` depicts what is printed at the `Control` column. `stat_2` depicts what is printed at `Treatment` column. `p.value` is printed at the `p-value` column.
 
 ```{webr}
 #| caption: table1 table_body
 #| label: table1 table_body
 #| envir: table_1
+table1 <- gtsummary::tbl_stack(
+    tbls = list(opt_age_race_table, opt_previous_preg_data, opt_clincal_data)
+  )
+
 table1_body <- table1$table_body
 
 table1_body |> 
@@ -225,26 +242,141 @@ table1_body |>
     minRows = 5)
 ```
 
+### table_styling
+
+`table_styling` objects is a list of data frames containing information about how `table_body` is printed, formatted and styled.
+
 ```{webr}
 #| caption: table1 table_styling
 #| label: table1 table_styling
 #| envir: table_1
+table1 <- gtsummary::tbl_stack(
+    tbls = list(opt_age_race_table, opt_previous_preg_data, opt_clincal_data)
+  )
+
 table1_styling <- table1$table_styling
 
 table1_styling |> 
   listviewer::reactjson()
 ```
 
+### header_names
+
+[`gtsummary::show_header_names()`](https://www.danieldsjoberg.com/gtsummary/reference/modify.html){target="_blank"} prints the header/columns= names as text to the console.
 
 ```{webr}
-#| caption: complete table1
-#| label: complete table1
+#| caption: table1 header_names
+#| label: table1 header_names
 #| envir: table_1
-# See table1$table_body
-# *, †, ‡, §, ‖, ¶, **, ††
-# table1 |> gtsummary::show_header_names()
-# gtsummary::modify_footnote_symbol need at least 2 symbols
 table1 <- gtsummary::tbl_stack(
+    tbls = list(opt_age_race_table, opt_previous_preg_data, opt_clincal_data)
+  )
+
+table1 |> 
+  gtsummary::show_header_names()
+
+```
+
+:::
+
+## Modify header
+
+After combining the tables, we first update the header using [`gtsummary::modify_header`](https://www.danieldsjoberg.com/gtsummary/reference/modify.html){target="_blank"}.
+
+As we use the `by` parameter in [`gtsummary::tbl_summary`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html){target="_blank"}, the following fields are available the stratifying columns: `{level}`, `{n}`, and `{p}`.
+
+To match [Table 1](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg){target="_blank"}, we bold and add brackets to `N = 410` and `N = 413` in the column `stat_1` and `stat_2`. In addition, we update `p-value` to `P value` in the column `p.value`.
+
+
+```{webr}
+#| caption: modify header in table1
+#| label: modify header in table1
+#| envir: table_1
+table1 <- gtsummary::tbl_stack(
+    tbls = list(opt_age_race_table, opt_previous_preg_data, opt_clincal_data)
+  ) |> 
+  gtsummary::modify_header(
+    stat_1 = "**Control Group**  \n**(N = {n})**",
+    stat_2 = "**Treatment Group**  \n**(N = {n})**",
+    p.value = "**P value**",
+    text_interpret = "md"
+  ) |>
+  gtsummary::remove_footnote_header()
+  
+table1
+```
+
+
+```{webr}
+#| caption: table1 updated header_names
+#| label: table1 updated header_names
+#| envir: table_1
+table1 |> 
+  gtsummary::show_header_names()
+
+```
+
+## Export in html
+
+We proceed to export the table as html by using the R package `gt`.
+
+### Add footnotes in table
+
+Footnotes in the table can be added using [`gtsummary::modify_footnote_body`](https://www.danieldsjoberg.com/gtsummary/reference/modify_footnote2.html){target="_blank"}.
+
+To match [Table 1](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg){target="_blank"}, we add the relevant footnotes at the relevant rows in the `table_body` data frame.
+
+```{webr}
+#| caption: add table footnotes table1
+#| label: add table footnotes table1 by modify_footnote_body
+#| envir: table_1
+table1 <- gtsummary::tbl_stack(
+    tbls = list(opt_age_race_table, opt_previous_preg_data, opt_clincal_data)
+  ) |> 
+  gtsummary::modify_header(
+    stat_1 = "**Control Group**  \n**(N = {n})**",
+    stat_2 = "**Treatment Group**  \n**(N = {n})**",
+    p.value = "**P value**",
+    text_interpret = "md"
+  ) |>
+  gtsummary::remove_footnote_header() |> 
+  gtsummary::modify_footnote_body(
+    footnote = "Race or ethnic group was reported by the patients. Some women selected more than one category and were included in all.",
+    columns = "label",
+    rows = .data[["label"]] == "Race or ethnic group - no. (%)" & 
+           .data[["row_type"]] == "variable_group"
+  ) |> 
+  gtsummary::modify_footnote_body(
+    footnote = "Some patients reported more than one event.",
+    columns = "label",
+    rows = .data[["label"]] %in% c("Previous pregnancies - no. (%)")  & 
+           .data[["row_type"]] == "variable_group"
+  ) |> 
+  gtsummary::modify_footnote_body(
+    footnote = "Percentages are based on 263 women in the control group and 261 women in the treatment group who had had any live births.",
+    columns = "label",
+    rows = .data[["var_label"]] %in% c("Live preterm birth") & 
+           .data[["row_type"]] == "label"
+  ) |> 
+  gtsummary::modify_footnote_body(
+    footnote = "Percentages are based on 305 women in the control group and 306 women in the treatment group who had had any previous pregnacies.",
+    columns = "label",
+    rows = .data[["var_label"]] %in% c("Spontaneous abortion", "Induced abortion", "Stillbirth")  & 
+           .data[["row_type"]] == "label"
+  )
+
+table1
+```
+
+### Add Title with footnotes
+
+`gtsummary` does not have a function to add footnote at headers. You must proceed to convert the `gtsummary` object to `gt` and continue the work from there.
+
+```{webr}
+#| caption: complete table1 html
+#| label: complete table1 html
+#| envir: table_1
+table1_html <- gtsummary::tbl_stack(
     tbls = list(opt_age_race_table, opt_previous_preg_data, opt_clincal_data)
   ) |> 
   gtsummary::modify_header(
@@ -274,9 +406,6 @@ table1 <- gtsummary::tbl_stack(
     columns = "label",
     rows = .data[["var_label"]] %in% c("Spontaneous abortion", "Induced abortion", "Stillbirth")  & .data[["row_type"]] == "label"
   ) |> 
-  # gtsummary::modify_footnote_symbol(
-  #   symbol = c("†")
-  # ) |> 
   gtsummary::as_gt() |> 
   gt::tab_header(
     title = "Table 1. Baseline Characteristics of the Study Patients"
@@ -292,6 +421,127 @@ table1 <- gtsummary::tbl_stack(
     spec_ftr = "x"    # Unstyled or baseline text for the footer
   )
 
+table1_html
+```
+
+### Save as html
+
+```{webr}
+#| caption: download table1 html
+#| label: download table1 html
+#| envir: table_1
+# Use https://georgestagg.github.io/pandoc-wasm/ to convert
+table1_html |> 
+  gt::gtsave(filename = "data/table1.html")
+
+downloadthis::download_file(
+  path = "data/table1.html"
+)
+
+```
+
+## Export in word
+
+We proceed to export the table as html by using the R package `flextable`.
+
+### Add footnotes in table
+
+Footnotes in the table are this time added using [`gtsummary::modify_table_body`](https://www.danieldsjoberg.com/gtsummary/reference/modify_table_body.html){target="_blank"} as though we can add footnote in `flextable`, they are alwats represented as superscript.
+
+```{webr}
+#| caption: add table footnotes table1
+#| label: add table footnotes table1 by modify_table_body
+#| envir: table_1
+table1 <- gtsummary::tbl_stack(
+    tbls = list(opt_age_race_table, opt_previous_preg_data, opt_clincal_data)
+  ) |> 
+  gtsummary::modify_header(
+    stat_1 = "**Control Group**  \n**(N = {n})**",
+    stat_2 = "**Treatment Group**  \n**(N = {n})**",
+    p.value = "**P value**",
+    text_interpret = "md"
+  ) |>
+  gtsummary::modify_table_body(
+    ~ .x |> 
+      dplyr::mutate(
+        `label` = dplyr::case_when(
+          .data[["label"]] == "Race or ethnic group - no. (%)" ~ "Race or ethnic group - no. (%)†",
+          .data[["label"]] == "Previous pregnancies - no. (%)" ~ "Previous pregnancies - no. (%)‡",
+          .data[["label"]] == "Live preterm birth" ~ "Live preterm birth§",
+          .data[["label"]] %in% c(
+            "Spontaneous abortion", "Induced abortion", "Stillbirth"
+          ) ~ paste0(.data[["label"]], "¶"),
+          .default = .data[["label"]]
+        )
+      )
+  ) |> 
+  gtsummary::remove_footnote_header()
+
 table1
 ```
 
+### Add Title with footnotes
+
+We proceed to convert the `gtsummary` object to `flextable` and continue the work from there.
+
+```{webr}
+#| caption: complete table1 word
+#| label: complete table1 word
+#| envir: table_1
+table1_word <- gtsummary::tbl_stack(
+    tbls = list(opt_age_race_table, opt_previous_preg_data, opt_clincal_data)
+  ) |> 
+  gtsummary::modify_header(
+    stat_1 = "**Control Group**  \n**(N = {n})**",
+    stat_2 = "**Treatment Group**  \n**(N = {n})**",
+    p.value = "**P value**",
+    text_interpret = "md"
+  ) |>
+  gtsummary::modify_table_body(
+    ~ .x |> 
+      dplyr::mutate(
+        `label` = dplyr::case_when(
+          .data[["label"]] == "Race or ethnic group - no. (%)" ~ "Race or ethnic group - no. (%)†",
+          .data[["label"]] == "Previous pregnancies - no. (%)" ~ "Previous pregnancies - no. (%)‡",
+          .data[["label"]] == "Live preterm birth" ~ "Live preterm birth§",
+          .data[["label"]] %in% c(
+            "Spontaneous abortion", "Induced abortion", "Stillbirth"
+          ) ~ paste0(.data[["label"]], "¶"),
+          .default = .data[["label"]]
+        )
+      )
+  ) |> 
+  gtsummary::remove_footnote_header() |> 
+  gtsummary::as_flex_table() |> 
+  flextable::set_caption(
+    caption = flextable::as_paragraph(
+      flextable::as_b("Table 1. Baseline Characteristics of the Study Patients"),
+      flextable::as_chunk("*", props = flextable::fp_text_default(vertical.align = "baseline"))
+    ), 
+    align_with_table = FALSE,
+    fp_p = officer::fp_par(padding = 0),
+  ) |> 
+  flextable::add_footer_lines(values = "* Plus-minus values are means±SD.") |> 
+  flextable::add_footer_lines(values = "† Race or ethnic group was reported by the patients. Some women selected more than one category and were included in all.") |>
+  flextable::add_footer_lines(values = "‡ Some patients reported more than one event.") |>
+  flextable::add_footer_lines(values = "§ Percentages are based on 263 women in the control group and 261 women in the treatment group who had had any live births.") |>
+  flextable::add_footer_lines(values = "¶ Percentages are based on 305 women in the control group and 306 women in the treatment group who had had any previous pregnacies.")
+
+table1_word
+
+```
+
+### Save as word
+
+```{webr}
+#| caption: download table1 word
+#| label: download table1 word
+#| envir: table_1
+table1_word |> 
+  flextable::save_as_docx( path = "data/table1.docx")
+
+downloadthis::download_file(
+  path = "data/table1.docx"
+)
+
+```

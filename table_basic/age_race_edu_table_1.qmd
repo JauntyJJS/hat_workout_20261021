@@ -171,7 +171,7 @@ opt_age_race_table
 
 ### Use Helpers
 
-We can use `all_` helper functions like [`gtsummary::all_continuous()`](https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html){target="_blank"}  and [`gtsummary::all_categorical()`](https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html){target="_blank"} to make the code concise.
+We can use `all_` helper functions like [`gtsummary::all_continuous()`](https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html){target="_blank"} and [`gtsummary::all_categorical()`](https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html){target="_blank"} to make the code concise.
 
 ```{webr}
 #| caption: age race and education basic table statistics list all variables

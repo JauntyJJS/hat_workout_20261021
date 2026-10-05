@@ -15,7 +15,40 @@
     "href": "table_basic/table_1.html#understanding-gtsummary-object",
     "title": "Building Table 1",
     "section": "Understanding gtsummary object",
-    "text": "Understanding gtsummary object\nWe can now work on customising the table itself. To do this, we need to understand more about the gtsummary object.\nEvery gtsummary object is a list comprising of, at minimum table_body and table_styling. Here is how you can extract them.",
+    "text": "Understanding gtsummary object\nWe can now work on customising the table itself. To do this, we need to understand more about the gtsummary object.\nEvery gtsummary object is a list comprising of, at minimum table_body, table_styling. Here is how you can extract table_body and table_styling and print the header_names.\n\ntable_bodytable_stylingheader_names\n\n\nClick on the different tabs.\n\n\ntable_body object is the data frame that defines what gets printed as the output. The compulsory columns are variable, row_type and label. label depicts what is printed at the Characteristic column. stat_1 depicts what is printed at the Control column. stat_2 depicts what is printed at Treatment column. p.value is printed at the p-value column.\n\n\n\n\n\n\n\n\n\n\ntable_styling objects is a list of data frames containing information about how table_body is printed, formatted and styled.\n\n\n\n\n\n\n\n\n\n\ngtsummary::show_header_names() prints the header/columns= names as text to the console.",
+    "crumbs": [
+      "Table Making",
+      "Building Table 1"
+    ]
+  },
+  {
+    "objectID": "table_basic/table_1.html#modify-header",
+    "href": "table_basic/table_1.html#modify-header",
+    "title": "Building Table 1",
+    "section": "Modify header",
+    "text": "Modify header\nAfter combining the tables, we first update the header using gtsummary::modify_header.\nAs we use the by parameter in gtsummary::tbl_summary, the following fields are available the stratifying columns: {level}, {n}, and {p}.\nTo match Table 1, we bold and add brackets to N = 410 and N = 413 in the column stat_1 and stat_2. In addition, we update p-value to P value in the column p.value.",
+    "crumbs": [
+      "Table Making",
+      "Building Table 1"
+    ]
+  },
+  {
+    "objectID": "table_basic/table_1.html#export-in-html",
+    "href": "table_basic/table_1.html#export-in-html",
+    "title": "Building Table 1",
+    "section": "Export in html",
+    "text": "Export in html\nWe proceed to export the table as html by using the R package gt.\n\nAdd footnotes in table\nFootnotes in the table can be added using gtsummary::modify_footnote_body.\nTo match Table 1, we add the relevant footnotes at the relevant rows in the table_body data frame.\n\n\n\n\n\n\n\n\n\n\nAdd Title with footnotes\ngtsummary does not have a function to add footnote at headers. You must proceed to convert the gtsummary object to gt and continue the work from there.\n\n\n\n\n\n\n\n\n\n\nSave as html",
+    "crumbs": [
+      "Table Making",
+      "Building Table 1"
+    ]
+  },
+  {
+    "objectID": "table_basic/table_1.html#export-in-word",
+    "href": "table_basic/table_1.html#export-in-word",
+    "title": "Building Table 1",
+    "section": "Export in word",
+    "text": "Export in word\nWe proceed to export the table as html by using the R package flextable.\n\nAdd footnotes in table\nFootnotes in the table are this time added using gtsummary::modify_table_body as though we can add footnote in flextable, they are alwats represented as superscript.\n\n\n\n\n\n\n\n\n\n\nAdd Title with footnotes\nWe proceed to convert the gtsummary object to flextable and continue the work from there.\n\n\n\n\n\n\n\n\n\n\nSave as word",
     "crumbs": [
       "Table Making",
       "Building Table 1"
