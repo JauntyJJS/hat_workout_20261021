@@ -337,7 +337,7 @@ opt_data <- opt_data |>
     dplyr::across(
       .cols = c(
         "Preg_duration_32", "Preg_duration_35", 
-        "Preg_duration_37", "Preg_duration_37_regression"),
+        "Preg_duration_37"),
       .fns = \(x){
         factor(x, levels = c("No", "Yes"))
       }

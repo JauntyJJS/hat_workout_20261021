@@ -1,32 +1,990 @@
 ---
-title: "Table 2"
+title: "Building Table 2"
 author: "Jeremy Selva"
 webr:
   packages:
+    - reactable
     - gtsummary
     - broom
     - broom.helpers
     - lme4
+    - rmarkdown
+    - downloadthis
+    - flextable
+    - officer
   repos:
     - https://ddsjoberg.r-universe.dev/gtsummary
 ---
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+{{< include ../_extensions/r-wasm/live/_gradethis.qmd >}}
+
+In this section, we try to create a table that is close to [Table 2](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/b981f44a-0873-42d4-ad60-d7545e1f63cb/assets/images/large/nejmoa062249_t2.jpg){target="_blank"}.
+
+We start first by choosing the relevant columns to make Table 2. Observe that we only keep rows with a birth outcome (Non-live birth and Live birth).
 
 ```{webr}
 #| label: load opt data
 #| envir: table_2
+#| autorun: true
 opt_data <- readRDS("data/opt_data.rds") |> 
   dplyr::filter(
     .data[["Birth.outcome"]] %in% c("Non-live birth", "Live birth")
   )
 ```
 
+## Pregnancy Duration and Birth Weight Summary Table
+
+### Data Required
+
+Here is the dataset required.
+
+```{webr}
+#| label: data for pregnant duration and birth weight summary table
+#| envir: table_2
+#| autorun: true
+opt_preg_duration_birth_weight_data <- opt_data |> 
+  dplyr::select(
+    c("PID", "Group", 
+      "Preg_duration_32", "Preg_duration_35", "Preg_duration_37",
+      "Birthweight", "Birthweight_2500", "Birthweight_1500")
+  )
+
+opt_preg_duration_birth_weight_data |> 
+  reactable::reactable(
+    filterable = TRUE,
+    paginationType = "jump",
+    defaultPageSize = 5,
+    minRows = 5)
+```
+
+### Exercise (Table Creation)
+
+In this exercise, we create the pregnancy duration and birth weight summary table.
+
+Ensure that
+
+-  The labels are set correctly,
+-  Duration of pregnancy categories are displayed as count (percentage) with
+counts as integers and percentage in one decimal place.
+-  Total birth weight is displayed as mean ± standard deviation in integers without big marks.
+-  Birth weight categories are displayed as proportion (percentage) with proprtions as integers and percentages in one decimal place.
+-  Fisher Test is done on pregnancy duration groups.
+-  Wilcox Test is done on total birth weight.
+-  Chi Square Test without Yates' continuity correction is done on birth weight categories.
+-  *p* values are displayed in two decimal places.
+-  Variable group header are added for both pregnant duration and birth weight.
+-  footnotes are removed.
+
+```{webr}
+#| setup: true
+#| exercise: preg_duration_table
+
+opt_preg_duration_birth_weight_data <- readRDS("data/opt_data.rds") |> 
+  dplyr::select(
+    c("PID", "Group", 
+      "Preg_duration_32", "Preg_duration_35", "Preg_duration_37",
+      "Birthweight", "Birthweight_2500", "Birthweight_1500")
+  )
+```
+
+```{webr}
+#| exercise: preg_duration_table
+opt_preg_duration_birth_weight_data |>
+  gtsummary::tbl_summary(
+    include = c(
+      "Preg_duration_32", "Preg_duration_35", "Preg_duration_37",
+      "Birthweight", "Birthweight_2500", "Birthweight_1500"
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Preg_duration_32" ~ ________,
+      "Preg_duration_35" ~ ________,
+      "Preg_duration_37" ~ ________,
+      "Birthweight" ~ ___________________,
+      "Birthweight_2500" ~ _____________________________,
+      "Birthweight_1500" ~ _____________________________
+    ),
+    statistic = list(
+      gtsummary::all_continuous() ~ _____________,
+      c("Preg_duration_32", "Preg_duration_35", "Preg_duration_37") ~ ___________,
+      c("Birthweight_2500", "Birthweight_1500") ~ _______________      
+    ),
+    digits = list(
+      c("Birthweight") ~ gtsummary::label_style_number(_________, _________),
+      c("Birthweight_2500", "Birthweight_1500") ~ _________
+    )
+  ) |> 
+  gtsummary::add_p(
+    test = list(
+      c("Preg_duration_32", "Preg_duration_35", "Preg_duration_37") ~ _____________
+    ),
+    pvalue_fun = gtsummary::label_style_pvalue(_________)
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = _________,
+    variables = starts_with("Preg_")
+  ) |>
+  gtsummary::add_variable_group_header(
+    header = _________,
+    variables = c("Birthweight", "Birthweight_2500", "Birthweight_1500")
+  ) |>
+  gtsummary::remove_footnote_header()
+```
+
+::: { .hint exercise="preg_duration_table"}
+::: { .callout-note collapse="false"}
+#### Hint 1
+
+Ensure the label parameter is something like this
+```r
+label = list(
+      "Preg_duration_32" ~ "<32 wk",
+      "Preg_duration_35" ~ "<35 wk",
+      "Preg_duration_37" ~ "<37 wk",
+      "Birthweight" ~ "Total weight - g",
+      "Birthweight_2500" ~ "<2500 g - no./total no. (%)",
+      "Birthweight_1500" ~ "<1500 g - no./total no. (%)"
+    )
+```
+:::
+:::
+
+::: { .hint exercise="preg_duration_table"}
+::: { .callout-note collapse="false"}
+#### Hint 2
+
+Ensure the statistics parameter is something like this
+```r
+statistic = list(
+      gtsummary::all_continuous() ~ "{mean}±{sd}",
+      c("Preg_duration_32", "Preg_duration_35", "Preg_duration_37") ~ "{n} ({p})",
+      c("Birthweight_2500", "Birthweight_1500") ~ "{n}/{N} ({p})"
+    )
+```
+:::
+:::
+
+::: { .hint exercise="preg_duration_table"}
+::: { .callout-note collapse="false"}
+#### Hint 3
+
+Ensure the `gtsummary::add_p` parameter is something like this
+```r
+digits = list(
+      c("Birthweight") ~ gtsummary::label_style_number(digits = 0, big.mark = ""),
+      c("Birthweight_2500", "Birthweight_1500") ~ c(0, 0, 1)
+    )
+```
+:::
+:::
+
+::: { .hint exercise="preg_duration_table"}
+::: { .callout-note collapse="false"}
+#### Hint 4
+
+Ensure the `gtsummary::add_p` is something like this
+```r
+gtsummary::add_p(
+    test = list(
+      c("Preg_duration_32", "Preg_duration_35", "Preg_duration_37") ~ "fisher.test"
+    ),
+    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)
+  )
+```
+:::
+:::
+
+::: { .hint exercise="preg_duration_table"}
+::: { .callout-note collapse="false"}
+#### Hint 5
+
+Ensure the `gtsummary::add_variable_group_header` is something like this
+```r
+gtsummary::add_variable_group_header(
+    header = "Duration of pregnancy - no. (%)",
+    variables = starts_with("Preg_")
+  )
+```
+:::
+:::
+
+::: { .solution exercise="preg_duration_table"}
+::: { .callout-tip collapse="false"}
+#### Fully worked solution:
+
+```{webr}
+#| exercise: preg_duration_table
+#| solution: true
+opt_preg_duration_birth_weight_data |> 
+  gtsummary::tbl_summary(
+    include = c(
+      "Preg_duration_32", "Preg_duration_35", "Preg_duration_37",
+      "Birthweight", "Birthweight_2500", "Birthweight_1500"
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Preg_duration_32" ~ "<32 wk",
+      "Preg_duration_35" ~ "<35 wk",
+      "Preg_duration_37" ~ "<37 wk",
+      "Birthweight" ~ "Total weight - g",
+      "Birthweight_2500" ~ "<2500 g - no./total no. (%)",
+      "Birthweight_1500" ~ "<1500 g - no./total no. (%)"
+    ),
+    statistic = list(
+      gtsummary::all_continuous() ~ "{mean}±{sd}",
+      c("Preg_duration_32", "Preg_duration_35", "Preg_duration_37") ~ "{n} ({p})",
+      c("Birthweight_2500", "Birthweight_1500") ~ "{n}/{N} ({p})"
+    ),
+    digits = list(
+      c("Birthweight") ~ gtsummary::label_style_number(digits = 0, big.mark = ""),
+      c("Birthweight_2500", "Birthweight_1500") ~ c(0, 0, 1)
+    )
+  ) |> 
+  gtsummary::add_p(
+    test = list(
+      c("Preg_duration_32", "Preg_duration_35", "Preg_duration_37") ~ "fisher.test"
+    ),
+    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Duration of pregnancy - no. (%)",
+    variables = starts_with("Preg_")
+  ) |>
+  gtsummary::add_variable_group_header(
+    header = "Birth weight",
+    variables = c("Birthweight", "Birthweight_2500", "Birthweight_1500")
+  ) |>
+  gtsummary::remove_footnote_header()
+```
+
+:::
+:::
+
+```{webr}
+#| exercise: preg_duration_table
+#| check: true
+gradethis::grade_this_code()
+```
+
+## Live Birth Summary Table
+
+### Data Required
+
+Here is the dataset required.
+
+```{webr}
+#| label: data for live birth summary table
+#| envir: table_2
+#| autorun: true
+opt_live_birth_data <- opt_data |> 
+  dplyr::select(
+    c("PID", "Group", 
+      "Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37")
+  )
+
+opt_live_birth_data |> 
+  reactable::reactable(
+    filterable = TRUE,
+    paginationType = "jump",
+    defaultPageSize = 5,
+    minRows = 5)
+```
+
+### Table Draft
+
+We create our first draft using the code below. There are a few things that we need to resolve.
+
+- Convert `>0.99` to `1.0` from the `< 32 wk` row to match [Table 2](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/b981f44a-0873-42d4-ad60-d7545e1f63cb/assets/images/large/nejmoa062249_t2.jpg){target="_blank"}. 
+- Remove the *p* value of 0.036 from the `Total` row.
+- Find a way to add `Live births - no. (%)` above `Total`. 
+
+```{webr}
+#| caption: live birth summary table draft 1
+#| label: live birth summary table draft 1
+#| envir: table_2
+live_birth <- opt_live_birth_data |> 
+  gtsummary::tbl_summary(
+    include = c(
+      "Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37"
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Have_Live_Birth" ~ "Total",
+      "Preterm_32" ~ "<32 wk",
+      "Preterm_35" ~ "<35 wk",
+      "Preterm_37" ~ "<37 wk"
+    ),
+    statistic = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ "{n} ({p})"
+    ),
+    digits = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_p(
+    test = list(
+      c("Preterm_32", "Preterm_35", "Preterm_37") ~ "fisher.test"
+    ),
+    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Preterm",
+    variables = c("Preterm_32", "Preterm_35", "Preterm_37")
+  ) |>
+  gtsummary::remove_footnote_header()
+
+live_birth
+```
+
+### Exercise (Change >0.99)
+
+We have done this before in the previous section. Ensure that
+
+-  `pvalue_fun = gtsummary::label_style_pvalue(digits = 2)` is replaced with `pvalue_fun = p_value_style` in the function `gtsummary::add_p`.
+-  `p_value_style` returns `1.0` when if *p* value is 1.
+-  `p_value_style` returns `gtsummary::style_pvalue(x, digits = 2)` otherwise.
+
+```{webr}
+#| setup: true
+#| exercise: change 0.99
+
+opt_live_birth_data <- readRDS("data/opt_data.rds") |> 
+  dplyr::select(
+    c("PID", "Group", 
+      "Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37")
+  )
+```
+
+```{webr}
+#| exercise: change 0.99
+p_value_style <- function(x) {
+  dplyr::case_when(
+    x == 1 ~ _____,
+    .default = ______________
+  )
+}
+
+opt_live_birth_data |>
+  gtsummary::tbl_summary(
+    include = c(
+      "Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37"
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Have_Live_Birth" ~ "Total",
+      "Preterm_32" ~ "<32 wk",
+      "Preterm_35" ~ "<35 wk",
+      "Preterm_37" ~ "<37 wk"
+    ),
+    statistic = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ "{n} ({p})"
+    ),
+    digits = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_p(
+    test = list(
+      c("Preterm_32", "Preterm_35", "Preterm_37") ~ "fisher.test"
+    ),
+    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Preterm",
+    variables = c("Preterm_32", "Preterm_35", "Preterm_37")
+  ) |>
+  gtsummary::remove_footnote_header()
+```
+
+::: { .hint exercise="change 0.99"}
+::: { .callout-note collapse="false"}
+#### Hint
+
+Ensure the `p_value_style` function is something like this
+```r
+p_value_style <- function(x) {
+  dplyr::case_when(
+    x == 1 ~ "1.0",
+    .default = gtsummary::style_pvalue(x, digits = 2)
+  )
+}
+```
+:::
+:::
+
+::: { .solution exercise="change 0.99"}
+::: { .callout-tip collapse="false"}
+#### Fully worked solution:
+
+```{webr}
+#| exercise: change 0.99
+#| solution: true
+p_value_style <- function(x) {
+  dplyr::case_when(
+    x == 1 ~ "1.0",
+    .default = gtsummary::style_pvalue(x, digits = 2)
+  )
+}
+
+opt_live_birth_data |>
+  gtsummary::tbl_summary(
+    include = c(
+      "Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37"
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Have_Live_Birth" ~ "Total",
+      "Preterm_32" ~ "<32 wk",
+      "Preterm_35" ~ "<35 wk",
+      "Preterm_37" ~ "<37 wk"
+    ),
+    statistic = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ "{n} ({p})"
+    ),
+    digits = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_p(
+    test = list(
+      c("Preterm_32", "Preterm_35", "Preterm_37") ~ "fisher.test"
+    ),
+    pvalue_fun = p_value_style
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Preterm",
+    variables = c("Preterm_32", "Preterm_35", "Preterm_37")
+  ) |>
+  gtsummary::remove_footnote_header()
+```
+
+:::
+
+:::
+
+```{webr}
+#| exercise: change 0.99
+#| check: true
+gradethis::grade_this_code()
+```
+
+### Exercise (Remove *p* value from `Total`)
+
+Here is `live_birth` and its corresponding `table_body` that we have so far.
+
+::: {.panel-tabset}
+
+#### 
+Click on the different tabs.
+
+#### current live birth
+
+```{webr}
+#| label: live birth table after change 0.99
+#| envir: table_2
+#| autorun: true
+p_value_style <- function(x) {
+  dplyr::case_when(
+    x == 1 ~ "1.0",
+    .default = gtsummary::style_pvalue(x, digits = 2)
+  )
+}
+
+live_birth <- opt_live_birth_data |>
+  gtsummary::tbl_summary(
+    include = c(
+      "Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37"
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Have_Live_Birth" ~ "Total",
+      "Preterm_32" ~ "<32 wk",
+      "Preterm_35" ~ "<35 wk",
+      "Preterm_37" ~ "<37 wk"
+    ),
+    statistic = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ "{n} ({p})"
+    ),
+    digits = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_p(
+    test = list(
+      c("Preterm_32", "Preterm_35", "Preterm_37") ~ "fisher.test"
+    ),
+    pvalue_fun = p_value_style
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Preterm",
+    variables = c("Preterm_32", "Preterm_35", "Preterm_37")
+  ) |>
+  gtsummary::remove_footnote_header()
+
+live_birth
+```
+
+#### table_body
+
+```{webr}
+#| caption: live birth table after change 0.99
+#| label:  live birth table after change 0.99 table body
+#| envir: table_2
+#| autorun: true
+live_birth$table_body |> 
+  reactable::reactable(
+    filterable = TRUE,
+    paginationType = "jump",
+    defaultPageSize = 5,
+    minRows = 5)
+```
+
+:::
+
+Use [`gtsummary::modify_table_body`](https://www.danieldsjoberg.com/gtsummary/reference/modify_table_body.html){target="_blank"} to remove the *p* value from the `Total`.
+
+```{webr}
+#| setup: true
+#| exercise: remove total p value
+#| autorun: true
+opt_live_birth_data <- readRDS("data/opt_data.rds") |> 
+  dplyr::select(
+    c("PID", "Group", 
+      "Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37")
+  )
+
+p_value_style <- function(x) {
+  dplyr::case_when(
+    x == 1 ~ "1.0",
+    .default = gtsummary::style_pvalue(x, digits = 2)
+  )
+}
+
+live_birth <- opt_live_birth_data |>
+  gtsummary::tbl_summary(
+    include = c(
+      "Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37"
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Have_Live_Birth" ~ "Total",
+      "Preterm_32" ~ "<32 wk",
+      "Preterm_35" ~ "<35 wk",
+      "Preterm_37" ~ "<37 wk"
+    ),
+    statistic = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ "{n} ({p})"
+    ),
+    digits = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_p(
+    test = list(
+      c("Preterm_32", "Preterm_35", "Preterm_37") ~ "fisher.test"
+    ),
+    pvalue_fun = p_value_style
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Preterm",
+    variables = c("Preterm_32", "Preterm_35", "Preterm_37")
+  ) |>
+  gtsummary::remove_footnote_header()
+```
+
+```{webr}
+#| exercise: remove total p value
+live_birth |>
+  gtsummary::modify_table_body(
+    ~ .x |> 
+      dplyr::mutate(
+        `p.value` = _________
+      )
+  )
+```
+
+::: { .hint exercise="remove total p value"}
+::: { .callout-note collapse="false"}
+#### Hint
+
+Ensure the `dplyr::case_when` function is something like this
+```r
+dplyr::case_when(
+  .data[["variable"]] == "Have_Live_Birth" ~ NA,
+  .default = .data[["p.value"]]
+)
+```
+:::
+:::
+
+::: { .solution exercise="remove total p value"}
+::: { .callout-tip collapse="false"}
+#### Fully worked solution:
+
+```{webr}
+#| exercise: remove total p value
+#| solution: true
+live_birth |>
+  gtsummary::modify_table_body(
+    ~ .x |> 
+      dplyr::mutate(
+        `p.value` = dplyr::case_when(
+          .data[["variable"]] == "Have_Live_Birth" ~ NA,
+          .default = .data[["p.value"]]
+        )
+      )
+  )
+```
+
+:::
+
+:::
+
+```{webr}
+#| exercise: remove total p value
+#| check: true
+gradethis::grade_this_code()
+```
+
+### Exercise (`Live births - no. (%)` above `Total`)
+
+Here is `live_birth` and its corresponding `table_body` that we have so far.
+
+::: {.panel-tabset}
+
+#### 
+Click on the different tabs.
+
+#### current live birth
+
+```{webr}
+#| label: live birth after remove total p value print
+#| envir: table_2
+#| autorun: true
+p_value_style <- function(x) {
+  dplyr::case_when(
+    x == 1 ~ "1.0",
+    .default = gtsummary::style_pvalue(x, digits = 2)
+  )
+}
+
+live_birth <- opt_live_birth_data |>
+  gtsummary::tbl_summary(
+    include = c(
+      "Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37"
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Have_Live_Birth" ~ "Total",
+      "Preterm_32" ~ "<32 wk",
+      "Preterm_35" ~ "<35 wk",
+      "Preterm_37" ~ "<37 wk"
+    ),
+    statistic = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ "{n} ({p})"
+    ),
+    digits = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_p(
+    test = list(
+      c("Preterm_32", "Preterm_35", "Preterm_37") ~ "fisher.test"
+    ),
+    pvalue_fun = p_value_style
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Preterm",
+    variables = c("Preterm_32", "Preterm_35", "Preterm_37")
+  ) |>
+  gtsummary::modify_table_body(
+    ~ .x |> 
+      dplyr::mutate(
+        `p.value` = dplyr::case_when(
+          .data[["variable"]] == "Have_Live_Birth" ~ NA,
+          .default = .data[["p.value"]]
+        )
+      )
+  ) |> 
+  gtsummary::remove_footnote_header()
+
+live_birth
+```
+
+#### table_body
+
+```{webr}
+#| caption: live birth after remove total p value print
+#| label: live birth after remove total p value table body
+#| envir: table_2
+#| autorun: true
+live_birth$table_body |> 
+  reactable::reactable(
+    filterable = TRUE,
+    paginationType = "jump",
+    defaultPageSize = 5,
+    minRows = 5)
+```
+
+:::
+
+Use [`gtsummary::modify_table_body`](https://www.danieldsjoberg.com/gtsummary/reference/modify_table_body.html){target="_blank"} to add the header `Live births - no. (%)`.
+
+```{webr}
+#| setup: true
+#| exercise: add live birth title above total
+#| autorun: true
+opt_live_birth_data <- readRDS("data/opt_data.rds") |> 
+  dplyr::select(
+    c("PID", "Group", 
+      "Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37")
+  )
+
+p_value_style <- function(x) {
+  dplyr::case_when(
+    x == 1 ~ "1.0",
+    .default = gtsummary::style_pvalue(x, digits = 2)
+  )
+}
+
+live_birth <- opt_live_birth_data |>
+  gtsummary::tbl_summary(
+    include = c(
+      "Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37"
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Have_Live_Birth" ~ "Total",
+      "Preterm_32" ~ "<32 wk",
+      "Preterm_35" ~ "<35 wk",
+      "Preterm_37" ~ "<37 wk"
+    ),
+    statistic = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ "{n} ({p})"
+    ),
+    digits = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_p(
+    test = list(
+      c("Preterm_32", "Preterm_35", "Preterm_37") ~ "fisher.test"
+    ),
+    pvalue_fun = p_value_style
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Preterm",
+    variables = c("Preterm_32", "Preterm_35", "Preterm_37")
+  ) |>
+  gtsummary::modify_table_body(
+    ~ .x |> 
+      dplyr::mutate(
+        `p.value` = dplyr::case_when(
+          .data[["variable"]] == "Have_Live_Birth" ~ NA,
+          .default = .data[["p.value"]]
+        )
+      )
+  ) |> 
+  gtsummary::remove_footnote_header()
+```
+
+```{webr}
+#| exercise: add live birth title above total
+live_birth |>
+  gtsummary::modify_table_body(
+    ~ .x |> 
+      tibble::add_row(
+        row_type = __________, 
+        label = ________, 
+        .before = ________
+      )
+  )
+```
+
+::: { .hint exercise="add live birth title above total"}
+::: { .callout-note collapse="false"}
+#### Hint
+
+Ensure the `tibble::add_row` function is something like this
+```r
+tibble::add_row(
+   row_type = "variable_group", 
+   label = "Live births - no. (%)", 
+   .before = 1
+)
+```
+:::
+:::
+
+::: { .solution exercise="add live birth title above total"}
+::: { .callout-tip collapse="false"}
+#### Fully worked solution:
+
+```{webr}
+#| exercise: add live birth title above total
+#| solution: true
+live_birth |>
+  gtsummary::modify_table_body(
+    ~ .x |> 
+      tibble::add_row(
+        row_type = "variable_group", 
+        label = "Live births - no. (%)", 
+        .before = 1
+      )
+  )
+```
+
+:::
+
+:::
+
+```{webr}
+#| exercise: add live birth title above total
+#| check: true
+gradethis::grade_this_code()
+```
+
+### Modify Indentation
+
+Here is what we have so far.
+
+Here is `live_birth` and its corresponding `table_body` that we have so far.
+
+::: {.panel-tabset}
+
+#### 
+Click on the different tabs.
+
+#### current live birth
+
+```{webr}
+#| label: live birth after add live birth title above total print
+#| envir: table_2
+#| autorun: true
+p_value_style <- function(x) {
+  dplyr::case_when(
+    x == 1 ~ "1.0",
+    .default = gtsummary::style_pvalue(x, digits = 2)
+  )
+}
+
+live_birth <- opt_live_birth_data |>
+  gtsummary::tbl_summary(
+    include = c(
+      "Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37"
+    ),
+    by = "Group",
+    missing = "no",
+    label = list(
+      "Have_Live_Birth" ~ "Total",
+      "Preterm_32" ~ "<32 wk",
+      "Preterm_35" ~ "<35 wk",
+      "Preterm_37" ~ "<37 wk"
+    ),
+    statistic = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ "{n} ({p})"
+    ),
+    digits = list(
+      c("Have_Live_Birth", "Preterm_32", "Preterm_35", "Preterm_37") ~ c(0, 1)
+    )
+  ) |> 
+  gtsummary::add_p(
+    test = list(
+      c("Preterm_32", "Preterm_35", "Preterm_37") ~ "fisher.test"
+    ),
+    pvalue_fun = p_value_style
+  ) |> 
+  gtsummary::add_variable_group_header(
+    header = "Preterm",
+    variables = c("Preterm_32", "Preterm_35", "Preterm_37")
+  ) |>
+  gtsummary::modify_table_body(
+    ~ .x |> 
+      dplyr::mutate(
+        `p.value` = dplyr::case_when(
+          .data[["variable"]] == "Have_Live_Birth" ~ NA,
+          .default = .data[["p.value"]]
+        )
+      )
+  ) |> 
+  gtsummary::modify_table_body(
+    ~ .x |> 
+      tibble::add_row(
+        row_type = "variable_group", 
+        label = "Live births - no. (%)", 
+        .before = 1
+      )
+  ) |> 
+  gtsummary::remove_footnote_header()
+
+live_birth
+```
+
+#### table_body
+
+```{webr}
+#| caption: live birth after add live birth title above total print
+#| label: live birth after add live birth title above total table body
+#| envir: table_2
+#| autorun: true
+live_birth$table_body |> 
+  reactable::reactable(
+    filterable = TRUE,
+    paginationType = "jump",
+    defaultPageSize = 5,
+    minRows = 5)
+```
+
+:::
+
+Finally to resolve the indentation issue, `gtsummary` has a function called [`gtsummary::modify_indent`](https://www.danieldsjoberg.com/gtsummary/reference/modify_indent.html){target="_blank"} to customise the indentation for columns. We need to select the right columns and rows to perform the indentation.
+
+```{webr}
+#| label: live birth add indentation
+#| envir: table_2
+live_birth |>
+  gtsummary::modify_indent(
+    columns = "label", 
+    rows = .data[["label"]] %in% c("Total", "Preterm"), 
+    indent = 4L
+  ) |> 
+  gtsummary::modify_indent(
+    columns = "label", 
+    rows = .data[["variable"]] %in% c("Preterm_32", "Preterm_35", "Preterm_37"), 
+    indent = 8L
+  ) 
+
+live_birth
+```
+
+
+## Combine
+
+We have completed creating our two tables as shown below. It is time to combine them
+
+::: {.panel-tabset}
+
+####
+Click on the different tabs to see the tables
+
+#### Pregnancy Duration and Birth Weight Summary Table
+
 ```{webr}
 #| caption: pregnant duration and birth weight summary table
 #| label: pregnant duration and birth weight summary table
 #| envir: table_2
-birth_weight <- opt_data |> 
+#| autorun: true
+birth_weight <- opt_preg_duration_birth_weight_data |> 
   gtsummary::tbl_summary(
     include = c(
       "Preg_duration_32", "Preg_duration_35", "Preg_duration_37",
@@ -71,6 +1029,8 @@ birth_weight <- opt_data |>
 birth_weight
 ```
 
+#### Live Birth Summary Table
+
 ```{webr}
 #| caption: live birth summary table
 #| label: live birth summary table
@@ -78,7 +1038,6 @@ birth_weight
 p_value_style <- function(x) {
   dplyr::case_when(
     x == 1 ~ "1.0",
-    x > 0.99 & x < 1 ~ "0.99",
     .default = gtsummary::style_pvalue(x, digits = 2)
   )
 }
@@ -142,13 +1101,42 @@ live_birth <- opt_data |>
     indent = 8L
   ) |>
   gtsummary::remove_footnote_header()
-
-live_birth
 ```
+
+:::
+
+We use [gtsummary::tbl_stack](https://www.danieldsjoberg.com/gtsummary/reference/tbl_stack.html){target="_blank"} to append the two tables together and [`gtsummary::modify_header`](https://www.danieldsjoberg.com/gtsummary/reference/modify.html){target="_blank"} to update the header names to  match [Table 2](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/b981f44a-0873-42d4-ad60-d7545e1f63cb/assets/images/large/nejmoa062249_t2.jpg){target="_blank"}.
 
 ```{webr}
 #| caption: stack table2
 #| label: stack table2
+#| envir: table_2
+table2 <- gtsummary::tbl_stack(
+   tbls = list(birth_weight, live_birth)
+  ) |>
+  gtsummary::modify_header(
+    label = "**Outcome**",
+    stat_1 = "**Control Group**  \n**(N = {n})**",
+    stat_2 = "**Treatment Group**  \n**(N = {n})**",
+    p.value = "**P value**",
+    text_interpret = "md"
+  ) |> 
+  gtsummary::remove_footnote_header()
+```
+
+## Next Steps
+
+Similar to Table 1, adding footnotes for the title as well as some rows in the tables varies based on what kind of output (html or word document) you wish the table to be represented as. `gtsummary` has its limitations in this and need the help of other R packages such as `gt` and `flextable`. Below are examples on how this can be done. 
+
+### Export in html
+
+We proceed to export the table as html by using the R package `gt`.
+
+#### Add footnotes in table
+
+```{webr}
+#| caption: add table footnotes table2
+#| label: add table footnotes table2 by modify_footnote_body
 #| envir: table_2
 long_footnote <- paste(
    "The numbers of patients in the study groups do not include",
@@ -158,7 +1146,7 @@ long_footnote <- paste(
    "Plus-minus values are means±SD, unless otherwise noted."
 )
 
-table2 <- gtsummary::tbl_stack(
+table2_html <- gtsummary::tbl_stack(
    tbls = list(birth_weight, live_birth)
   ) |>
   gtsummary::modify_header(
@@ -194,50 +1182,96 @@ table2 <- gtsummary::tbl_stack(
     spec_ftr = "x"    # Unstyled or baseline text for the footer
   )
 
-table2
+table2_html
 ```
 
+#### Save as html
 
+```{webr}
+#| caption: download table1 html
+#| label: download table1 html
+#| envir: table_2
+# Use https://georgestagg.github.io/pandoc-wasm/ to convert
+table2_html |> 
+  gt::gtsave(filename = "data/table2.html")
 
-<!-- ```{r} -->
+downloadthis::download_file(
+  path = "data/table2.html"
+)
 
-<!-- apgar_data_treat <- opt_data |>  -->
-<!--   dplyr::select("PID", "Group", "Apgar1", "Apgar5", "Birth.outcome") |>  -->
-<!--   dplyr::filter( -->
-<!--     .data[["Birth.outcome"]] != "Non-live birth" -->
-<!--   ) |> -->
-<!--   dplyr::filter( -->
-<!--     .data[["Apgar5"]] < 7 -->
-<!--   ) |>  -->
-<!--   dplyr::filter( -->
-<!--     .data[["Group"]] != "C" -->
-<!--   )  -->
+```
 
-<!-- apgar_data_control <- opt_data |>  -->
-<!--   dplyr::select("PID", "Group", "Apgar1", "Apgar5", "Birth.outcome") |>  -->
-<!--   dplyr::filter( -->
-<!--     .data[["Birth.outcome"]] != "Non-live birth" -->
-<!--   ) |>  -->
-<!--   dplyr::filter( -->
-<!--     .data[["Apgar5"]] < 7 -->
-<!--   ) |>  -->
-<!--   dplyr::filter( -->
-<!--     .data[["Group"]] == "C" -->
-<!--   )  -->
+### Export in word
 
-<!-- wilcox.test(x=apgar_data_control$Apgar5, y=apgar_data_treat$Apgar5, paired = TRUE) -->
+We proceed to export the table as html by using the R package `flextable`.
 
-<!-- apgar_data <- opt_data |>  -->
-<!--   dplyr::select("PID", "Group", "Apgar1", "Apgar5", "Birth.outcome") |>  -->
-<!--   dplyr::filter( -->
-<!--     .data[["Birth.outcome"]] != "Non-live birth" -->
-<!--   ) |>  -->
-<!--   dplyr::filter( -->
-<!--     .data[["Group"]] != "T" -->
-<!--   )  -->
+#### Add footnotes in table
 
-<!-- wilcox.test(apgar_data$Apgar1, apgar_data$Apgar5, paired = TRUE) -->
+Footnotes in the table are this time added using [`gtsummary::modify_table_body`](https://www.danieldsjoberg.com/gtsummary/reference/modify_table_body.html){target="_blank"} as though we can add footnote in `flextable`, they are alwats represented as superscript.
 
-<!-- ``` -->
+```{webr}
+#| caption: add table footnotes table1
+#| label: add table footnotes table1 by modify_table_body
+#| envir: table_2
+long_footnote <- paste(
+   "The numbers of patients in the study groups do not include",
+   "those who withdrew from the study or were lost to follow up.",
+   "Two women who underwent elevtive abortions were treated as",
+   "lost to follow-up at the time of abortion.",
+   "Plus-minus values are means±SD, unless otherwise noted."
+)
+
+table2_word <- gtsummary::tbl_stack(
+    tbls = list(birth_weight, live_birth)
+  ) |> 
+  gtsummary::modify_header(
+    label = "**Outcome**",
+    stat_1 = "**Control Group**  \n**(N = {n})**",
+    stat_2 = "**Treatment Group**  \n**(N = {n})**",
+    p.value = "**P value**",
+    text_interpret = "md"
+  ) |>
+  gtsummary::modify_table_body(
+    ~ .x |> 
+      dplyr::mutate(
+        `label` = dplyr::case_when(
+          .data[["label"]] == "Duration of pregnancy - no. (%)" ~ "Duration of pregnancy - no. (%)†",
+          .data[["label"]] == "Preterm" ~ "Preterm§",
+          .default = .data[["label"]]
+        )
+      )
+  ) |> 
+  gtsummary::remove_footnote_header() |> 
+  gtsummary::as_flex_table() |> 
+  flextable::set_caption(
+    caption = flextable::as_paragraph(
+      flextable::as_b("Table 2. Birth and Clinical Periodontal Outcomes"),
+      flextable::as_chunk("*", props = flextable::fp_text_default(vertical.align = "baseline"))
+    ), 
+    align_with_table = FALSE,
+    fp_p = officer::fp_par(padding = 0),
+  ) |> 
+  flextable::add_footer_lines(values = paste("*", long_footnote)) |>
+  flextable::add_footer_lines(values = "† P Values in this category were calculated with the use of Fisher's exact test.") |>
+  flextable::add_footer_lines(values = "§ This category includes all live preterm births in the specified gestational period. Percentages were calculated as a frction of all live births.")
+
+table2_word
+```
+
+#### Save as word
+
+```{webr}
+#| caption: download table1 word
+#| label: download table1 word
+#| envir: table_2
+table2_word |> 
+  flextable::save_as_docx( path = "data/table2.docx")
+
+downloadthis::download_file(
+  path = "data/table2.docx"
+)
+
+```
+
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Table 3"
+title: "Building Regression Table"
 author: "Jeremy Selva"
 webr:
   packages:

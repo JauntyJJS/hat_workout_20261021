@@ -13,8 +13,9 @@ webr:
 ---
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+{{< include ../_extensions/r-wasm/live/_gradethis.qmd >}}
 
-In this tutorial, we try to create a table that is close to ([Table 1](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg){target="_blank"} from the journal [Treatment of Periodontal Disease and the Risk of Preterm Birth](https://www.nejm.org/doi/full/10.1056/NEJMoa062249){target="_blank"}.
+In this tutorial, we try to create a table that is close to [Table 1](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg){target="_blank"} from the journal [Treatment of Periodontal Disease and the Risk of Preterm Birth](https://www.nejm.org/doi/full/10.1056/NEJMoa062249){target="_blank"}.
 
 We start first by choosing the relevant columns to make Table 1.
 

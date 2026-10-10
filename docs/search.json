@@ -25,30 +25,19 @@
     "objectID": "table_basic/table_1.html#modify-header",
     "href": "table_basic/table_1.html#modify-header",
     "title": "Building Table 1",
-    "section": "Modify header",
-    "text": "Modify header\nAfter combining the tables, we first update the header using gtsummary::modify_header.\nAs we use the by parameter in gtsummary::tbl_summary, the following fields are available the stratifying columns: {level}, {n}, and {p}.\nTo match Table 1, we bold and add brackets to N = 410 and N = 413 in the column stat_1 and stat_2. In addition, we update p-value to P value in the column p.value.",
+    "section": "Modify Header",
+    "text": "Modify Header\nAfter combining the tables, we first update the header using gtsummary::modify_header.\nAs we use the by parameter in gtsummary::tbl_summary, the following fields are available the stratifying columns: {level}, {n}, and {p}.\nTo match Table 1, we bold and add brackets to N = 410 and N = 413 in the column stat_1 and stat_2. In addition, we update p-value to P value in the column p.value.",
     "crumbs": [
       "Table Making",
       "Building Table 1"
     ]
   },
   {
-    "objectID": "table_basic/table_1.html#export-in-html",
-    "href": "table_basic/table_1.html#export-in-html",
+    "objectID": "table_basic/table_1.html#next-steps",
+    "href": "table_basic/table_1.html#next-steps",
     "title": "Building Table 1",
-    "section": "Export in html",
-    "text": "Export in html\nWe proceed to export the table as html by using the R package gt.\n\nAdd footnotes in table\nFootnotes in the table can be added using gtsummary::modify_footnote_body.\nTo match Table 1, we add the relevant footnotes at the relevant rows in the table_body data frame.\n\n\n\n\n\n\n\n\n\n\nAdd Title with footnotes\ngtsummary does not have a function to add footnote at headers. You must proceed to convert the gtsummary object to gt and continue the work from there.\n\n\n\n\n\n\n\n\n\n\nSave as html",
-    "crumbs": [
-      "Table Making",
-      "Building Table 1"
-    ]
-  },
-  {
-    "objectID": "table_basic/table_1.html#export-in-word",
-    "href": "table_basic/table_1.html#export-in-word",
-    "title": "Building Table 1",
-    "section": "Export in word",
-    "text": "Export in word\nWe proceed to export the table as html by using the R package flextable.\n\nAdd footnotes in table\nFootnotes in the table are this time added using gtsummary::modify_table_body as though we can add footnote in flextable, they are alwats represented as superscript.\n\n\n\n\n\n\n\n\n\n\nAdd Title with footnotes\nWe proceed to convert the gtsummary object to flextable and continue the work from there.\n\n\n\n\n\n\n\n\n\n\nSave as word",
+    "section": "Next Steps",
+    "text": "Next Steps\nThe next few steps is to add footnotes for the title as well as some rows in the tables. However, the way to do this varies based on what kind of output (html or word document) you wish the table to be represented as. gtsummary has its limitations in this and need the help of other R packages such as gt and flextable. Below are examples on how this can be done.\n\nExport in html\nWe proceed to export the table as html by using the R package gt.\n\nAdd footnotes in table\nFootnotes in the table can be added using gtsummary::modify_footnote_body.\nTo match Table 1, we add the relevant footnotes at the relevant rows in the table_body data frame.\n\n\n\n\n\n\n\n\n\n\nAdd Title with footnotes\ngtsummary does not have a function to add footnote at headers. You must proceed to convert the gtsummary object to gt and continue the work from there.\n\n\n\n\n\n\n\n\n\n\nSave as html\n\n\n\n\n\n\n\n\n\n\n\nExport in word\nWe proceed to export the table as html by using the R package flextable.\n\nAdd footnotes in table\nFootnotes in the table are this time added using gtsummary::modify_table_body as though we can add footnote in flextable, they are always represented as superscript.\n\n\n\n\n\n\n\n\n\n\nAdd Title with footnotes\nWe proceed to convert the gtsummary object to flextable and continue the work from there.\n\n\n\n\n\n\n\n\n\n\nSave as word",
     "crumbs": [
       "Table Making",
       "Building Table 1"
@@ -59,7 +48,7 @@
     "href": "table_basic/age_race_edu_table_1.html",
     "title": "Preparation for Table 1",
     "section": "",
-    "text": "In this tutorial, we try to create a table that is close to (Table 1 from the journal Treatment of Periodontal Disease and the Risk of Preterm Birth.\nWe start first by choosing the relevant columns to make Table 1.\nAs the final output looks complex, let’s break the task down to simpler tasks.",
+    "text": "In this tutorial, we try to create a table that is close to Table 1 from the journal Treatment of Periodontal Disease and the Risk of Preterm Birth.\nWe start first by choosing the relevant columns to make Table 1.\nAs the final output looks complex, let’s break the task down to simpler tasks.",
     "crumbs": [
       "Table Making",
       "Preparation for Table 1"
@@ -216,6 +205,61 @@
     "crumbs": [
       "Data Preparation",
       "Cleaning Obstetrics and Periodontal Therapy Dataset"
+    ]
+  },
+  {
+    "objectID": "table_basic/table_2.html",
+    "href": "table_basic/table_2.html",
+    "title": "Building Table 2",
+    "section": "",
+    "text": "In this section, we try to create a table that is close to Table 2.\nWe start first by choosing the relevant columns to make Table 2. Observe that we only keep rows with a birth outcome (Non-live birth and Live birth).",
+    "crumbs": [
+      "Table Making",
+      "Building Table 2"
+    ]
+  },
+  {
+    "objectID": "table_basic/table_2.html#pregnancy-duration-and-birth-weight-summary-table",
+    "href": "table_basic/table_2.html#pregnancy-duration-and-birth-weight-summary-table",
+    "title": "Building Table 2",
+    "section": "Pregnancy Duration and Birth Weight Summary Table",
+    "text": "Pregnancy Duration and Birth Weight Summary Table\n\nData Required\nHere is the dataset required.\n\n\n\n\n\n\n\n\n\n\nExercise (Table Creation)\nIn this exercise, we create the pregnancy duration and birth weight summary table.\nEnsure that\n\nThe labels are set correctly,\nDuration of pregnancy categories are displayed as count (percentage) with counts as integers and percentage in one decimal place.\nTotal birth weight is displayed as mean ± standard deviation in integers without big marks.\nBirth weight categories are displayed as proportion (percentage) with proprtions as integers and percentages in one decimal place.\nFisher Test is done on pregnancy duration groups.\nWilcox Test is done on total birth weight.\nChi Square Test without Yates’ continuity correction is done on birth weight categories.\np values are displayed in two decimal places.\nVariable group header are added for both pregnant duration and birth weight.\nfootnotes are removed.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHint 1\n\n\n\n\n\nEnsure the label parameter is something like this\nlabel = list(\n      \"Preg_duration_32\" ~ \"&lt;32 wk\",\n      \"Preg_duration_35\" ~ \"&lt;35 wk\",\n      \"Preg_duration_37\" ~ \"&lt;37 wk\",\n      \"Birthweight\" ~ \"Total weight - g\",\n      \"Birthweight_2500\" ~ \"&lt;2500 g - no./total no. (%)\",\n      \"Birthweight_1500\" ~ \"&lt;1500 g - no./total no. (%)\"\n    )\n\n\n\n\n\n\n\n\n\n\n\nNoteHint 2\n\n\n\n\n\nEnsure the statistics parameter is something like this\nstatistic = list(\n      gtsummary::all_continuous() ~ \"{mean}±{sd}\",\n      c(\"Preg_duration_32\", \"Preg_duration_35\", \"Preg_duration_37\") ~ \"{n} ({p})\",\n      c(\"Birthweight_2500\", \"Birthweight_1500\") ~ \"{n}/{N} ({p})\"\n    )\n\n\n\n\n\n\n\n\n\n\n\nNoteHint 3\n\n\n\n\n\nEnsure the gtsummary::add_p parameter is something like this\ndigits = list(\n      c(\"Birthweight\") ~ gtsummary::label_style_number(digits = 0, big.mark = \"\"),\n      c(\"Birthweight_2500\", \"Birthweight_1500\") ~ c(0, 0, 1)\n    )\n\n\n\n\n\n\n\n\n\n\n\nNoteHint 4\n\n\n\n\n\nEnsure the gtsummary::add_p is something like this\ngtsummary::add_p(\n    test = list(\n      c(\"Preg_duration_32\", \"Preg_duration_35\", \"Preg_duration_37\") ~ \"fisher.test\"\n    ),\n    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)\n  )\n\n\n\n\n\n\n\n\n\n\n\nNoteHint 5\n\n\n\n\n\nEnsure the gtsummary::add_variable_group_header is something like this\ngtsummary::add_variable_group_header(\n    header = \"Duration of pregnancy - no. (%)\",\n    variables = starts_with(\"Preg_\")\n  )\n\n\n\n\n\n\n\n\n\n\n\nTipFully worked solution:\n\n\n\n\n\n\n\nopt_preg_duration_birth_weight_data |&gt; \n  gtsummary::tbl_summary(\n    include = c(\n      \"Preg_duration_32\", \"Preg_duration_35\", \"Preg_duration_37\",\n      \"Birthweight\", \"Birthweight_2500\", \"Birthweight_1500\"\n    ),\n    by = \"Group\",\n    missing = \"no\",\n    label = list(\n      \"Preg_duration_32\" ~ \"&lt;32 wk\",\n      \"Preg_duration_35\" ~ \"&lt;35 wk\",\n      \"Preg_duration_37\" ~ \"&lt;37 wk\",\n      \"Birthweight\" ~ \"Total weight - g\",\n      \"Birthweight_2500\" ~ \"&lt;2500 g - no./total no. (%)\",\n      \"Birthweight_1500\" ~ \"&lt;1500 g - no./total no. (%)\"\n    ),\n    statistic = list(\n      gtsummary::all_continuous() ~ \"{mean}±{sd}\",\n      c(\"Preg_duration_32\", \"Preg_duration_35\", \"Preg_duration_37\") ~ \"{n} ({p})\",\n      c(\"Birthweight_2500\", \"Birthweight_1500\") ~ \"{n}/{N} ({p})\"\n    ),\n    digits = list(\n      c(\"Birthweight\") ~ gtsummary::label_style_number(digits = 0, big.mark = \"\"),\n      c(\"Birthweight_2500\", \"Birthweight_1500\") ~ c(0, 0, 1)\n    )\n  ) |&gt; \n  gtsummary::add_p(\n    test = list(\n      c(\"Preg_duration_32\", \"Preg_duration_35\", \"Preg_duration_37\") ~ \"fisher.test\"\n    ),\n    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)\n  ) |&gt; \n  gtsummary::add_variable_group_header(\n    header = \"Duration of pregnancy - no. (%)\",\n    variables = starts_with(\"Preg_\")\n  ) |&gt;\n  gtsummary::add_variable_group_header(\n    header = \"Birth weight\",\n    variables = c(\"Birthweight\", \"Birthweight_2500\", \"Birthweight_1500\")\n  ) |&gt;\n  gtsummary::remove_footnote_header()\nopt_preg_duration_birth_weight_data |&gt; \n  gtsummary::tbl_summary(\n    include = c(\n      \"Preg_duration_32\", \"Preg_duration_35\", \"Preg_duration_37\",\n      \"Birthweight\", \"Birthweight_2500\", \"Birthweight_1500\"\n    ),\n    by = \"Group\",\n    missing = \"no\",\n    label = list(\n      \"Preg_duration_32\" ~ \"&lt;32 wk\",\n      \"Preg_duration_35\" ~ \"&lt;35 wk\",\n      \"Preg_duration_37\" ~ \"&lt;37 wk\",\n      \"Birthweight\" ~ \"Total weight - g\",\n      \"Birthweight_2500\" ~ \"&lt;2500 g - no./total no. (%)\",\n      \"Birthweight_1500\" ~ \"&lt;1500 g - no./total no. (%)\"\n    ),\n    statistic = list(\n      gtsummary::all_continuous() ~ \"{mean}±{sd}\",\n      c(\"Preg_duration_32\", \"Preg_duration_35\", \"Preg_duration_37\") ~ \"{n} ({p})\",\n      c(\"Birthweight_2500\", \"Birthweight_1500\") ~ \"{n}/{N} ({p})\"\n    ),\n    digits = list(\n      c(\"Birthweight\") ~ gtsummary::label_style_number(digits = 0, big.mark = \"\"),\n      c(\"Birthweight_2500\", \"Birthweight_1500\") ~ c(0, 0, 1)\n    )\n  ) |&gt; \n  gtsummary::add_p(\n    test = list(\n      c(\"Preg_duration_32\", \"Preg_duration_35\", \"Preg_duration_37\") ~ \"fisher.test\"\n    ),\n    pvalue_fun = gtsummary::label_style_pvalue(digits = 2)\n  ) |&gt; \n  gtsummary::add_variable_group_header(\n    header = \"Duration of pregnancy - no. (%)\",\n    variables = starts_with(\"Preg_\")\n  ) |&gt;\n  gtsummary::add_variable_group_header(\n    header = \"Birth weight\",\n    variables = c(\"Birthweight\", \"Birthweight_2500\", \"Birthweight_1500\")\n  ) |&gt;\n  gtsummary::remove_footnote_header()",
+    "crumbs": [
+      "Table Making",
+      "Building Table 2"
+    ]
+  },
+  {
+    "objectID": "table_basic/table_2.html#live-birth-summary-table",
+    "href": "table_basic/table_2.html#live-birth-summary-table",
+    "title": "Building Table 2",
+    "section": "Live Birth Summary Table",
+    "text": "Live Birth Summary Table\n\nData Required\nHere is the dataset required.\n\n\n\n\n\n\n\n\n\n\nTable Draft\nWe create our first draft using the code below. There are a few things that we need to resolve.\n\nConvert &gt;0.99 to 1.0 from the &lt; 32 wk row to match Table 2.\nRemove the p value of 0.036 from the Total row.\nFind a way to add Live births - no. (%) above Total.\n\n\n\n\n\n\n\n\n\n\n\nExercise (Change &gt;0.99)\nWe have done this before in the previous section. Ensure that\n\npvalue_fun = gtsummary::label_style_pvalue(digits = 2) is replaced with pvalue_fun = p_value_style in the function gtsummary::add_p.\np_value_style returns 1.0 when if p value is 1.\np_value_style returns gtsummary::style_pvalue(x, digits = 2) otherwise.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nEnsure the p_value_style function is something like this\np_value_style &lt;- function(x) {\n  dplyr::case_when(\n    x == 1 ~ \"1.0\",\n    .default = gtsummary::style_pvalue(x, digits = 2)\n  )\n}\n\n\n\n\n\n\n\n\n\n\n\nTipFully worked solution:\n\n\n\n\n\n\n\np_value_style &lt;- function(x) {\n  dplyr::case_when(\n    x == 1 ~ \"1.0\",\n    .default = gtsummary::style_pvalue(x, digits = 2)\n  )\n}\n\nopt_live_birth_data |&gt;\n  gtsummary::tbl_summary(\n    include = c(\n      \"Have_Live_Birth\", \"Preterm_32\", \"Preterm_35\", \"Preterm_37\"\n    ),\n    by = \"Group\",\n    missing = \"no\",\n    label = list(\n      \"Have_Live_Birth\" ~ \"Total\",\n      \"Preterm_32\" ~ \"&lt;32 wk\",\n      \"Preterm_35\" ~ \"&lt;35 wk\",\n      \"Preterm_37\" ~ \"&lt;37 wk\"\n    ),\n    statistic = list(\n      c(\"Have_Live_Birth\", \"Preterm_32\", \"Preterm_35\", \"Preterm_37\") ~ \"{n} ({p})\"\n    ),\n    digits = list(\n      c(\"Have_Live_Birth\", \"Preterm_32\", \"Preterm_35\", \"Preterm_37\") ~ c(0, 1)\n    )\n  ) |&gt; \n  gtsummary::add_p(\n    test = list(\n      c(\"Preterm_32\", \"Preterm_35\", \"Preterm_37\") ~ \"fisher.test\"\n    ),\n    pvalue_fun = p_value_style\n  ) |&gt; \n  gtsummary::add_variable_group_header(\n    header = \"Preterm\",\n    variables = c(\"Preterm_32\", \"Preterm_35\", \"Preterm_37\")\n  ) |&gt;\n  gtsummary::remove_footnote_header()\np_value_style &lt;- function(x) {\n  dplyr::case_when(\n    x == 1 ~ \"1.0\",\n    .default = gtsummary::style_pvalue(x, digits = 2)\n  )\n}\n\nopt_live_birth_data |&gt;\n  gtsummary::tbl_summary(\n    include = c(\n      \"Have_Live_Birth\", \"Preterm_32\", \"Preterm_35\", \"Preterm_37\"\n    ),\n    by = \"Group\",\n    missing = \"no\",\n    label = list(\n      \"Have_Live_Birth\" ~ \"Total\",\n      \"Preterm_32\" ~ \"&lt;32 wk\",\n      \"Preterm_35\" ~ \"&lt;35 wk\",\n      \"Preterm_37\" ~ \"&lt;37 wk\"\n    ),\n    statistic = list(\n      c(\"Have_Live_Birth\", \"Preterm_32\", \"Preterm_35\", \"Preterm_37\") ~ \"{n} ({p})\"\n    ),\n    digits = list(\n      c(\"Have_Live_Birth\", \"Preterm_32\", \"Preterm_35\", \"Preterm_37\") ~ c(0, 1)\n    )\n  ) |&gt; \n  gtsummary::add_p(\n    test = list(\n      c(\"Preterm_32\", \"Preterm_35\", \"Preterm_37\") ~ \"fisher.test\"\n    ),\n    pvalue_fun = p_value_style\n  ) |&gt; \n  gtsummary::add_variable_group_header(\n    header = \"Preterm\",\n    variables = c(\"Preterm_32\", \"Preterm_35\", \"Preterm_37\")\n  ) |&gt;\n  gtsummary::remove_footnote_header()\n\n\n\n\n\n\n\n\n\n\n\nExercise (Remove p value from Total)\nHere is live_birth and its corresponding table_body that we have so far.\n\ncurrent live birthtable_body\n\n\nClick on the different tabs.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUse gtsummary::modify_table_body to remove the p value from the Total.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nEnsure the dplyr::case_when function is something like this\ndplyr::case_when(\n  .data[[\"variable\"]] == \"Have_Live_Birth\" ~ NA,\n  .default = .data[[\"p.value\"]]\n)\n\n\n\n\n\n\n\n\n\n\n\nTipFully worked solution:\n\n\n\n\n\n\n\nlive_birth |&gt;\n  gtsummary::modify_table_body(\n    ~ .x |&gt; \n      dplyr::mutate(\n        `p.value` = dplyr::case_when(\n          .data[[\"variable\"]] == \"Have_Live_Birth\" ~ NA,\n          .default = .data[[\"p.value\"]]\n        )\n      )\n  )\nlive_birth |&gt;\n  gtsummary::modify_table_body(\n    ~ .x |&gt; \n      dplyr::mutate(\n        `p.value` = dplyr::case_when(\n          .data[[\"variable\"]] == \"Have_Live_Birth\" ~ NA,\n          .default = .data[[\"p.value\"]]\n        )\n      )\n  )\n\n\n\n\n\n\n\n\n\n\n\nExercise (Live births - no. (%) above Total)\nHere is live_birth and its corresponding table_body that we have so far.\n\ncurrent live birthtable_body\n\n\nClick on the different tabs.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUse gtsummary::modify_table_body to add the header Live births - no. (%).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHint\n\n\n\n\n\nEnsure the tibble::add_row function is something like this\ntibble::add_row(\n   row_type = \"variable_group\", \n   label = \"Live births - no. (%)\", \n   .before = 1\n)\n\n\n\n\n\n\n\n\n\n\n\nTipFully worked solution:\n\n\n\n\n\n\n\nlive_birth |&gt;\n  gtsummary::modify_table_body(\n    ~ .x |&gt; \n      tibble::add_row(\n        row_type = \"variable_group\", \n        label = \"Live births - no. (%)\", \n        .before = 1\n      )\n  )\nlive_birth |&gt;\n  gtsummary::modify_table_body(\n    ~ .x |&gt; \n      tibble::add_row(\n        row_type = \"variable_group\", \n        label = \"Live births - no. (%)\", \n        .before = 1\n      )\n  )\n\n\n\n\n\n\n\n\n\n\n\nModify Indentation\nHere is what we have so far.\nHere is live_birth and its corresponding table_body that we have so far.\n\ncurrent live birthtable_body\n\n\nClick on the different tabs.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinally to resolve the indentation issue, gtsummary has a function called gtsummary::modify_indent to customise the indentation for columns. We need to select the right columns and rows to perform the indentation.",
+    "crumbs": [
+      "Table Making",
+      "Building Table 2"
+    ]
+  },
+  {
+    "objectID": "table_basic/table_2.html#combine",
+    "href": "table_basic/table_2.html#combine",
+    "title": "Building Table 2",
+    "section": "Combine",
+    "text": "Combine\nWe have completed creating our two tables as shown below. It is time to combine them\n\nPregnancy Duration and Birth Weight Summary TableLive Birth Summary Table\n\n\nClick on the different tabs to see the tables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe use gtsummary::tbl_stack to append the two tables together and gtsummary::modify_header to update the header names to match Table 2.",
+    "crumbs": [
+      "Table Making",
+      "Building Table 2"
+    ]
+  },
+  {
+    "objectID": "table_basic/table_2.html#next-steps",
+    "href": "table_basic/table_2.html#next-steps",
+    "title": "Building Table 2",
+    "section": "Next Steps",
+    "text": "Next Steps\nSimilar to Table 1, adding footnotes for the title as well as some rows in the tables varies based on what kind of output (html or word document) you wish the table to be represented as. gtsummary has its limitations in this and need the help of other R packages such as gt and flextable. Below are examples on how this can be done.\n\nExport in html\nWe proceed to export the table as html by using the R package gt.\n\nAdd footnotes in table\n\n\n\n\n\n\n\n\n\n\nSave as html\n\n\n\n\n\n\n\n\n\n\n\nExport in word\nWe proceed to export the table as html by using the R package flextable.\n\nAdd footnotes in table\nFootnotes in the table are this time added using gtsummary::modify_table_body as though we can add footnote in flextable, they are alwats represented as superscript.\n\n\n\n\n\n\n\n\n\n\nSave as word",
+    "crumbs": [
+      "Table Making",
+      "Building Table 2"
     ]
   }
 ]
