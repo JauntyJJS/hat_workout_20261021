@@ -13,23 +13,79 @@ webr:
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
+In this section, we try to create a regression table using some helpful functions from [`gtsummary`](https://www.danieldsjoberg.com/gtsummary/){target="_blank"}
+
+We start by choosing the relevant columns to make the regression table, keeping rows with a birth outcome (Non-live birth and Live birth).
+
 ```{webr}
 #| label: load opt data
 #| envir: table_3
+#| autorun: true
 opt_data <- readRDS("data/opt_data.rds") |> 
   dplyr::filter(
     .data[["Birth.outcome"]] %in% c("Non-live birth", "Live birth")
   )
 ```
 
+## Birth Weight Regression Table
+
+### Data Required
+
+Here is the dataset required. To recall, we set 
+
+- `Birthweight_2500_regression` be
+   - `NA` if `Birthweight` is `NA`.
+   - `1` if `Birthweight` is less than 2500.
+   - `0` otherwise.
+
 ```{webr}
+#| label: data for birth weight regression table
 #| envir: table_3
+#| autorun: true
+opt_birth_weight_for_regression_data <- opt_data |> 
+  dplyr::select(
+    c("PID", "Group", "Age",
+      "Education", "Hypertension", "Diabetes",
+      "Birthweight", "Birthweight_2500_regression")
+  )
+
+opt_birth_weight_for_regression_data |> 
+  reactable::reactable(
+    filterable = TRUE,
+    paginationType = "jump",
+    defaultPageSize = 5,
+    minRows = 5)
+```
+
+### Create Regression Results
+
+We create a univariable logistic regression model using just the `Group` column and the outcome `Birthweight_2500_regression`.
+
+```{webr}
+#| caption: birthweight unadjusted model
+#| label: birthweight unadjusted model
+#| envir: table_3
+#| autorun: true
 birthweight_unadjusted_model <- glm(
   Birthweight_2500_regression ~ Group,
   data   = opt_data,
   family = binomial
 )
 
+broom::tidy(birthweight_unadjusted_model)
+```
+
+We can display the regression results using the [`tbl_regression`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html){target="_blank"}. Setting `exponentiate = TRUE` will convert the predictors' raw coefficient into odds ratio.
+
+In addition, we can display the number of patients that enters the model using [`add_n`](https://www.danieldsjoberg.com/gtsummary/reference/add_n_summary.html){target="_blank"}.
+
+[`add_nevent`](https://www.danieldsjoberg.com/gtsummary/reference/add_nevent_regression.html){target="_blank"} provides the number of events (Number of patients with `Birthweight_2500_regression` equal to `1` or have a live birth weight of less than 2500g).
+
+```{webr}
+#| caption: birthweight unadjusted model result table
+#| label: birthweight unadjusted model result table
+#| envir: table_3
+#| autorun: true
 birthweight_unadjusted_table <- birthweight_unadjusted_model |> 
   gtsummary::tbl_regression(
     exponentiate = TRUE
@@ -40,17 +96,32 @@ birthweight_unadjusted_table <- birthweight_unadjusted_model |>
   gtsummary::add_nevent(
     location = c("level")
   )
+
+birthweight_unadjusted_table
 ```
 
+We create a multivariable logistic regression model using additional columns (`Group`, `Age`, `Education`, `Hypertension`, `Diabetes`) and the outcome `Birthweight_2500_regression`.
 
 ```{webr}
+#| caption: birthweight adjusted model
+#| label: birthweight adjusted model
 #| envir: table_3
+#| autorun: true
 birthweight_adjusted_model <- glm(
   Birthweight_2500_regression ~ Group + Age + Education + Hypertension + Diabetes,
   data   = opt_data,
   family = binomial
 )
 
+```
+
+We display the regression results using the same three functions.
+
+```{webr}
+#| caption: birthweight adjusted model result table
+#| label: birthweight adjusted model result table
+#| envir: table_3
+#| autorun: true
 birthweight_adjusted_table <- birthweight_adjusted_model |> 
   gtsummary::tbl_regression(
     exponentiate = TRUE
@@ -65,8 +136,25 @@ birthweight_adjusted_table <- birthweight_adjusted_model |>
 birthweight_adjusted_table
 ```
 
+## Pregnancy Duration Regression Table
+
+### Data Required
+
+Here is the dataset required. To recall, we set 
+
+- `Preg_duration_37_regression` be
+   - `1` if `GA.at.outcome.weeks` is less than 37.
+   - `0` otherwise.
+   
+### Create Regression Results
+
+We create a univariable logistic regression model using just the `Group` column and the outcome `Preg_duration_37_regression`.
+
 ```{webr}
+#| caption: pregnancy duration unadjusted model
+#| label: pregnancy duration unadjusted model
 #| envir: table_3
+#| autorun: true
 preg_duration_unadjusted_model <- glm(
   Preg_duration_37_regression ~ Group,
   data   = opt_data,
@@ -85,8 +173,13 @@ preg_duration_unadjusted_table <- preg_duration_unadjusted_model |>
   )
 ```
 
+We create a multivariable logistic regression model using additional columns (`Group`, `Age`, `Education`, `Hypertension`, `Diabetes`) and the outcome `Preg_duration_37_regression`.
+
 ```{webr}
+#| caption: pregnancy duration adjusted model
+#| label: pregnancy duration adjusted model
 #| envir: table_3
+#| autorun: true
 preg_duration_adjusted_model <- glm(
   Preg_duration_37_regression ~ Group + Age + Education + Hypertension + Diabetes,
   data   = opt_data,
@@ -107,21 +200,43 @@ preg_duration_adjusted_table <- preg_duration_adjusted_model |>
 preg_duration_adjusted_table
 ```
 
+## Combine
+
+We can combine the birth weight and pregnancy duration regression table by column using the [`tbl_merge`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_merge.html){target="_blank"}
+
 ```{webr}
+#| caption: combine unadjusted regression results table
+#| label: combine unadjusted regression results table
 #| envir: table_3
+#| autorun: true
 unadjusted_table <- gtsummary::tbl_merge(
   tbls = list(birthweight_unadjusted_table, preg_duration_unadjusted_table),
   tab_spanner = c("**Birth Weight <2500 g**", "**Pregnant Duration <37 wk**")
 )
 
+unadjusted_table
+```
+
+```{webr}
+#| caption: combine adjusted regression results table
+#| label: combine adjusted regression results table
+#| envir: table_3
+#| autorun: true
 adjusted_table <- gtsummary::tbl_merge(
   tbls = list(birthweight_adjusted_table, preg_duration_adjusted_table),
   tab_spanner = c("**Birth Weight <2500 g**", "**Pregnant Duration <37 wk**")
 )
+
+adjusted_table
 ```
 
+Finally, we can combine the univariable and multivariable regression results table using the [gtsummary::tbl_stack](https://www.danieldsjoberg.com/gtsummary/reference/tbl_stack.html){target="_blank"}
+
 ```{webr}
+#| caption: combine regression results table
+#| label: combine regression results table
 #| envir: table_3
+#| autorun: true
 combined_table <- gtsummary::tbl_stack(
   list(unadjusted_table, adjusted_table),
   group_header = c("Unadjusted", "Adjusted by Age, Education, Hypertension and Diabetes")

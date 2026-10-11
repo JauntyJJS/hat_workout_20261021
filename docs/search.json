@@ -1,5 +1,49 @@
 [
   {
+    "objectID": "table_basic/table_3.html",
+    "href": "table_basic/table_3.html",
+    "title": "Building Regression Table",
+    "section": "",
+    "text": "In this section, we try to create a regression table using some helpful functions from gtsummary\nWe start by choosing the relevant columns to make the regression table, keeping rows with a birth outcome (Non-live birth and Live birth).",
+    "crumbs": [
+      "Table Making",
+      "Building Regression Table"
+    ]
+  },
+  {
+    "objectID": "table_basic/table_3.html#birth-weight-regression-table",
+    "href": "table_basic/table_3.html#birth-weight-regression-table",
+    "title": "Building Regression Table",
+    "section": "Birth Weight Regression Table",
+    "text": "Birth Weight Regression Table\n\nData Required\nHere is the dataset required. To recall, we set\n\nBirthweight_2500_regression be\n\nNA if Birthweight is NA.\n1 if Birthweight is less than 2500.\n0 otherwise.\n\n\n\n\n\n\n\n\n\n\n\n\nCreate Regression Results\nWe create a univariable logistic regression model using just the Group column and the outcome Birthweight_2500_regression.\n\n\n\n\n\n\n\n\nWe can display the regression results using the tbl_regression. Setting exponentiate = TRUE will convert the predictors’ raw coefficient into odds ratio.\nIn addition, we can display the number of patients that enters the model using add_n.\nadd_nevent provides the number of events (Number of patients with Birthweight_2500_regression equal to 1 or have a live birth weight of less than 2500g).\n\n\n\n\n\n\n\n\nWe create a multivariable logistic regression model using additional columns (Group, Age, Education, Hypertension, Diabetes) and the outcome Birthweight_2500_regression.\n\n\n\n\n\n\n\n\nWe display the regression results using the same three functions.",
+    "crumbs": [
+      "Table Making",
+      "Building Regression Table"
+    ]
+  },
+  {
+    "objectID": "table_basic/table_3.html#pregnancy-duration-regression-table",
+    "href": "table_basic/table_3.html#pregnancy-duration-regression-table",
+    "title": "Building Regression Table",
+    "section": "Pregnancy Duration Regression Table",
+    "text": "Pregnancy Duration Regression Table\n\nData Required\nHere is the dataset required. To recall, we set\n\nPreg_duration_37_regression be\n\n1 if GA.at.outcome.weeks is less than 37.\n0 otherwise.\n\n\n\n\nCreate Regression Results\nWe create a univariable logistic regression model using just the Group column and the outcome Preg_duration_37_regression.\n\n\n\n\n\n\n\n\nWe create a multivariable logistic regression model using additional columns (Group, Age, Education, Hypertension, Diabetes) and the outcome Preg_duration_37_regression.",
+    "crumbs": [
+      "Table Making",
+      "Building Regression Table"
+    ]
+  },
+  {
+    "objectID": "table_basic/table_3.html#combine",
+    "href": "table_basic/table_3.html#combine",
+    "title": "Building Regression Table",
+    "section": "Combine",
+    "text": "Combine\nWe can combine the birth weight and pregnancy duration regression table by column using the tbl_merge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinally, we can combine the univariable and multivariable regression results table using the gtsummary::tbl_stack",
+    "crumbs": [
+      "Table Making",
+      "Building Regression Table"
+    ]
+  },
+  {
     "objectID": "table_basic/table_1.html#using-tbl_stack",
     "href": "table_basic/table_1.html#using-tbl_stack",
     "title": "Building Table 1",
