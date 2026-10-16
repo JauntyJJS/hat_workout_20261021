@@ -2,8 +2,8 @@
 title: "Preparation for Table 1"
 author: "Jeremy Selva"
 webr:
-  # resources:
-  #   - data/opt_data.rds
+  resources:
+    - ../data/opt_data.rds
   packages:
     - reactable
     - gtsummary

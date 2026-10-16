@@ -2,6 +2,8 @@
 title: "Building Regression Table"
 author: "Jeremy Selva"
 webr:
+  resources:
+    - ../data/opt_data.rds
   packages:
     - gtsummary
     - broom

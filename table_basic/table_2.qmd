@@ -2,6 +2,9 @@
 title: "Building Table 2"
 author: "Jeremy Selva"
 webr:
+  resources:
+    - ../data/opt_data.rds
+    - ../data/table2.docx
   packages:
     - reactable
     - gtsummary
@@ -1260,18 +1263,23 @@ table2_word
 
 #### Save as word
 
+We save it into word using the code below. However, the code will not work as we cannot export files in this interactive session.
+
+```r
+table2_word |> 
+  flextable::save_as_docx(path = "data/table2.docx")
+```
+
 ```{webr}
 #| caption: download table2 word
 #| label: download table2 word
 #| envir: table_2
-table2_word |> 
-  flextable::save_as_docx(path = "data/table2.docx")
-
 downloadthis::download_file(
   path = "data/table2.docx"
 )
 
 ```
+
 
 
 
