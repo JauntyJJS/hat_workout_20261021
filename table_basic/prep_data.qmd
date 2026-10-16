@@ -7,6 +7,7 @@ webr:
     - dplyr
     - stringr
     - purrr
+    - downloadthis
 ---
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
@@ -297,6 +298,7 @@ opt_data |>
 ### Outcome Pregnancy Duration
 
 We create the following new columns to identify those with pregnancy duration if less than 32, 35 and 37 weeks.
+
 - `GA.at.outcome.weeks` be the column `GA.at.outcome` divided by 7.
 - `Preg_duration_32` be
    - `Yes` if `GA.at.outcome.weeks` is less than 32.
@@ -355,6 +357,7 @@ opt_data |>
 ### Outcome Birth Weight
 
 We create the following new columns to identify those with low birth weights.
+
 - `Birthweight_2500` be
    - `NA` if `Birthweight` is `NA`.
    - `Yes` if `Birthweight` is less than 2500.
@@ -406,6 +409,7 @@ opt_data |>
 ### Outcome Preterm Live Birth
 
 We create the following new columns to identify those with pre-term live birth.
+
 - `Recall GA.at.outcome.weeks` is the column `GA.at.outcome` divided by 7.
 - `Have_Live_Birth` be
    - `Yes` if `Birth.outcome` is `Live birth`.
@@ -465,10 +469,24 @@ opt_data |>
   purrr::map(\(x) table(x, useNA = "ifany"))
 ```
 
+## Download processed data
+
+```{webr}
+#| caption: download processed data in excel
+#| label: download processed data in excel
+#| envir: prep_data
+opt_data |> 
+  downloadthis::download_this(
+    output_name = "Obstetrics and Periodontal Therapy Dataset (Processed)",
+    output_extension = ".xlsx",
+    button_label = "Download data"
+)
+```
+
 ```{r}
 #| label: output opt data
 #| eval: false
-
+#| echo: false
 saveRDS(opt_data, file = here::here("data", "opt_data.rds"))
 
 ```

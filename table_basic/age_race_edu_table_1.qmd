@@ -8,6 +8,7 @@ webr:
     - reactable
     - gtsummary
     - broom
+    - downloadthis
   repos:
     - https://ddsjoberg.r-universe.dev/gtsummary
 ---
@@ -17,20 +18,36 @@ webr:
 
 In this tutorial, we try to create a table that is close to [Table 1](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg){target="_blank"} from the journal [Treatment of Periodontal Disease and the Risk of Preterm Birth](https://www.nejm.org/doi/full/10.1056/NEJMoa062249){target="_blank"}.
 
+During the session "Cleaning Obstetrics and Periodontal Therapy Dataset", we have taken the raw data from `medicaldata::opt` and process it so that we can use with `gtsummary` to create the tables. The processed data can be obtained   
+
+```{webr}
+#| caption: download processed data in excel
+#| label: download processed data in excel
+#| envir: setup_table_1
+#| autorun: true
+opt_data_processed <- readRDS("data/opt_data.rds") 
+
+opt_data_processed |> 
+  downloadthis::download_this(
+    output_name = "Obstetrics and Periodontal Therapy Dataset (Processed)",
+    output_extension = ".xlsx",
+    button_label = "Download data"
+)
+```
+
 We start first by choosing the relevant columns to make Table 1.
 
 ```{webr}
 #| label: load opt data for table 1
 #| envir: setup_table_1
 #| autorun: true
-opt_data <- readRDS("data/opt_data.rds") |> 
+opt_data <- opt_data_processed |> 
   dplyr::select(
     c("PID", "Group", 
       "Age", "White", "Black", "Hisp", "Education",
-      "Prev.preg","Any.live.ptb.sb.sp.ab.in.ab",
+      "Prev.preg",
       "previous_live_preterm_birth",
       "Spont.ab", "Induced.ab", "Any.stillbirth",
-      "Any.live.ptb.sb.sp.ab.in.ab", 
       "Diabetes", "Hypertension", "Use.Alc")
   )
 ```
@@ -871,8 +888,7 @@ opt_previous_preg_table <- opt_previous_preg_data |>
     include = c(
       "Prev.preg",
       "previous_live_preterm_birth",
-      "Spont.ab", "Induced.ab", "Any.stillbirth",
-      "Any.live.ptb.sb.sp.ab.in.ab"
+      "Spont.ab", "Induced.ab", "Any.stillbirth"
     ),
     by = "Group",
     missing = list(
