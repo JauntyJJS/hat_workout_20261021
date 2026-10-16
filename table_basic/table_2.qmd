@@ -1261,11 +1261,11 @@ table2_word
 #### Save as word
 
 ```{webr}
-#| caption: download table1 word
-#| label: download table1 word
+#| caption: download table2 word
+#| label: download table2 word
 #| envir: table_2
 table2_word |> 
-  flextable::save_as_docx( path = "data/table2.docx")
+  flextable::save_as_docx(path = "data/table2.docx")
 
 downloadthis::download_file(
   path = "data/table2.docx"

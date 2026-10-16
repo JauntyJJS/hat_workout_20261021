@@ -489,7 +489,7 @@ table1_word
 #| label: download table1 word
 #| envir: table_1
 table1_word |> 
-  flextable::save_as_docx( path = "data/table1.docx")
+  flextable::save_as_docx(path = "data/table1.docx")
 
 downloadthis::download_file(
   path = "data/table1.docx"
