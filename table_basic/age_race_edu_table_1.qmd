@@ -995,7 +995,7 @@ opt_previous_preg_data |>
     by = "Group",
     missing = "no",
     label = list(
-      "Prev.preg" ~ "Any pregancy",
+      "Prev.preg" ~ "Any pregnancy",
       "previous_live_preterm_birth" ~ "Live preterm birth",
       "Spont.ab" ~ "Spontaneous abortion",
       "Induced.ab" ~ "Induced abortion",
