@@ -966,8 +966,6 @@ live_birth |>
     rows = .data[["variable"]] %in% c("Preterm_32", "Preterm_35", "Preterm_37"), 
     indent = 8L
   ) 
-
-live_birth
 ```
 
 
@@ -1125,6 +1123,8 @@ table2 <- gtsummary::tbl_stack(
     text_interpret = "md"
   ) |> 
   gtsummary::remove_footnote_header()
+
+table2
 ```
 
 ## Next Steps
