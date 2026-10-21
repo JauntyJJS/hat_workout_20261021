@@ -1036,6 +1036,7 @@ birth_weight
 #| caption: live birth summary table
 #| label: live birth summary table
 #| envir: table_2
+#| autorun: true
 p_value_style <- function(x) {
   dplyr::case_when(
     x == 1 ~ "1.0",
