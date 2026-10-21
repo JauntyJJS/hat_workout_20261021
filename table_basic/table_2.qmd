@@ -1102,6 +1102,8 @@ live_birth <- opt_data |>
     indent = 8L
   ) |>
   gtsummary::remove_footnote_header()
+
+live_birth
 ```
 
 :::
