@@ -955,6 +955,7 @@ Finally to resolve the indentation issue, `gtsummary` has a function called [`gt
 ```{webr}
 #| label: live birth add indentation
 #| envir: table_2
+#| autorun: true
 live_birth |>
   gtsummary::modify_indent(
     columns = "label", 
