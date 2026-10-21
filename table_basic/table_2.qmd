@@ -308,6 +308,7 @@ We create our first draft using the code below. There are a few things that we n
 #| caption: live birth summary table draft 1
 #| label: live birth summary table draft 1
 #| envir: table_2
+#| autorun: true
 live_birth <- opt_live_birth_data |> 
   gtsummary::tbl_summary(
     include = c(
