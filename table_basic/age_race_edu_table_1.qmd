@@ -16,6 +16,28 @@ webr:
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 {{< include ../_extensions/r-wasm/live/_gradethis.qmd >}}
 
+:::{.goals}
+
+::::{.goals-header}
+Learning Goals
+::::
+
+::::{.goals-container}
+  * Create clinical summary table using [`tbl_summary`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html){target="_blank"}.
+  * Introduce `all_` helper functions like [`all_continuous()`](https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html){target="_blank"} and [`all_categorical()`](https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html){target="_blank"} to make code concise.
+  * Show `gtsummary` default formatting of numbers ([`style_number`](https://www.danieldsjoberg.com/gtsummary/reference/style_number.html){target="_blank"}), percentages ([`style_percent`](https://www.danieldsjoberg.com/gtsummary/reference/style_percent.html){target="_blank"}), ratios ([`style_ratio`](https://www.danieldsjoberg.com/gtsummary/reference/style_sigfig.html){target="_blank"}), and *p* values ([`style_pvalue`](https://www.danieldsjoberg.com/gtsummary/reference/style_pvalue.html){target="_blank"}).
+  * Insert a custom section header row into a summary table using [`add_variable_group_header`](https://www.danieldsjoberg.com/gtsummary/reference/add_variable_group_header.html){target="_blank"}.
+  * Include *p* values in the summary table with [`add_p`](https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html){target="_blank"}.
+  * Remove default footnotes with [`remove_footnote_header`](https://www.danieldsjoberg.com/gtsummary/reference/modify_footnote2.html){target="_blank"} so that we can add our custom footnotes at a later stage.
+  * Explore various ways to prevent missingness statistics in the summary table.
+  * Format *p* values presentation using customised functions.
+
+
+
+::::
+
+:::
+
 In this tutorial, we try to create a table that is close to [Table 1](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/c676621f-111e-4299-a7a3-082bbe922f9a/assets/images/large/nejmoa062249_t1.jpg){target="_blank"} from the journal [Treatment of Periodontal Disease and the Risk of Preterm Birth](https://www.nejm.org/doi/full/10.1056/NEJMoa062249){target="_blank"}.
 
 During the session "Cleaning Obstetrics and Periodontal Therapy Dataset", we have taken the raw data from `medicaldata::opt` and process it so that we can use with `gtsummary` to create the tables. The processed data can be obtained   

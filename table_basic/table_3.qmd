@@ -15,6 +15,21 @@ webr:
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
+:::{.goals}
+
+::::{.goals-header}
+Learning Goals
+::::
+
+::::{.goals-container}
+  * Create clinical summary logistics regression table using [`tbl_regression`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html){target="_blank"}.
+  * Display number of patients and positive events that enter the model in the regression table using [`add_n`](https://www.danieldsjoberg.com/gtsummary/reference/add_n_summary.html){target="_blank"} and [`add_nevent`](https://www.danieldsjoberg.com/gtsummary/reference/add_nevent_regression.html){target="_blank"}.
+  * Merge tables by columns using [`tbl_merge`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_merge.html){target="_blank"} and by rows using [`tbl_stack`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_stack.html){target="_blank"}.
+
+::::
+
+:::
+
 In this section, we try to create a regression table using some helpful functions from [`gtsummary`](https://www.danieldsjoberg.com/gtsummary/){target="_blank"}
 
 We start by choosing the relevant columns to make the regression table, keeping rows with a birth outcome (Non-live birth and Live birth).
@@ -232,7 +247,7 @@ adjusted_table <- gtsummary::tbl_merge(
 adjusted_table
 ```
 
-Finally, we can combine the univariable and multivariable regression results table using the [gtsummary::tbl_stack](https://www.danieldsjoberg.com/gtsummary/reference/tbl_stack.html){target="_blank"}
+Finally, we can combine the univariable and multivariable regression results table using the [gtsummary::tbl_stack](https://www.danieldsjoberg.com/gtsummary/reference/tbl_stack.html){target="_blank"}.
 
 ```{webr}
 #| caption: combine regression results table

@@ -22,6 +22,20 @@ webr:
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 {{< include ../_extensions/r-wasm/live/_gradethis.qmd >}}
 
+:::{.goals}
+
+::::{.goals-header}
+Learning Goals
+::::
+
+::::{.goals-container}
+  * Revise the use of [`tbl_summary`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html){target="_blank"}, [`add_p`](https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html){target="_blank"}, and [`add_variable_group_header`](https://www.danieldsjoberg.com/gtsummary/reference/add_variable_group_header.html){target="_blank"} to create clinical summary table.
+  * Apply the structure of [`gtsummary` object](https://www.danieldsjoberg.com/gtsummary/articles/gtsummary_definition.html){target="_blank"} to manually customise specific cells in the summary table using [`modify_table_body`](https://www.danieldsjoberg.com/gtsummary/reference/modify_table_body.html){target="_blank"}.
+  * Perform customised indentation on specific table cells using [`modify_indent`](https://www.danieldsjoberg.com/gtsummary/reference/modify_indent.html){target="_blank"}.
+::::
+
+:::
+
 In this section, we try to create a table that is close to [Table 2](https://www.nejm.org/cms/10.1056/NEJMoa062249/asset/b981f44a-0873-42d4-ad60-d7545e1f63cb/assets/images/large/nejmoa062249_t2.jpg){target="_blank"}.
 
 We start first by choosing the relevant columns to make Table 2. Observe that we only keep rows with a birth outcome (Non-live birth and Live birth).

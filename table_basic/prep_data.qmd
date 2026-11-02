@@ -12,6 +12,19 @@ webr:
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
+:::{.goals}
+
+::::{.goals-header}
+Learning Goals
+::::
+
+::::{.goals-container}
+  * Introduce the R package [`medicaldata`](https://higgi13425.github.io/medicaldata/index.html){target="_blank"} and the [Obstetrics and Periodontal Therapy Dataset](https://higgi13425.github.io/medicaldata/reference/opt.html){target="_blank"}.
+  * Clean dataset so that it can be used to create clinical summary table using [`gtsummary`](https://www.danieldsjoberg.com/gtsummary/){target="_blank"}.
+::::
+
+:::
+
 ## Data Preparation
 
 In this section, we highlight in detail how the [Obstetrics and Periodontal Therapy Dataset](https://higgi13425.github.io/medicaldata/reference/opt.html){target="_blank"} from R package [`medicaldata`](https://higgi13425.github.io/medicaldata/index.html){target="_blank"} is prepared so that we can use [`gtsummary`](https://www.danieldsjoberg.com/gtsummary/){target="_blank"} to create the clinical summary table. 

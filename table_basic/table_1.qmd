@@ -20,6 +20,22 @@ webr:
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
+:::{.goals}
+
+::::{.goals-header}
+Learning Goals
+::::
+
+::::{.goals-container}
+  * Append tables by rows together [`tbl_stack`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_stack.html){target="_blank"}.
+  * Explore the structure of a [`gtsummary` object](https://www.danieldsjoberg.com/gtsummary/articles/gtsummary_definition.html){target="_blank"}.
+  * Customise the way to display the table headers using  [`modify_header`](https://www.danieldsjoberg.com/gtsummary/reference/modify.html){target="_blank"}.
+  * Introduce various ways to customise footnotes.
+  * Show how the table can be exported in html and Word.
+::::
+
+:::
+
 ```{webr}
 #| label: load opt data for table 1
 #| envir: table_1

@@ -1,0 +1,68 @@
+/*-- scss:rules --*/
+
+.goals {
+  margin: 1em 0;
+  border: 2px solid gray;
+  border-left: 10px solid #009e73; 
+  border-radius: 10px;
+}
+
+.goals-header {
+  margin-left: 0em;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 0.1em;
+  color: black;
+  background-color: #f1faf8;
+  border-top-right-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+}
+
+.goals-container {
+  padding-top: 5px;
+  padding-left: 10px;
+  color: black;
+  background-color: white;
+  border-bottom-right-radius: 10px;
+}
+
+.scrollable-output {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+/* Style the tab navigation container */
+.panel-tabset .nav-tabs {
+  border-bottom: 2px solid #dee2e6;
+  
+  .nav-link {
+    color: #495057; // Inactive tab text color
+    font-weight: 500;
+    
+    // Active tab styling
+    &.active {
+      color: #0d6efd;
+      background-color: #fff;
+      border-color: #dee2e6 #dee2e6 #fff;
+    }
+    
+    // Hover state
+    &:hover:not(.active) {
+      color: #0a58ca;
+    }
+  }
+}
+
+/* Style the content box beneath the tabs */
+.panel-tabset .tab-content {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  border-radius: 0 0 0.375rem 0.375rem;
+}
+

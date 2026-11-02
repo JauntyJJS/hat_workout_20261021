@@ -32,7 +32,8 @@ resources:
   
 format:
   live-html:
-    css: styles.css
+    theme:
+      - customstyle.scss
     toc: true
     grid:
       sidebar-width: 300px
